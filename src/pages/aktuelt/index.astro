@@ -6,7 +6,7 @@ const artikler = (await getCollection("artikler"))
   .sort((a, b) => b.data.dato.getTime() - a.data.dato.getTime());
 ---
 
-<Layout tittel="Aktuelt">
+<Layout tittel="Aktuelt" beskrivelse="Nyheter og artikler fra Gokstad Kystlag — aktuelt fra kystlaget, arbeidslagene og Kystvakt.">
   <div class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-heading font-bold mb-8">Aktuelt</h1>
 
