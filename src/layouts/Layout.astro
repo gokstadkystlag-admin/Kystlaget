@@ -24,12 +24,22 @@ function isActive(href: string) {
     <link rel="icon" type="image/webp" href="/images/logo.webp" />
     <link rel="apple-touch-icon" href="/images/logo.webp" />
 
+    <link rel="canonical" href={Astro.url.href} />
+
     <!-- Open Graph -->
     <meta property="og:title" content={`${tittel} | Gokstad Kystlag`} />
     <meta property="og:description" content={beskrivelse} />
     <meta property="og:image" content="/images/kystlaget-havn.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nb_NO" />
+    <meta property="og:site_name" content="Gokstad Kystlag" />
+    <meta property="og:url" content={Astro.url.href} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${tittel} | Gokstad Kystlag`} />
+    <meta name="twitter:description" content={beskrivelse} />
+    <meta name="twitter:image" content="/images/kystlaget-havn.jpg" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,6 +47,7 @@ function isActive(href: string) {
     <title>{tittel} | Gokstad Kystlag</title>
   </head>
   <body class="bg-kyst-beige text-kyst-mork min-h-screen flex flex-col font-sans">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-kyst-blaa focus:text-white focus:px-4 focus:py-2 focus:rounded">Hopp til hovedinnhold</a>
     <header class="bg-white shadow-sm sticky top-0 z-50">
       <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
@@ -44,7 +55,7 @@ function isActive(href: string) {
         </a>
 
         <!-- Hamburger -->
-        <button id="menu-toggle" class="md:hidden p-2" aria-label="Meny">
+        <button id="menu-toggle" class="md:hidden p-2" aria-label="Meny" aria-expanded="false" aria-controls="mobile-menu">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -94,7 +105,7 @@ function isActive(href: string) {
       </div>
     </header>
 
-    <main class="flex-1">
+    <main id="main-content" class="flex-1">
       <slot />
     </main>
 
@@ -131,6 +142,8 @@ function isActive(href: string) {
       const menu = document.getElementById("mobile-menu");
       toggle?.addEventListener("click", () => {
         menu?.classList.toggle("hidden");
+        const isOpen = !menu?.classList.contains("hidden");
+        toggle?.setAttribute("aria-expanded", String(isOpen));
       });
     </script>
   </body>

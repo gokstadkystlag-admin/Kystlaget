@@ -21,18 +21,18 @@ import Layout from "../layouts/Layout.astro";
           <input type="text" name="_honey" style="display:none" />
 
           <div>
-            <label for="navn" class="block text-sm font-medium mb-1">Navn</label>
-            <input type="text" id="navn" name="navn" required
-              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none" />
+            <label for="navn" class="block text-sm font-medium mb-1">Navn <span class="text-red-500">*</span></label>
+            <input type="text" id="navn" name="navn" required aria-required="true"
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:ring-2 focus:ring-kyst-blaa/30 focus:outline-none" />
           </div>
           <div>
-            <label for="epost" class="block text-sm font-medium mb-1">E-post</label>
-            <input type="email" id="epost" name="email" required
-              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none" />
+            <label for="epost" class="block text-sm font-medium mb-1">E-post <span class="text-red-500">*</span></label>
+            <input type="email" id="epost" name="email" required aria-required="true"
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:ring-2 focus:ring-kyst-blaa/30 focus:outline-none" />
           </div>
           <div>
             <label for="emne" class="block text-sm font-medium mb-1">Hva gjelder det?</label>
-            <select id="emne" name="emne" class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none">
+            <select id="emne" name="emne" class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:ring-2 focus:ring-kyst-blaa/30 focus:outline-none">
               <option>Generell henvendelse</option>
               <option>Bli medlem</option>
               <option>Båtplass</option>
@@ -42,11 +42,11 @@ import Layout from "../layouts/Layout.astro";
             </select>
           </div>
           <div>
-            <label for="melding" class="block text-sm font-medium mb-1">Melding</label>
-            <textarea id="melding" name="melding" rows="5" required
-              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none"></textarea>
+            <label for="melding" class="block text-sm font-medium mb-1">Melding <span class="text-red-500">*</span></label>
+            <textarea id="melding" name="melding" rows="5" required aria-required="true"
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:ring-2 focus:ring-kyst-blaa/30 focus:outline-none"></textarea>
           </div>
-          <button type="submit"
+          <button id="submit-btn" type="submit"
             class="bg-kyst-blaa text-white px-6 py-3 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors text-sm uppercase tracking-wide">
             Send melding
           </button>
@@ -127,5 +127,14 @@ import Layout from "../layouts/Layout.astro";
       bekreftelse?.classList.remove("hidden");
       bekreftelse?.scrollIntoView({ behavior: "smooth", block: "center" });
     }
+
+    // Loading-state på skjema
+    const form = document.querySelector("form");
+    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+    form?.addEventListener("submit", () => {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sender...";
+      submitBtn.classList.add("opacity-70", "cursor-not-allowed");
+    });
   </script>
 </Layout>

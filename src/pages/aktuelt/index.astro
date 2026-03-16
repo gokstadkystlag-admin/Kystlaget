@@ -8,7 +8,7 @@ const artikler = (await getCollection("artikler"))
 
 <Layout tittel="Aktuelt">
   <div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold mb-8">Aktuelt</h1>
+    <h1 class="text-3xl font-heading font-bold mb-8">Aktuelt</h1>
 
     {artikler.length > 0 ? (
       <div class="space-y-6">

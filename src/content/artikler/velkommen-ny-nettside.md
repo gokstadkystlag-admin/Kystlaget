@@ -5,12 +5,12 @@ dato: 2026-03-16
 forfatter: "Infolaget"
 ---
 
-Gokstad Kystlag har fått ny nettside! Her kan du finne informasjon om alle våre 9 arbeidslag, kommende arrangementer, og lese artikler fra Kystvakt.
+Gokstad Kystlag har fått ny nettside! Her kan du finne informasjon om alle våre 11 arbeidslag, kommende arrangementer, og lese artikler fra Kystvakt.
 
 ## Hva finner du her?
 
 - **Arrangementer** — Oversikt over hva som skjer
-- **Lagene** — Les om de 9 arbeidslagene og finn ut hvordan du kan delta
+- **Lagene** — Les om de 11 arbeidslagene og finn ut hvordan du kan delta
 - **Aktuelt** — Nyheter og artikler fra Kystvakt
 - **Utleie** — Book lokaler til fest og moro
 - **Kontakt** — Ta kontakt for medlemskap, båtplass eller spørsmål
