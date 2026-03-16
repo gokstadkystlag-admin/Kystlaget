@@ -2,7 +2,6 @@ backend:
   name: github
   repo: KVAL352/Kystlaget
   branch: master
-  base_url: https://auth.sveltia.com
 
 media_folder: "public/images"
 public_folder: "/images"
