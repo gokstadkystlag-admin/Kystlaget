@@ -14,7 +14,7 @@ const tidligere = alle.filter((a) => a.data.dato < new Date()).reverse();
     <h1 class="text-3xl font-heading font-bold mb-8">Arrangementer</h1>
 
     <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">Kommende</h2>
+      <h2 class="text-xl font-heading font-bold mb-4">Kommende</h2>
       {kommende.length > 0 ? (
         <div class="space-y-4">
           {kommende.map((arr) => (
@@ -38,7 +38,7 @@ const tidligere = alle.filter((a) => a.data.dato < new Date()).reverse();
 
     {tidligere.length > 0 && (
       <section>
-        <h2 class="text-xl font-semibold mb-4 text-gray-500">Tidligere</h2>
+        <h2 class="text-xl font-heading font-bold mb-4 text-gray-500">Tidligere</h2>
         <div class="space-y-4 opacity-70">
           {tidligere.map((arr) => (
             <a href={`/arrangementer/${arr.id}`} class="block bg-white rounded-lg shadow p-4">

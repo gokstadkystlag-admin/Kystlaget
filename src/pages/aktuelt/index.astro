@@ -17,7 +17,7 @@ const artikler = (await getCollection("artikler"))
             <time class="text-sm text-kyst-lys-blaa">
               {art.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}
             </time>
-            <h2 class="text-xl font-semibold mt-1">{art.data.tittel}</h2>
+            <h2 class="text-xl font-heading font-bold mt-1">{art.data.tittel}</h2>
             <p class="text-gray-600 mt-2">{art.data.beskrivelse}</p>
           </a>
         ))}

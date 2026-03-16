@@ -17,7 +17,7 @@ const { Content } = await render(arrangement);
 <Layout tittel={arrangement.data.tittel}>
   <article class="max-w-3xl mx-auto px-4 py-12">
     <a href="/arrangementer" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arrangementer</a>
-    <h1 class="text-3xl font-bold mt-4 mb-2">{arrangement.data.tittel}</h1>
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-2">{arrangement.data.tittel}</h1>
     <div class="flex gap-4 text-sm text-gray-500 mb-8">
       <time>{arrangement.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}</time>
       {arrangement.data.tid && <span>{arrangement.data.tid}</span>}
