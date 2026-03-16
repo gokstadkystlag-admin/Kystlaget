@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout tittel="Kontakt">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-heading font-bold mb-8">Kontakt oss</h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-xl font-heading font-bold mb-4">Send oss en melding</h2>
+        <p class="text-kyst-graa mb-6">
+          Har du spørsmål om medlemskap, båtplass, utleie eller ønsker å bli med i et av lagene?
+        </p>
+
+        <form action="https://formsubmit.co/post@gokstadkystlag.no" method="POST" class="space-y-4">
+          <!-- Formsubmit config -->
+          <input type="hidden" name="_subject" value="Ny henvendelse fra gokstadkystlag.no" />
+          <input type="hidden" name="_next" value="/kontakt?sendt=true" />
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="text" name="_honey" style="display:none" />
+
+          <div>
+            <label for="navn" class="block text-sm font-medium mb-1">Navn</label>
+            <input type="text" id="navn" name="navn" required
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none" />
+          </div>
+          <div>
+            <label for="epost" class="block text-sm font-medium mb-1">E-post</label>
+            <input type="email" id="epost" name="email" required
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none" />
+          </div>
+          <div>
+            <label for="emne" class="block text-sm font-medium mb-1">Hva gjelder det?</label>
+            <select id="emne" name="emne" class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none">
+              <option>Generell henvendelse</option>
+              <option>Bli medlem</option>
+              <option>Båtplass</option>
+              <option>Bli med i et lag</option>
+              <option>Utleie av lokaler</option>
+              <option>Annet</option>
+            </select>
+          </div>
+          <div>
+            <label for="melding" class="block text-sm font-medium mb-1">Melding</label>
+            <textarea id="melding" name="melding" rows="5" required
+              class="w-full border border-gray-300 rounded px-3 py-2 focus:border-kyst-blaa focus:outline-none"></textarea>
+          </div>
+          <button type="submit"
+            class="bg-kyst-blaa text-white px-6 py-3 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors text-sm uppercase tracking-wide">
+            Send melding
+          </button>
+        </form>
+
+        <!-- Bekreftelse etter sending -->
+        <div id="sendt-bekreftelse" class="hidden mt-6 bg-green-50 border border-green-200 rounded-lg p-6">
+          <h3 class="font-heading font-bold text-green-800 mb-1">Takk for meldingen!</h3>
+          <p class="text-green-700 text-sm">Vi har mottatt henvendelsen din og svarer så snart vi kan.</p>
+        </div>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-white rounded-lg shadow p-6">
+          <h2 class="text-xl font-heading font-bold mb-4">Kontaktinformasjon</h2>
+          <div class="space-y-3 text-sm">
+            <div>
+              <h3 class="font-medium">Adresse</h3>
+              <p class="text-kyst-graa">Framnesveien 5, 3222 Sandefjord</p>
+            </div>
+            <div>
+              <h3 class="font-medium">Telefon</h3>
+              <p><a href="tel:45816286" class="text-kyst-blaa hover:underline">458 16 286</a></p>
+            </div>
+            <div>
+              <h3 class="font-medium">E-post</h3>
+              <p><a href="mailto:post@gokstadkystlag.no" class="text-kyst-blaa hover:underline">post@gokstadkystlag.no</a></p>
+            </div>
+            <div>
+              <h3 class="font-medium">Utleie</h3>
+              <p><a href="mailto:utleie@gokstadkystlag.no" class="text-kyst-blaa hover:underline">utleie@gokstadkystlag.no</a></p>
+            </div>
+            <div>
+              <h3 class="font-medium">Facebook</h3>
+              <p><a href="https://www.facebook.com/groups/gokstadkystlag" target="_blank" rel="noopener" class="text-kyst-blaa hover:underline">Gokstad Kystlag på Facebook</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-kyst-blaa/10 rounded-lg p-6">
+          <h3 class="font-heading font-bold mb-2">Interessert i båtplass?</h3>
+          <p class="text-kyst-graa text-sm">
+            Velg «Båtplass» i skjemaet til venstre, så tar vi kontakt med deg.
+          </p>
+        </div>
+
+        <div class="bg-kyst-blaa/10 rounded-lg p-6">
+          <h3 class="font-heading font-bold mb-2">Gjestebrygge</h3>
+          <p class="text-kyst-graa text-sm">
+            Kommer du sjøveien? Se vår <a href="/gjestebrygge" class="text-kyst-blaa hover:underline">gjestebrygge-side</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Les ?emne= fra URL og sett dropdown
+    const params = new URLSearchParams(window.location.search);
+    const emne = params.get("emne");
+    if (emne) {
+      const select = document.getElementById("emne") as HTMLSelectElement;
+      // Sjekk om verdien finnes i options, ellers legg til
+      const exists = Array.from(select.options).some(o => o.value === emne);
+      if (exists) {
+        select.value = emne;
+      } else {
+        const option = new Option(emne, emne, true, true);
+        select.add(option);
+      }
+      // Scroll til skjemaet
+      select.closest("form")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    // Vis bekreftelse etter sending
+    if (params.get("sendt") === "true") {
+      const bekreftelse = document.getElementById("sendt-bekreftelse");
+      bekreftelse?.classList.remove("hidden");
+      bekreftelse?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  </script>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const artikler = await getCollection("artikler");
+  return artikler.map((art) => ({
+    params: { id: art.id },
+    props: { artikkel: art },
+  }));
+}
+
+const { artikkel } = Astro.props;
+const { Content } = await render(artikkel);
+---
+
+<Layout tittel={artikkel.data.tittel} beskrivelse={artikkel.data.beskrivelse}>
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    <a href="/aktuelt" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle artikler</a>
+    <h1 class="text-3xl font-bold mt-4 mb-2">{artikkel.data.tittel}</h1>
+    <div class="flex gap-4 text-sm text-gray-500 mb-8">
+      <time>{artikkel.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}</time>
+      {artikkel.data.forfatter && <span>Av {artikkel.data.forfatter}</span>}
+    </div>
+    <div class="prose max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>

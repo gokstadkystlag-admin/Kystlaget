@@ -1,0 +1,177 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const arrangementer = (await getCollection("arrangementer"))
+  .filter((a) => a.data.dato >= new Date())
+  .sort((a, b) => a.data.dato.getTime() - b.data.dato.getTime())
+  .slice(0, 3);
+
+const artikler = (await getCollection("artikler"))
+  .sort((a, b) => b.data.dato.getTime() - a.data.dato.getTime())
+  .slice(0, 3);
+---
+
+<Layout tittel="Hjem">
+  <!-- Hero -->
+  <section class="relative bg-kyst-mork text-white overflow-hidden">
+    <img src="/images/kystlaget-havn.jpg" alt="Gokstad Kystlag havn" class="w-full h-[520px] object-cover opacity-30" />
+    <div class="absolute inset-0 bg-gradient-to-t from-kyst-mork/80 via-kyst-mork/30 to-transparent"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="text-center px-4 max-w-3xl">
+        <p class="text-kyst-gul font-medium tracking-wide uppercase text-sm mb-3">Sandefjord siden 1990</p>
+        <h1 class="text-4xl md:text-6xl font-heading font-bold mb-5 leading-tight">Gokstad Kystlag</h1>
+        <p class="text-lg md:text-xl mb-10 text-gray-300">Kystkultur, båtliv og fellesskap</p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <a href="https://forbundetkysten.portal.styreweb.com/arrangement/ArrangementSession?ID=Innmelding" target="_blank" rel="noopener"
+            class="bg-kyst-gul text-kyst-mork px-7 py-3.5 rounded-md font-bold hover:bg-amber-400 transition-colors text-sm uppercase tracking-wide">
+            Bli medlem
+          </a>
+          <a href="/arrangementer"
+            class="border-2 border-white/70 text-white px-7 py-3.5 rounded-md font-semibold hover:bg-white hover:text-kyst-mork transition-colors text-sm uppercase tracking-wide">
+            Se arrangementer
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tre bilder med tekst — erstatter emoji-kort -->
+  <section class="max-w-6xl mx-auto px-4 -mt-16 relative z-10">
+    <div class="grid md:grid-cols-3 gap-5">
+      <a href="/lag" class="group relative rounded-xl overflow-hidden shadow-lg h-64">
+        <img src="/images/gokstadveverne.jpg" alt="Kystkultur — veving" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-heading font-bold text-white text-xl mb-1">Kystkultur</h3>
+          <p class="text-gray-300 text-sm">Tradisjonelle fartøy, håndverk, veving og lokalhistorie</p>
+        </div>
+      </a>
+      <a href="/lag/gk-ung" class="group relative rounded-xl overflow-hidden shadow-lg h-64">
+        <img src="/images/gk-ung.jpg" alt="Båtliv — seiling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-heading font-bold text-white text-xl mb-1">Båtliv</h3>
+          <p class="text-gray-300 text-sm">Seiling, båtbygging, motorer — fra Meginjoller til trebåter</p>
+        </div>
+      </a>
+      <a href="/lag/nordre-skur-og-ballast" class="group relative rounded-xl overflow-hidden shadow-lg h-64">
+        <img src="/images/nordre-skur-og-ballast.jpg" alt="Fellesskap — koret" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-0 p-6">
+          <h3 class="font-heading font-bold text-white text-xl mb-1">Fellesskap</h3>
+          <p class="text-gray-300 text-sm">Ca. 400 medlemmer, kor, ungdomsgruppe og sosiale samlinger</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Kommende arrangementer -->
+  <section class="bg-white py-16 mt-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <p class="text-kyst-lys-blaa font-medium text-sm uppercase tracking-wide mb-1">Hva skjer?</p>
+          <h2 class="text-2xl font-heading font-bold">Kommende arrangementer</h2>
+        </div>
+        <a href="/arrangementer" class="text-kyst-blaa text-sm font-semibold hover:underline hidden md:block">Se alle &rarr;</a>
+      </div>
+      {arrangementer.length > 0 ? (
+        <div class="grid md:grid-cols-3 gap-6">
+          {arrangementer.map((arr) => (
+            <a href={`/arrangementer/${arr.id}`} class="group border border-gray-200 rounded-xl p-6 hover:border-kyst-lys-blaa hover:shadow-lg transition-all">
+              <div class="bg-kyst-lys-blaa/10 text-kyst-blaa text-xs font-bold uppercase tracking-wide rounded-full px-3 py-1 inline-block mb-3">
+                {arr.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long" })}
+              </div>
+              <h3 class="text-lg font-heading font-bold group-hover:text-kyst-blaa transition-colors">{arr.data.tittel}</h3>
+              <p class="text-sm text-kyst-graa mt-2 line-clamp-2">{arr.data.beskrivelse}</p>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-10 bg-kyst-beige rounded-xl">
+          <p class="text-kyst-graa">Ingen kommende arrangementer akkurat nå.</p>
+          <a href="/arrangementer" class="text-kyst-blaa font-semibold text-sm mt-2 inline-block hover:underline">Se tidligere arrangementer &rarr;</a>
+        </div>
+      )}
+      <a href="/arrangementer" class="text-kyst-blaa text-sm font-semibold hover:underline mt-6 inline-block md:hidden">Se alle arrangementer &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Siste nytt -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex justify-between items-end mb-8">
+      <div>
+        <p class="text-kyst-lys-blaa font-medium text-sm uppercase tracking-wide mb-1">Aktuelt</p>
+        <h2 class="text-2xl font-heading font-bold">Siste nytt</h2>
+      </div>
+      <a href="/aktuelt" class="text-kyst-blaa text-sm font-semibold hover:underline hidden md:block">Alle artikler &rarr;</a>
+    </div>
+    {artikler.length > 0 ? (
+      <div class="grid md:grid-cols-3 gap-6">
+        {artikler.map((art) => (
+          <a href={`/aktuelt/${art.id}`} class="group bg-white rounded-xl shadow-sm hover:shadow-lg transition-all overflow-hidden">
+            <div class="p-6">
+              <time class="text-xs text-kyst-lys-blaa font-medium uppercase tracking-wide">
+                {art.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}
+              </time>
+              <h3 class="text-lg font-heading font-bold mt-2 group-hover:text-kyst-blaa transition-colors">{art.data.tittel}</h3>
+              <p class="text-sm text-kyst-graa mt-2 line-clamp-3">{art.data.beskrivelse}</p>
+              <span class="text-kyst-blaa text-sm font-semibold mt-4 inline-block group-hover:underline">Les mer &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-10 bg-white rounded-xl shadow-sm">
+        <p class="text-kyst-graa">Artikler fra Kystvakt og kystlaget kommer snart.</p>
+      </div>
+    )}
+  </section>
+
+  <!-- Om oss — bilde + tekst -->
+  <section class="bg-kyst-blaa text-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2">
+      <img src="/images/albatross-ii.jpg" alt="Albatross II" class="w-full h-full object-cover min-h-[320px]" />
+      <div class="p-10 md:p-16 flex flex-col justify-center">
+        <p class="text-kyst-gul font-medium text-sm uppercase tracking-wide mb-3">Siden 1990</p>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold mb-5">Velkommen til oss</h2>
+        <p class="mb-4 text-gray-200 leading-relaxed">
+          Gokstad Kystlag ble stiftet av en gjeng entusiaster med interesse for tradisjonelle
+          fartøy, motorer, bygninger og brygger.
+        </p>
+        <p class="mb-8 text-gray-200 leading-relaxed">
+          I dag har vi ca. 400 medlemmer fordelt på 11 arbeidslag. Vi holder til ved indre
+          havn i Sandefjord med verksted, motormuseum, selskapslokaler og brygge.
+        </p>
+        <div>
+          <a href="/om" class="bg-kyst-gul text-kyst-mork px-6 py-3 rounded-md font-bold hover:bg-amber-400 transition-colors text-sm uppercase tracking-wide inline-block">
+            Les mer om oss
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Utleie CTA med bilde -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-5 gap-0 rounded-xl overflow-hidden shadow-lg">
+      <div class="md:col-span-3">
+        <img src="/images/utleie-05.webp" alt="Selskapslokaler med brygge" class="w-full h-full object-cover min-h-[280px]" />
+      </div>
+      <div class="md:col-span-2 bg-white p-8 md:p-10 flex flex-col justify-center">
+        <p class="text-kyst-lys-blaa font-medium text-sm uppercase tracking-wide mb-2">Utleie</p>
+        <h2 class="text-xl md:text-2xl font-heading font-bold mb-3">Selskapslokaler med havneutsikt</h2>
+        <p class="text-kyst-graa text-sm mb-6 leading-relaxed">
+          Plass til 60 personer i Nordre Skur med fullt kjøkken og direkte utgang
+          til vestvendt brygge. Bryllup, bursdag eller firmafest.
+        </p>
+        <div>
+          <a href="/utleie" class="bg-kyst-blaa text-white px-6 py-3 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors text-sm uppercase tracking-wide inline-block">
+            Se lokaler
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

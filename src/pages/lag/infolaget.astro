@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import KontaktLag from "../../components/KontaktLag.astro";
+---
+
+<Layout tittel="Infolaget">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Infolaget</h1>
+    <img src="/images/infolaget.jpg" alt="Infolaget — Kystvakt" class="w-full h-64 object-cover rounded-lg mb-8" />
+
+    <div class="text-kyst-graa space-y-4 mb-10">
+      <p>
+        Infolaget har ansvar for intern og ekstern informasjon i Gokstad Kystlag.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="font-heading font-bold text-lg mb-3">Oppgaver</h2>
+      <ul class="text-kyst-graa text-sm space-y-2 list-disc list-inside">
+        <li>Drift av nettside for Gokstad Kystlag</li>
+        <li>Sosiale medier — Facebook og Instagram</li>
+        <li>Utsending av e-post og møteinnkallelser til medlemmer</li>
+        <li>Deling av bilder og oppdateringer fra kystlagets aktiviteter</li>
+        <li>Design av plakater, trykksaker og digitalt materiell for andre lag</li>
+        <li>Drift av datasystemer</li>
+      </ul>
+    </div>
+    <KontaktLag lag="Infolaget" />
+  </div>
+</Layout>

@@ -1,0 +1,137 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  tittel: string;
+  beskrivelse?: string;
+}
+
+const { tittel, beskrivelse = "Gokstad Kystlag i Sandefjord — kystkultur, båtliv og fellesskap siden 1990" } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
+---
+
+<!doctype html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={beskrivelse} />
+    <link rel="icon" type="image/webp" href="/images/logo.webp" />
+    <link rel="apple-touch-icon" href="/images/logo.webp" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${tittel} | Gokstad Kystlag`} />
+    <meta property="og:description" content={beskrivelse} />
+    <meta property="og:image" content="/images/kystlaget-havn.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <title>{tittel} | Gokstad Kystlag</title>
+  </head>
+  <body class="bg-kyst-beige text-kyst-mork min-h-screen flex flex-col font-sans">
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+      <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/images/logo.webp" alt="Gokstad Kystlag logo" class="h-12" />
+        </a>
+
+        <!-- Hamburger -->
+        <button id="menu-toggle" class="md:hidden p-2" aria-label="Meny">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <!-- Desktop nav -->
+        <ul class="hidden md:flex gap-6 text-sm font-medium">
+          {[
+            { href: "/om", label: "Om oss" },
+            { href: "/lag", label: "Arbeidslagene" },
+            { href: "/arrangementer", label: "Arrangementer" },
+            { href: "/aktuelt", label: "Aktuelt" },
+            { href: "/utleie", label: "Selskapslokaler" },
+            { href: "/gjestebrygge", label: "Gjestebrygge" },
+            { href: "/kontakt", label: "Kontakt" },
+          ].map(({ href, label }) => (
+            <li>
+              <a href={href} class:list={[
+                "hover:text-kyst-blaa transition-colors",
+                isActive(href) ? "text-kyst-blaa font-bold" : "text-kyst-graa"
+              ]}>{label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <!-- Mobile nav -->
+      <div id="mobile-menu" class="hidden md:hidden border-t">
+        <ul class="flex flex-col text-sm font-medium px-4 py-2">
+          {[
+            { href: "/om", label: "Om oss" },
+            { href: "/lag", label: "Arbeidslagene" },
+            { href: "/arrangementer", label: "Arrangementer" },
+            { href: "/aktuelt", label: "Aktuelt" },
+            { href: "/utleie", label: "Selskapslokaler" },
+            { href: "/gjestebrygge", label: "Gjestebrygge" },
+            { href: "/kontakt", label: "Kontakt" },
+          ].map(({ href, label }) => (
+            <li>
+              <a href={href} class:list={[
+                "block py-2 hover:text-kyst-blaa transition-colors",
+                isActive(href) ? "text-kyst-blaa font-bold" : "text-kyst-graa"
+              ]}>{label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-kyst-mork text-white py-10 mt-12">
+      <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <img src="/images/logo.webp" alt="Gokstad Kystlag" class="h-10 mb-3 brightness-0 invert" />
+          <p>Framnesveien 5</p>
+          <p>3222 Sandefjord</p>
+          <p class="mt-2">Tlf: <a href="tel:45816286" class="hover:text-kyst-gul">458 16 286</a></p>
+          <p>E-post: <a href="mailto:post@gokstadkystlag.no" class="hover:text-kyst-gul">post@gokstadkystlag.no</a></p>
+        </div>
+        <div>
+          <h3 class="font-bold mb-3 font-heading">Snarveier</h3>
+          <ul class="space-y-1">
+            <li><a href="https://forbundetkysten.portal.styreweb.com/arrangement/ArrangementSession?ID=Innmelding" target="_blank" rel="noopener" class="hover:text-kyst-gul transition-colors">Bli medlem</a></li>
+            <li><a href="/utleie" class="hover:text-kyst-gul transition-colors">Lei selskapslokaler</a></li>
+            <li><a href="/kontakt" class="hover:text-kyst-gul transition-colors">Kontakt oss</a></li>
+            <li><a href="https://www.facebook.com/groups/gokstadkystlag" target="_blank" rel="noopener" class="hover:text-kyst-gul transition-colors">Facebook</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold mb-3 font-heading">Forbundet Kysten</h3>
+          <p class="text-gray-400">Gokstad Kystlag er medlem av</p>
+          <p><a href="https://www.forbundetkysten.no" target="_blank" rel="noopener" class="hover:text-kyst-gul transition-colors">Forbundet Kysten</a></p>
+          <p class="text-gray-400 mt-4">Stiftet 16. november 1990</p>
+          <p class="text-gray-400">Ca. 400 medlemmer</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      toggle?.addEventListener("click", () => {
+        menu?.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>

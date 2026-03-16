@@ -1,0 +1,105 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const lag = [
+  {
+    id: "fartoy-og-kulturlaget",
+    navn: "Fartøy- og kulturlaget",
+    kort: "Eldre bruks- og fritidsbåter, inkludert Albatross og rekebåten Lanesbuen.",
+    bilde: "/images/fartoy-og-kulturlaget.jpg",
+  },
+  {
+    id: "hus-og-havnelaget",
+    navn: "Hus- og havnelaget",
+    kort: "Vedlikehold av bygninger, brygger, kaier og båtplasser.",
+    bilde: "/images/hus-og-havnelaget.jpg",
+  },
+  {
+    id: "infolaget",
+    navn: "Infolaget",
+    kort: "Nettside, sosiale medier, e-post og design for kystlaget.",
+    bilde: "/images/infolaget.jpg",
+  },
+  {
+    id: "verkstedlaget",
+    navn: "Verkstedlaget",
+    kort: "Verksted og smie med sveise- og smiutstyr. Restaurering av båtmotorer.",
+    bilde: "/images/verkstedlaget.jpg",
+  },
+  {
+    id: "kystledlaget",
+    navn: "Kystledlaget",
+    kort: "Rimelige overnattingshytter langs kysten — Gokstadholmen og Buerøya.",
+    bilde: "/images/kystledlaget.jpg",
+  },
+  {
+    id: "gokstadveverne",
+    navn: "Gokstadveverne",
+    kort: "Veving, strikking og hekling på seilloftet i Søndre Skur. Onsdager kl. 18–21.",
+    bilde: "/images/gokstadveverne.jpg",
+  },
+  {
+    id: "modellbatlaget",
+    navn: "Modellbåtlaget",
+    kort: "Bygging av modellbåter i eget verksted. Tirsdager kl. 18–20.30.",
+    bilde: "/images/modellbatlaget.jpg",
+  },
+  {
+    id: "nordre-skur-og-ballast",
+    navn: "Nordre Skur og Ballast",
+    kort: "Kystlagets kor med 33 sangere og 7 musikere. Fire studioalbum.",
+    bilde: "/images/nordre-skur-og-ballast.jpg",
+  },
+  {
+    id: "gk-ung",
+    navn: "GK Ung",
+    kort: "Ungdomsgruppen — seiling med Meginjoller og Colin Archer-skøyten Vega.",
+    bilde: "/images/gk-ung.jpg",
+  },
+  {
+    id: "motorsamlingen",
+    navn: "Motorsamlingen",
+    kort: "Museum med ca. 130 båtmotorer og 1 000 dokumenter. Åpnet i 1995.",
+    bilde: "/images/motorsamlingen.jpg",
+  },
+  {
+    id: "stiftelsen",
+    navn: "Stiftelsen Sandefjord Kystkultursenter",
+    kort: "Samarbeid mellom kommunen, AJHS og kystlaget. Forvalter eiendommene.",
+    bilde: "/images/stiftelsen.jpg",
+  },
+];
+---
+
+<Layout tittel="Arbeidslagene">
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-heading font-bold mb-4">Arbeidslagene</h1>
+    <p class="text-kyst-graa mb-8">
+      Gokstad Kystlag har 11 aktive arbeidslag og komiteer som dekker alt fra båtbygging og
+      seiling til veving og kor. Alle medlemmer kan delta i ett eller flere lag.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {lag.map((l) => (
+        <a href={`/lag/${l.id}`} class="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition group">
+          <img src={l.bilde} alt={l.navn} class="w-full h-48 object-cover" />
+          <div class="p-5">
+            <h2 class="text-lg font-heading font-bold text-kyst-blaa group-hover:text-kyst-lys-blaa transition-colors">{l.navn}</h2>
+            <p class="text-kyst-graa mt-2 text-sm">{l.kort}</p>
+            <span class="text-kyst-blaa text-sm mt-3 inline-block group-hover:underline">Les mer &rarr;</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-10 bg-kyst-blaa/10 rounded-lg p-8 text-center">
+      <h3 class="font-heading font-bold text-lg mb-2">Vil du bli med i et lag?</h3>
+      <p class="text-kyst-graa mb-4">
+        Alle medlemmer er velkomne. Du velger selv hva du vil engasjere deg i.
+      </p>
+      <a href="/kontakt" class="bg-kyst-blaa text-white px-6 py-3 rounded font-semibold hover:bg-kyst-lys-blaa transition inline-block">
+        Ta kontakt
+      </a>
+    </div>
+  </div>
+</Layout>

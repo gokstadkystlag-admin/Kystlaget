@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import KontaktLag from "../../components/KontaktLag.astro";
+---
+
+<Layout tittel="Stiftelsen Sandefjord Kystkultursenter">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Stiftelsen Sandefjord Kystkultursenter</h1>
+    <img src="/images/stiftelsen.jpg" alt="Stiftelsen Sandefjord Kystkultursenter" class="w-full h-64 object-cover rounded-lg mb-8" />
+
+    <div class="text-kyst-graa space-y-4 mb-10">
+      <p>
+        Stiftelsen ble opprettet i 2004 som et samarbeid mellom Sandefjord kommune,
+        Anders Jahres Humanitære Stiftelse (AJHS) og Gokstad Kystlag.
+        Konseptet ble initiert av AJHS-representant Bjørn Bettum.
+      </p>
+      <p>
+        Stiftelsen styres av et styre med 5 medlemmer med representanter fra hver
+        interessent pluss uavhengig ledelse. Formålet er å fremme kystkultur
+        slik det er definert av Forbundet Kysten.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="font-heading font-bold text-lg mb-3">Eiendommer</h2>
+      <ul class="text-kyst-graa text-sm space-y-2 list-disc list-inside">
+        <li>Flere strandeiendommer, inkludert Glasgårhuset (renovert, møte- og overnattingslokaler)</li>
+        <li>Bygningsverdi anslått til ca. 6,5 millioner kroner</li>
+        <li>Eiendommer forbundet med undergang under Framnesveien</li>
+      </ul>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-6 mb-6">
+      <h2 class="font-heading font-bold text-lg mb-3">Prosjekter</h2>
+      <ul class="text-kyst-graa text-sm space-y-2 list-disc list-inside">
+        <li>Gaia-hallen</li>
+        <li>Strandrestaurering og småbåtbeddinger</li>
+        <li>Renovering av historisk fergeterminal</li>
+        <li>Ny småbåtbrygge med Gokstad Kystlag</li>
+        <li><strong>Kystarena</strong> — arbeidstreningsprogram for ungdom, etablert gjennom NAV og kommunale avtaler</li>
+      </ul>
+    </div>
+    <KontaktLag lag="Stiftelsen Sandefjord Kystkultursenter" />
+  </div>
+</Layout>

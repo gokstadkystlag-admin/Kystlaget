@@ -1,0 +1,2 @@
+node_modules/\ndist/\n.vercel/\n.astro/\n*.m4a
+node_modules

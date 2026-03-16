@@ -1,0 +1,43 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import KontaktLag from "../../components/KontaktLag.astro";
+---
+
+<Layout tittel="Hus- og havnelaget">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Hus- og havnelaget</h1>
+    <img src="/images/hus-og-havnelaget.jpg" alt="Hus- og havnelaget" class="w-full h-64 object-cover rounded-lg mb-8" />
+
+    <div class="text-kyst-graa space-y-4 mb-10">
+      <p>
+        Hus- og havnelaget har ansvar for kystlagets fysiske infrastruktur — bygninger,
+        beddinger, kaianlegg og brygger. De sørger for at båtplassene har pålitelig
+        tilgang til vann og strøm.
+      </p>
+    </div>
+
+    <div class="space-y-6 mb-10">
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="font-heading font-bold text-lg mb-2">Båtplasser</h2>
+        <p class="text-kyst-graa text-sm">
+          Båtplassene er forbeholdt aktive medlemmer som er tilknyttet et av arbeidslagene.
+        </p>
+      </div>
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="font-heading font-bold text-lg mb-2">Vinterplasser</h2>
+        <p class="text-kyst-graa text-sm">
+          Vi leier ut vinterplasser til eksterne fra høst til vår når våre medlemmer
+          har hentet opp sine båter. Bobleanlegget holder havnen isfri.
+        </p>
+      </div>
+      <div class="bg-white rounded-lg shadow p-6">
+        <h2 class="font-heading font-bold text-lg mb-2">Gjestebrygge</h2>
+        <p class="text-kyst-graa text-sm">
+          Vi tilbyr gratis gjesteplasser for medlemmer av Forbundet Kysten som besøker anlegget.
+        </p>
+      </div>
+    </div>
+    <KontaktLag lag="Hus- og havnelaget" />
+  </div>
+</Layout>
