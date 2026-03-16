@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: KVAL352/Kystlaget
+  branch: master
+  base_url: https://auth.sveltia.com
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "artikler"
+    label: "Artikler / Aktuelt"
+    label_singular: "Artikkel"
+    folder: "src/content/artikler"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tittel", name: "tittel", widget: "string" }
+      - { label: "Kort beskrivelse", name: "beskrivelse", widget: "text" }
+      - { label: "Dato", name: "dato", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Bilde", name: "bilde", widget: "image", required: false }
+      - { label: "Forfatter", name: "forfatter", widget: "string", required: false }
+      - { label: "Innhold", name: "body", widget: "markdown" }
+
+  - name: "arrangementer"
+    label: "Arrangementer"
+    label_singular: "Arrangement"
+    folder: "src/content/arrangementer"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Tittel", name: "tittel", widget: "string" }
+      - { label: "Kort beskrivelse", name: "beskrivelse", widget: "text" }
+      - { label: "Dato", name: "dato", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Sted", name: "sted", widget: "string", required: false }
+      - { label: "Tidspunkt", name: "tid", widget: "string", required: false, hint: "F.eks. 11:00-17:00" }
+      - { label: "Bilde", name: "bilde", widget: "image", required: false }
+      - { label: "Innhold", name: "body", widget: "markdown" }
