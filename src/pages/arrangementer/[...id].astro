@@ -23,6 +23,9 @@ const { Content } = await render(arrangement);
       {arrangement.data.tid && <span>{arrangement.data.tid}</span>}
       {arrangement.data.sted && <span>{arrangement.data.sted}</span>}
     </div>
+    {arrangement.data.bilde && (
+      <img src={arrangement.data.bilde} alt={arrangement.data.tittel} class="w-full rounded-lg shadow mb-8" loading="lazy" />
+    )}
     <div class="prose max-w-none">
       <Content />
     </div>

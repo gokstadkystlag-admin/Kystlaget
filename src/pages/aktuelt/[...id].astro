@@ -22,6 +22,9 @@ const { Content } = await render(artikkel);
       <time>{artikkel.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}</time>
       {artikkel.data.forfatter && <span>Av {artikkel.data.forfatter}</span>}
     </div>
+    {artikkel.data.bilde && (
+      <img src={artikkel.data.bilde} alt={artikkel.data.tittel} class="w-full rounded-lg shadow mb-8" loading="lazy" />
+    )}
     <div class="prose max-w-none">
       <Content />
     </div>

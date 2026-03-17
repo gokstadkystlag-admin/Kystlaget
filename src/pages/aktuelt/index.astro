@@ -13,12 +13,17 @@ const artikler = (await getCollection("artikler"))
     {artikler.length > 0 ? (
       <div class="space-y-6">
         {artikler.map((art) => (
-          <a href={`/aktuelt/${art.id}`} class="block bg-white rounded-lg shadow p-6 hover:shadow-md transition">
-            <time class="text-sm text-kyst-lys-blaa">
-              {art.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}
-            </time>
-            <h2 class="text-xl font-heading font-bold mt-1">{art.data.tittel}</h2>
-            <p class="text-gray-600 mt-2">{art.data.beskrivelse}</p>
+          <a href={`/aktuelt/${art.id}`} class="block bg-white rounded-lg shadow hover:shadow-md transition overflow-hidden">
+            {art.data.bilde && (
+              <img src={art.data.bilde} alt={art.data.tittel} class="w-full h-48 object-cover" loading="lazy" />
+            )}
+            <div class="p-6">
+              <time class="text-sm text-kyst-lys-blaa">
+                {art.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}
+              </time>
+              <h2 class="text-xl font-heading font-bold mt-1">{art.data.tittel}</h2>
+              <p class="text-gray-600 mt-2">{art.data.beskrivelse}</p>
+            </div>
           </a>
         ))}
       </div>
