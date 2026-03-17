@@ -1,2 +1,6 @@
-node_modules/\ndist/\n.vercel/\n.astro/\n*.m4a
-node_modules
+node_modules/
+dist/
+.vercel/
+.astro/
+*.m4a
+test-results/
