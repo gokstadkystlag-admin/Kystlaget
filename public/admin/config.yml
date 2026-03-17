@@ -5,37 +5,124 @@ backend:
   base_url: https://gokstad-kystlag.vercel.app
   auth_endpoint: /api/auth
 
+locale: "nb_NO"
+
 media_folder: "public/images"
 public_folder: "/images"
+
+logo_url: /images/logo.webp
+site_url: https://gokstad-kystlag.vercel.app
 
 collections:
   - name: "artikler"
     label: "Artikler / Aktuelt"
     label_singular: "Artikkel"
+    description: "Nyheter, oppdateringer og artikler fra Kystvakt. Disse vises på Aktuelt-siden."
     folder: "src/content/artikler"
     create: true
     delete: true
     slug: "{{slug}}"
+    sortable_fields: ["dato", "tittel"]
+    summary: "{{tittel}} — {{dato | date('DD.MM.YYYY')}}"
+    view_groups:
+      - label: "År"
+        field: dato
+        pattern: \d{4}
     fields:
-      - { label: "Tittel", name: "tittel", widget: "string" }
-      - { label: "Kort beskrivelse", name: "beskrivelse", widget: "text" }
-      - { label: "Dato", name: "dato", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Bilde", name: "bilde", widget: "image", required: false }
-      - { label: "Forfatter", name: "forfatter", widget: "string", required: false }
-      - { label: "Innhold", name: "body", widget: "markdown" }
+      - label: "Tittel"
+        name: "tittel"
+        widget: "string"
+        hint: "Overskriften som vises på nettsiden og i listevisningen"
+
+      - label: "Kort beskrivelse"
+        name: "beskrivelse"
+        widget: "text"
+        hint: "1-2 setninger som vises i oversikten. Bør fange leserens interesse."
+        pattern: [".{10,200}", "Beskrivelsen bør være mellom 10 og 200 tegn"]
+
+      - label: "Dato"
+        name: "dato"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        hint: "Publiseringsdato — nyeste artikler vises først"
+
+      - label: "Bilde"
+        name: "bilde"
+        widget: "image"
+        required: false
+        hint: "Valgfritt. Liggende format fungerer best (f.eks. 1200x600px). Maks 500 KB."
+        media_library:
+          config:
+            max_file_size: 512000
+
+      - label: "Forfatter"
+        name: "forfatter"
+        widget: "string"
+        required: false
+        hint: "Valgfritt. Navn på den som skrev artikkelen."
+
+      - label: "Innhold"
+        name: "body"
+        widget: "markdown"
+        hint: "Selve artikkelteksten. Bruk verktøylinjen for formatering."
 
   - name: "arrangementer"
     label: "Arrangementer"
     label_singular: "Arrangement"
+    description: "Kommende og tidligere arrangementer. Vises på Arrangementer-siden sortert etter dato."
     folder: "src/content/arrangementer"
     create: true
     delete: true
     slug: "{{slug}}"
+    sortable_fields: ["dato", "tittel"]
+    summary: "{{tittel}} — {{dato | date('DD.MM.YYYY')}}"
+    view_groups:
+      - label: "År"
+        field: dato
+        pattern: \d{4}
     fields:
-      - { label: "Tittel", name: "tittel", widget: "string" }
-      - { label: "Kort beskrivelse", name: "beskrivelse", widget: "text" }
-      - { label: "Dato", name: "dato", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
-      - { label: "Sted", name: "sted", widget: "string", required: false }
-      - { label: "Tidspunkt", name: "tid", widget: "string", required: false, hint: "F.eks. 11:00-17:00" }
-      - { label: "Bilde", name: "bilde", widget: "image", required: false }
-      - { label: "Innhold", name: "body", widget: "markdown" }
+      - label: "Tittel"
+        name: "tittel"
+        widget: "string"
+        hint: "Navnet på arrangementet, f.eks. «Kystkulturdagen 2026»"
+
+      - label: "Kort beskrivelse"
+        name: "beskrivelse"
+        widget: "text"
+        hint: "Kort oppsummering som vises i oversikten."
+        pattern: [".{10,200}", "Beskrivelsen bør være mellom 10 og 200 tegn"]
+
+      - label: "Dato"
+        name: "dato"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        hint: "Dato for arrangementet. Brukes til å sortere kommende/tidligere."
+
+      - label: "Sted"
+        name: "sted"
+        widget: "string"
+        required: false
+        default: "Gokstad Kystlag, Framnesveien 5"
+        hint: "Hvor arrangementet holdes. Standard: Gokstad Kystlag."
+
+      - label: "Tidspunkt"
+        name: "tid"
+        widget: "string"
+        required: false
+        hint: "Klokkeslett, f.eks. «11:00–17:00» eller «kl. 18:00»"
+
+      - label: "Bilde"
+        name: "bilde"
+        widget: "image"
+        required: false
+        hint: "Valgfritt. Liggende format fungerer best. Maks 500 KB."
+        media_library:
+          config:
+            max_file_size: 512000
+
+      - label: "Innhold"
+        name: "body"
+        widget: "markdown"
+        hint: "Detaljert beskrivelse av arrangementet — program, praktisk info, påmelding osv."
