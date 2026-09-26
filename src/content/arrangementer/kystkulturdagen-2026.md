@@ -3,7 +3,8 @@ tittel: "Kystkulturdagen 2026"
 beskrivelse: "Åpen dag for alle med fiskekaker, omvisning på Motormuseet og aktiviteter for hele familien."
 dato: 2026-06-15
 sted: "Gokstad Kystlag, Sandefjord"
-tid: "11:00–17:00"
+starttid: "11:00"
+sluttid: "17:00"
 ---
 
 Velkommen til Kystkulturdagen — vår store, åpne dag for hele Sandefjord!

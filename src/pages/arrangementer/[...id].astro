@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection, render } from "astro:content";
+import { byggGoogleKalenderUrl, byggIcs } from "../../lib/kalender";
 
 export async function getStaticPaths() {
   const arrangementer = await getCollection("arrangementer");
@@ -12,26 +13,85 @@ export async function getStaticPaths() {
 
 const { arrangement } = Astro.props;
 const { Content } = await render(arrangement);
+const { tittel, beskrivelse, dato, sluttdato, sted, starttid, sluttid } = arrangement.data;
+
+function erSammeDag(a: Date, b: Date) {
+  return (
+    a.getUTCFullYear() === b.getUTCFullYear() &&
+    a.getUTCMonth() === b.getUTCMonth() &&
+    a.getUTCDate() === b.getUTCDate()
+  );
+}
+
+function datoRekkevidde(dato: Date, sluttdato?: Date) {
+  if (!sluttdato || erSammeDag(dato, sluttdato)) {
+    return dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" });
+  }
+  const sammeAar = dato.getUTCFullYear() === sluttdato.getUTCFullYear();
+  const sammeMaaned = sammeAar && dato.getUTCMonth() === sluttdato.getUTCMonth();
+  const sluttTekst = sluttdato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" });
+  if (sammeMaaned) {
+    return `${dato.toLocaleDateString("nb-NO", { day: "numeric" })}.–${sluttTekst}`;
+  }
+  const startTekst = dato.toLocaleDateString("nb-NO", {
+    day: "numeric",
+    month: "long",
+    year: sammeAar ? undefined : "numeric",
+  });
+  return `${startTekst} – ${sluttTekst}`;
+}
+
+const datoTekst = datoRekkevidde(dato, sluttdato);
+const tidTekst = starttid ? (sluttid ? `kl. ${starttid}–${sluttid}` : `kl. ${starttid}`) : null;
+
+const arrangementUrl = Astro.url.href;
+const googleKalenderUrl = byggGoogleKalenderUrl({
+  tittel,
+  beskrivelse,
+  dato,
+  sluttdato,
+  starttid,
+  sluttid,
+  sted,
+  url: arrangementUrl,
+});
+const icsInnhold = byggIcs({ tittel, beskrivelse, dato, sluttdato, starttid, sluttid, sted, url: arrangementUrl });
+const icsDataUrl = `data:text/calendar;charset=utf-8;base64,${Buffer.from(icsInnhold, "utf-8").toString("base64")}`;
 ---
 
-<Layout tittel={arrangement.data.tittel} beskrivelse={arrangement.data.beskrivelse}>
+<Layout tittel={tittel} beskrivelse={beskrivelse}>
   <article class="max-w-3xl mx-auto px-4 py-12">
     <a href="/arrangementer" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arrangementer</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-2">{arrangement.data.tittel}</h1>
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-2">{tittel}</h1>
     <div class="flex gap-4 text-sm text-gray-500 mb-8">
-      <time>{arrangement.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}</time>
-      {arrangement.data.tid && <span>{arrangement.data.tid}</span>}
-      {arrangement.data.sted && <span>{arrangement.data.sted}</span>}
+      <time>{datoTekst}</time>
+      {tidTekst && <span>{tidTekst}</span>}
+      {sted && <span>{sted}</span>}
     </div>
     {arrangement.data.bilde && (
-      <img src={arrangement.data.bilde} alt={arrangement.data.tittel} class="w-full rounded-lg shadow mb-8" loading="lazy" />
+      <img src={arrangement.data.bilde} alt={tittel} class="w-full rounded-lg shadow mb-8" loading="lazy" />
     )}
     <div class="prose max-w-none">
       <Content />
     </div>
-    <div class="mt-10 pt-6 border-t">
+    <div class="mt-10 pt-6 border-t flex flex-wrap gap-3">
       <a
-        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`}
+        href={googleKalenderUrl}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition"
+      >
+        Legg til i Google Kalender
+      </a>
+      <a
+        href={icsDataUrl}
+        download={`${arrangement.id}.ics`}
+        class="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-gray-50 transition"
+      >
+        Last ned .ics
+      </a>
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(arrangementUrl)}`}
         target="_blank"
         rel="noopener"
         class="inline-flex items-center gap-2 bg-[#1877f2] text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition"

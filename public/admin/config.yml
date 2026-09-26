@@ -608,7 +608,16 @@ collections:
         format: "YYYY-MM-DD"
         date_format: "DD.MM.YYYY"
         time_format: false
-        hint: "Dato for arrangementet. Brukes til å sortere kommende/tidligere."
+        hint: "Startdato for arrangementet. Brukes til å sortere kommende/tidligere."
+
+      - label: "Sluttdato"
+        name: "sluttdato"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        required: false
+        hint: "Valgfritt. Kun hvis arrangementet varer flere dager."
 
       - label: "Sted"
         name: "sted"
@@ -617,11 +626,17 @@ collections:
         default: "Gokstad Kystlag, Framnesveien 5"
         hint: "Hvor arrangementet holdes. Standard: Gokstad Kystlag."
 
-      - label: "Tidspunkt"
-        name: "tid"
+      - label: "Starttidspunkt"
+        name: "starttid"
         widget: "string"
         required: false
-        hint: "Klokkeslett, f.eks. «11:00–17:00» eller «kl. 18:00»"
+        hint: "Klokkeslett arrangementet starter, f.eks. «11:00»"
+
+      - label: "Sluttidspunkt"
+        name: "sluttid"
+        widget: "string"
+        required: false
+        hint: "Klokkeslett arrangementet slutter, f.eks. «17:00»"
 
       - label: "Bilde"
         name: "bilde"
