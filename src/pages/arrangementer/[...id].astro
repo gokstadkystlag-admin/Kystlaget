@@ -29,5 +29,15 @@ const { Content } = await render(arrangement);
     <div class="prose max-w-none">
       <Content />
     </div>
+    <div class="mt-10 pt-6 border-t">
+      <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 bg-[#1877f2] text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition"
+      >
+        Del på Facebook
+      </a>
+    </div>
   </article>
 </Layout>

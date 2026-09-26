@@ -14,119 +14,6 @@ logo_url: /images/logo.webp
 site_url: https://gokstad-kystlag.vercel.app
 
 collections:
-  - name: "artikler"
-    label: "Artikler / Aktuelt"
-    label_singular: "Artikkel"
-    description: "Nyheter, oppdateringer og artikler fra Kystvakt. Disse vises på Aktuelt-siden."
-    folder: "src/content/artikler"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    sortable_fields: ["dato", "tittel"]
-    summary: "{{tittel}} — {{dato | date('DD.MM.YYYY')}}"
-    view_groups:
-      - label: "År"
-        field: dato
-        pattern: \d{4}
-    fields:
-      - label: "Tittel"
-        name: "tittel"
-        widget: "string"
-        hint: "Overskriften som vises på nettsiden og i listevisningen"
-
-      - label: "Kort beskrivelse"
-        name: "beskrivelse"
-        widget: "text"
-        hint: "1-2 setninger som vises i oversikten. Bør fange leserens interesse."
-        pattern: [".{10,200}", "Beskrivelsen bør være mellom 10 og 200 tegn"]
-
-      - label: "Dato"
-        name: "dato"
-        widget: "datetime"
-        date_format: "DD.MM.YYYY"
-        time_format: false
-        hint: "Publiseringsdato — nyeste artikler vises først"
-
-      - label: "Bilde"
-        name: "bilde"
-        widget: "image"
-        required: false
-        hint: "Valgfritt. Liggende format fungerer best (f.eks. 1200x600px). Maks 500 KB."
-        media_library:
-          config:
-            max_file_size: 512000
-
-      - label: "Forfatter"
-        name: "forfatter"
-        widget: "string"
-        required: false
-        hint: "Valgfritt. Navn på den som skrev artikkelen."
-
-      - label: "Innhold"
-        name: "body"
-        widget: "markdown"
-        hint: "Selve artikkelteksten. Bruk verktøylinjen for formatering."
-
-  - name: "arrangementer"
-    label: "Arrangementer"
-    label_singular: "Arrangement"
-    description: "Kommende og tidligere arrangementer. Vises på Arrangementer-siden sortert etter dato."
-    folder: "src/content/arrangementer"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    sortable_fields: ["dato", "tittel"]
-    summary: "{{tittel}} — {{dato | date('DD.MM.YYYY')}}"
-    view_groups:
-      - label: "År"
-        field: dato
-        pattern: \d{4}
-    fields:
-      - label: "Tittel"
-        name: "tittel"
-        widget: "string"
-        hint: "Navnet på arrangementet, f.eks. «Kystkulturdagen 2026»"
-
-      - label: "Kort beskrivelse"
-        name: "beskrivelse"
-        widget: "text"
-        hint: "Kort oppsummering som vises i oversikten."
-        pattern: [".{10,200}", "Beskrivelsen bør være mellom 10 og 200 tegn"]
-
-      - label: "Dato"
-        name: "dato"
-        widget: "datetime"
-        date_format: "DD.MM.YYYY"
-        time_format: false
-        hint: "Dato for arrangementet. Brukes til å sortere kommende/tidligere."
-
-      - label: "Sted"
-        name: "sted"
-        widget: "string"
-        required: false
-        default: "Gokstad Kystlag, Framnesveien 5"
-        hint: "Hvor arrangementet holdes. Standard: Gokstad Kystlag."
-
-      - label: "Tidspunkt"
-        name: "tid"
-        widget: "string"
-        required: false
-        hint: "Klokkeslett, f.eks. «11:00–17:00» eller «kl. 18:00»"
-
-      - label: "Bilde"
-        name: "bilde"
-        widget: "image"
-        required: false
-        hint: "Valgfritt. Liggende format fungerer best. Maks 500 KB."
-        media_library:
-          config:
-            max_file_size: 512000
-
-      - label: "Innhold"
-        name: "body"
-        widget: "markdown"
-        hint: "Detaljert beskrivelse av arrangementet — program, praktisk info, påmelding osv."
-
   - name: "sider"
     label: "Faste sider"
     label_singular: "Side"
@@ -135,6 +22,7 @@ collections:
       - name: "forside"
         label: "Forside"
         file: "src/content/sider/forside.json"
+        preview_path: ""
         fields:
           - label: "Toppbilde"
             name: "hero"
@@ -208,6 +96,7 @@ collections:
       - name: "om"
         label: "Om oss"
         file: "src/content/sider/om.json"
+        preview_path: "om"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Toppbilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
@@ -245,6 +134,7 @@ collections:
       - name: "utleie"
         label: "Utleie"
         file: "src/content/sider/utleie.json"
+        preview_path: "utleie"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Innledning", name: "intro", widget: "text" }
@@ -315,6 +205,7 @@ collections:
       - name: "kontakt"
         label: "Kontakt"
         file: "src/content/sider/kontakt.json"
+        preview_path: "kontakt"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Overskrift — skjema", name: "intro_tittel", widget: "string" }
@@ -350,6 +241,7 @@ collections:
       - name: "gjestebrygge"
         label: "Gjestebrygge"
         file: "src/content/sider/gjestebrygge.json"
+        preview_path: "gjestebrygge"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Innledning", name: "intro", widget: "text" }
@@ -393,6 +285,7 @@ collections:
       - name: "lag-oversikt"
         label: "Arbeidslag — oversiktsside"
         file: "src/content/sider/lag-oversikt.json"
+        preview_path: "lag"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Innledning", name: "intro", widget: "text" }
@@ -407,6 +300,7 @@ collections:
       - name: "lag-fartoy-og-kulturlaget"
         label: "Arbeidslag — Fartøy- og kulturlaget"
         file: "src/content/sider/lag-fartoy-og-kulturlaget.json"
+        preview_path: "lag/fartoy-og-kulturlaget"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -430,6 +324,7 @@ collections:
       - name: "lag-hus-og-havnelaget"
         label: "Arbeidslag — Hus- og havnelaget"
         file: "src/content/sider/lag-hus-og-havnelaget.json"
+        preview_path: "lag/hus-og-havnelaget"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -457,6 +352,7 @@ collections:
       - name: "lag-infolaget"
         label: "Arbeidslag — Infolaget"
         file: "src/content/sider/lag-infolaget.json"
+        preview_path: "lag/infolaget"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -469,6 +365,7 @@ collections:
       - name: "lag-gokstadveverne"
         label: "Arbeidslag — Gokstadveverne"
         file: "src/content/sider/lag-gokstadveverne.json"
+        preview_path: "lag/gokstadveverne"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -488,6 +385,7 @@ collections:
       - name: "lag-kystledlaget"
         label: "Arbeidslag — Kystledlaget"
         file: "src/content/sider/lag-kystledlaget.json"
+        preview_path: "lag/kystledlaget"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -507,6 +405,7 @@ collections:
       - name: "lag-modellbatlaget"
         label: "Arbeidslag — Modellbåtlaget"
         file: "src/content/sider/lag-modellbatlaget.json"
+        preview_path: "lag/modellbatlaget"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -525,6 +424,7 @@ collections:
       - name: "lag-motorsamlingen"
         label: "Arbeidslag — Motorsamlingen"
         file: "src/content/sider/lag-motorsamlingen.json"
+        preview_path: "lag/motorsamlingen"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -538,6 +438,7 @@ collections:
       - name: "lag-nordre-skur-og-ballast"
         label: "Arbeidslag — Nordre Skur og Ballast (kor)"
         file: "src/content/sider/lag-nordre-skur-og-ballast.json"
+        preview_path: "lag/nordre-skur-og-ballast"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -556,6 +457,7 @@ collections:
       - name: "lag-stiftelsen"
         label: "Arbeidslag — Stiftelsen"
         file: "src/content/sider/lag-stiftelsen.json"
+        preview_path: "lag/stiftelsen"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -569,6 +471,7 @@ collections:
       - name: "lag-verkstedlaget"
         label: "Arbeidslag — Verkstedlaget"
         file: "src/content/sider/lag-verkstedlaget.json"
+        preview_path: "lag/verkstedlaget"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -581,6 +484,7 @@ collections:
       - name: "lag-gk-ung"
         label: "Arbeidslag — GK Ung"
         file: "src/content/sider/lag-gk-ung.json"
+        preview_path: "lag/gk-ung"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
@@ -599,3 +503,120 @@ collections:
             name: "teambuilding_tekst"
             widget: "text"
             hint: "Lenken «Ta kontakt for å høre mer» legges til automatisk etter denne teksten."
+
+  - name: "artikler"
+    label: "Artikler / Aktuelt"
+    label_singular: "Artikkel"
+    description: "Nyheter, oppdateringer og artikler fra Kystvakt. Disse vises på Aktuelt-siden."
+    folder: "src/content/artikler"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    preview_path: "aktuelt/{{slug}}"
+    sortable_fields: ["dato", "tittel"]
+    summary: "{{tittel}} — {{dato | date('DD.MM.YYYY')}}"
+    view_groups:
+      - label: "År"
+        field: dato
+        pattern: \d{4}
+    fields:
+      - label: "Tittel"
+        name: "tittel"
+        widget: "string"
+        hint: "Overskriften som vises på nettsiden og i listevisningen"
+
+      - label: "Kort beskrivelse"
+        name: "beskrivelse"
+        widget: "text"
+        hint: "1-2 setninger som vises i oversikten. Bør fange leserens interesse."
+        pattern: [".{10,200}", "Beskrivelsen bør være mellom 10 og 200 tegn"]
+
+      - label: "Dato"
+        name: "dato"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        hint: "Publiseringsdato — nyeste artikler vises først"
+
+      - label: "Bilde"
+        name: "bilde"
+        widget: "image"
+        required: false
+        hint: "Valgfritt. Liggende format fungerer best (f.eks. 1200x600px). Maks 500 KB."
+        media_library:
+          config:
+            max_file_size: 512000
+
+      - label: "Forfatter"
+        name: "forfatter"
+        widget: "string"
+        required: false
+        hint: "Valgfritt. Navn på den som skrev artikkelen."
+
+      - label: "Innhold"
+        name: "body"
+        widget: "markdown"
+        hint: "Selve artikkelteksten. Bruk verktøylinjen for formatering."
+
+  - name: "arrangementer"
+    label: "Arrangementer"
+    label_singular: "Arrangement"
+    description: "Kommende og tidligere arrangementer. Vises på Arrangementer-siden sortert etter dato."
+    folder: "src/content/arrangementer"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    preview_path: "arrangementer/{{slug}}"
+    sortable_fields: ["dato", "tittel"]
+    summary: "{{tittel}} — {{dato | date('DD.MM.YYYY')}}"
+    view_groups:
+      - label: "År"
+        field: dato
+        pattern: \d{4}
+    fields:
+      - label: "Tittel"
+        name: "tittel"
+        widget: "string"
+        hint: "Navnet på arrangementet, f.eks. «Kystkulturdagen 2026»"
+
+      - label: "Kort beskrivelse"
+        name: "beskrivelse"
+        widget: "text"
+        hint: "Kort oppsummering som vises i oversikten."
+        pattern: [".{10,200}", "Beskrivelsen bør være mellom 10 og 200 tegn"]
+
+      - label: "Dato"
+        name: "dato"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        hint: "Dato for arrangementet. Brukes til å sortere kommende/tidligere."
+
+      - label: "Sted"
+        name: "sted"
+        widget: "string"
+        required: false
+        default: "Gokstad Kystlag, Framnesveien 5"
+        hint: "Hvor arrangementet holdes. Standard: Gokstad Kystlag."
+
+      - label: "Tidspunkt"
+        name: "tid"
+        widget: "string"
+        required: false
+        hint: "Klokkeslett, f.eks. «11:00–17:00» eller «kl. 18:00»"
+
+      - label: "Bilde"
+        name: "bilde"
+        widget: "image"
+        required: false
+        hint: "Valgfritt. Liggende format fungerer best. Maks 500 KB."
+        media_library:
+          config:
+            max_file_size: 512000
+
+      - label: "Innhold"
+        name: "body"
+        widget: "markdown"
+        hint: "Detaljert beskrivelse av arrangementet — program, praktisk info, påmelding osv."

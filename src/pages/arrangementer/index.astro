@@ -5,8 +5,11 @@ import { getCollection } from "astro:content";
 const alle = (await getCollection("arrangementer"))
   .sort((a, b) => a.data.dato.getTime() - b.data.dato.getTime());
 
-const kommende = alle.filter((a) => a.data.dato >= new Date());
-const tidligere = alle.filter((a) => a.data.dato < new Date()).reverse();
+const iDag = new Date();
+iDag.setHours(0, 0, 0, 0);
+
+const kommende = alle.filter((a) => a.data.dato >= iDag);
+const tidligere = alle.filter((a) => a.data.dato < iDag).reverse();
 ---
 
 <Layout tittel="Arrangementer" beskrivelse="Arrangementer hos Gokstad Kystlag i Sandefjord — kurs, dugnader, fester og kystkulturarrangementer.">
