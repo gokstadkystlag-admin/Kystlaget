@@ -126,3 +126,476 @@ collections:
         name: "body"
         widget: "markdown"
         hint: "Detaljert beskrivelse av arrangementet — program, praktisk info, påmelding osv."
+
+  - name: "sider"
+    label: "Faste sider"
+    label_singular: "Side"
+    description: "Tekst og bilder på de faste sidene på nettsiden. Her kan du endre innhold, men ikke sidenes oppbygning eller design."
+    files:
+      - name: "forside"
+        label: "Forside"
+        file: "src/content/sider/forside.json"
+        fields:
+          - label: "Toppbilde"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Overtekst", name: "kicker", widget: "string" }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Undertekst", name: "undertekst", widget: "string" }
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Tekst på knapp 1 (Bli medlem)", name: "knapp1_tekst", widget: "string" }
+              - { label: "Tekst på knapp 2 (Se arrangementer)", name: "knapp2_tekst", widget: "string" }
+
+          - label: "Kort 1"
+            name: "kort1"
+            widget: "object"
+            fields:
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+
+          - label: "Kort 2"
+            name: "kort2"
+            widget: "object"
+            fields:
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+
+          - label: "Kort 3"
+            name: "kort3"
+            widget: "object"
+            fields:
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+
+          - label: "Arrangementer-seksjon (overskrift)"
+            name: "arrangementer_seksjon"
+            widget: "object"
+            fields:
+              - { label: "Overtekst", name: "kicker", widget: "string" }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+
+          - label: "Aktuelt-seksjon (overskrift)"
+            name: "aktuelt_seksjon"
+            widget: "object"
+            fields:
+              - { label: "Overtekst", name: "kicker", widget: "string" }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+
+          - label: "Om oss-seksjon"
+            name: "om_oss"
+            widget: "object"
+            fields:
+              - { label: "Overtekst", name: "kicker", widget: "string" }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text", hint: "Bruk en blank linje mellom avsnitt." }
+              - { label: "Tekst på knapp", name: "knapp_tekst", widget: "string" }
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+
+          - label: "Utleie-seksjon"
+            name: "utleie_seksjon"
+            widget: "object"
+            fields:
+              - { label: "Overtekst", name: "kicker", widget: "string" }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+              - { label: "Tekst på knapp", name: "knapp_tekst", widget: "string" }
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+
+      - name: "om"
+        label: "Om oss"
+        file: "src/content/sider/om.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Toppbilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text", hint: "Bruk en blank linje mellom avsnitt." }
+          - label: "Overskrift — bygninger"
+            name: "bygninger_tittel"
+            widget: "string"
+          - label: "Bygninger og anlegg"
+            name: "bygninger"
+            widget: "list"
+            hint: "Ett kort per bygning. Antall kort er satt i designet — ikke legg til eller fjern rader uten å avtale med utvikler."
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "Medlemskap"
+            name: "medlem"
+            widget: "object"
+            fields:
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+              - { label: "Overskrift — fordeler", name: "fordeler_tittel", widget: "string" }
+              - { label: "Fordeler", name: "fordeler", widget: "list", field: { label: "Fordel", name: "fordel", widget: "string" } }
+              - { label: "Tekst på knapp", name: "knapp_tekst", widget: "string" }
+          - label: "Kontakt"
+            name: "kontakt"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+              - { label: "E-post", name: "epost", widget: "string" }
+              - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "Adresse", name: "adresse", widget: "string" }
+
+      - name: "utleie"
+        label: "Utleie"
+        file: "src/content/sider/utleie.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - label: "Bildegalleri"
+            name: "bilder"
+            widget: "object"
+            hint: "Fem bilder i galleriet. Antallet er satt i designet."
+            fields:
+              - { label: "Bilde 1", name: "bilde1", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Bilde 2", name: "bilde2", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Bilde 3", name: "bilde3", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Bilde 4", name: "bilde4", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Bilde 5", name: "bilde5", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - label: "Andre etasje"
+            name: "andre_etasje"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Undertittel", name: "undertittel", widget: "string" }
+              - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - label: "Første etasje"
+            name: "forste_etasje"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Undertittel", name: "undertittel", widget: "string" }
+              - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - label: "Praktisk informasjon"
+            name: "praktisk"
+            widget: "object"
+            hint: "Fire faste bokser (leietid, nøkler, renhold, regler). Bruk **tekst** for fet skrift i listepunkter."
+            fields:
+              - { label: "Overskrift", name: "tittel", widget: "string" }
+              - label: "Leietid"
+                name: "leietid"
+                widget: "object"
+                fields:
+                  - { label: "Tittel", name: "tittel", widget: "string" }
+                  - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" }, hint: "Bruk **tekst** for fet skrift." }
+              - label: "Nøkler og parkering"
+                name: "nokler"
+                widget: "object"
+                fields:
+                  - { label: "Tittel", name: "tittel", widget: "string" }
+                  - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+              - label: "Renhold og avfall"
+                name: "renhold"
+                widget: "object"
+                fields:
+                  - { label: "Tittel", name: "tittel", widget: "string" }
+                  - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+              - label: "Regler"
+                name: "regler"
+                widget: "object"
+                fields:
+                  - { label: "Tittel", name: "tittel", widget: "string" }
+                  - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - label: "Booking"
+            name: "booking"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+              - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "Telefontid", name: "telefon_tid", widget: "string" }
+              - { label: "Tekst på knapp", name: "knapp_tekst", widget: "string" }
+
+      - name: "kontakt"
+        label: "Kontakt"
+        file: "src/content/sider/kontakt.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Overskrift — skjema", name: "intro_tittel", widget: "string" }
+          - { label: "Tekst — skjema", name: "intro_tekst", widget: "text" }
+          - { label: "Overskrift — bekreftelse", name: "bekreftelse_tittel", widget: "string" }
+          - { label: "Tekst — bekreftelse", name: "bekreftelse_tekst", widget: "text" }
+          - label: "Kontaktinformasjon"
+            name: "kontaktinfo"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Adresse", name: "adresse", widget: "string" }
+              - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "E-post", name: "epost", widget: "string" }
+              - { label: "E-post — utleie", name: "utleie_epost", widget: "string" }
+              - { label: "Facebook-lenke", name: "facebook_url", widget: "string" }
+              - { label: "Facebook-lenketekst", name: "facebook_tekst", widget: "string" }
+          - label: "Boks — båtplass"
+            name: "batplass_boks"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "Boks — gjestebrygge"
+            name: "gjestebrygge_boks"
+            widget: "object"
+            hint: "Lenketeksten og lenken til gjestebrygge-siden ligger fast i designet."
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst før lenke", name: "tekst_for_lenke", widget: "string" }
+              - { label: "Lenketekst", name: "lenke_tekst", widget: "string" }
+
+      - name: "gjestebrygge"
+        label: "Gjestebrygge"
+        file: "src/content/sider/gjestebrygge.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - { label: "Toppbilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - label: "Priser"
+            name: "priser"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Pris — medlem", name: "medlem_pris", widget: "string" }
+              - { label: "Tekst — medlem", name: "medlem_tekst", widget: "string" }
+              - { label: "Pris — ikke medlem", name: "ikke_medlem_pris", widget: "string" }
+              - { label: "Tekst — ikke medlem", name: "ikke_medlem_tekst", widget: "string" }
+              - { label: "Tekst om periode", name: "periode_tekst", widget: "string" }
+          - label: "Betaling"
+            name: "betaling"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Vipps-nummer", name: "vipps_nummer", widget: "string" }
+              - { label: "Vipps-navn", name: "vipps_navn", widget: "string" }
+              - label: "Meldingsformat"
+                name: "melding_format"
+                widget: "string"
+                hint: "Vises som eksempel på Vipps-melding, f.eks. «GB <båtnavn>, <ditt kystlag>»"
+          - label: "Viktig informasjon"
+            name: "info"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Liste", name: "liste", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - label: "Kontakt"
+            name: "kontakt"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Adresse", name: "adresse", widget: "string" }
+              - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "E-post", name: "epost", widget: "string" }
+
+      - name: "lag-oversikt"
+        label: "Arbeidslag — oversiktsside"
+        file: "src/content/sider/lag-oversikt.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - label: "Boks — bli med"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+              - { label: "Tekst på knapp", name: "knapp_tekst", widget: "string" }
+
+      - name: "lag-fartoy-og-kulturlaget"
+        label: "Arbeidslag — Fartøy- og kulturlaget"
+        file: "src/content/sider/lag-fartoy-og-kulturlaget.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - label: "Boks 1"
+            name: "boks1"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "Boks 2"
+            name: "boks2"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - { label: "Overskrift — oppgaver", name: "oppgaver_tittel", widget: "string" }
+          - { label: "Oppgaver", name: "oppgaver", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+
+      - name: "lag-hus-og-havnelaget"
+        label: "Arbeidslag — Hus- og havnelaget"
+        file: "src/content/sider/lag-hus-og-havnelaget.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - label: "Boks 1"
+            name: "boks1"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "Boks 2"
+            name: "boks2"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - label: "Boks 3"
+            name: "boks3"
+            widget: "object"
+            fields:
+              - { label: "Tittel", name: "tittel", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+
+      - name: "lag-infolaget"
+        label: "Arbeidslag — Infolaget"
+        file: "src/content/sider/lag-infolaget.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Alt-tekst for bilde", name: "bilde_alt", widget: "string", hint: "Beskrivelse av bildet for skjermlesere." }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - { label: "Overskrift — oppgaver", name: "oppgaver_tittel", widget: "string" }
+          - { label: "Oppgaver", name: "oppgaver", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+
+      - name: "lag-gokstadveverne"
+        label: "Arbeidslag — Gokstadveverne"
+        file: "src/content/sider/lag-gokstadveverne.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - { label: "Overskrift — praktisk", name: "praktisk_tittel", widget: "string" }
+          - { label: "Sted", name: "praktisk_sted", widget: "string" }
+          - { label: "Tid", name: "praktisk_tid", widget: "string" }
+          - { label: "Tekst — praktisk", name: "praktisk_tekst", widget: "string" }
+          - { label: "Overskrift — utstyr", name: "utstyr_tittel", widget: "string" }
+          - { label: "Utstyr", name: "utstyr", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Overskrift — produkter", name: "produkter_tittel", widget: "string" }
+          - { label: "Innledning — produkter", name: "produkter_intro", widget: "string" }
+          - { label: "Produkter", name: "produkter", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Notat", name: "notat", widget: "text" }
+
+      - name: "lag-kystledlaget"
+        label: "Arbeidslag — Kystledlaget"
+        file: "src/content/sider/lag-kystledlaget.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text", hint: "Bruk en blank linje mellom avsnitt." }
+          - { label: "Overskrift — hytter", name: "hytter_tittel", widget: "string" }
+          - label: "Hytter"
+            name: "hytter"
+            widget: "list"
+            hint: "Én boks per hytte. Antall bokser er satt i designet."
+            fields:
+              - { label: "Navn", name: "navn", widget: "string" }
+              - { label: "Tekst", name: "tekst", widget: "text" }
+          - { label: "Overskrift — booking", name: "booking_tittel", widget: "string" }
+          - { label: "Tekst — booking", name: "booking_tekst", widget: "text" }
+
+      - name: "lag-modellbatlaget"
+        label: "Arbeidslag — Modellbåtlaget"
+        file: "src/content/sider/lag-modellbatlaget.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - { label: "Overskrift — praktisk", name: "praktisk_tittel", widget: "string" }
+          - { label: "Sted", name: "praktisk_sted", widget: "string" }
+          - { label: "Tid", name: "praktisk_tid", widget: "string" }
+          - { label: "Tekst — praktisk", name: "praktisk_tekst", widget: "string" }
+          - { label: "Overskrift — byggemetoder", name: "byggemetoder_tittel", widget: "string" }
+          - { label: "Byggemetoder", name: "byggemetoder", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Overskrift — prosjekter", name: "prosjekter_tittel", widget: "string" }
+          - { label: "Prosjekter", name: "prosjekter", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Notat", name: "notat", widget: "text" }
+
+      - name: "lag-motorsamlingen"
+        label: "Arbeidslag — Motorsamlingen"
+        file: "src/content/sider/lag-motorsamlingen.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - { label: "Overskrift — museet", name: "museet_tittel", widget: "string" }
+          - { label: "Museet", name: "museet", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" }, hint: "Bruk **tekst** for fet skrift." }
+          - { label: "Overskrift — motortyper", name: "motortyper_tittel", widget: "string" }
+          - { label: "Motortyper", name: "motortyper", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+
+      - name: "lag-nordre-skur-og-ballast"
+        label: "Arbeidslag — Nordre Skur og Ballast (kor)"
+        file: "src/content/sider/lag-nordre-skur-og-ballast.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "string" }
+          - { label: "Overskrift — besetning", name: "besetning_tittel", widget: "string" }
+          - { label: "Besetning", name: "besetning", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" }, hint: "Bruk **tekst** for fet skrift." }
+          - { label: "Overskrift — repertoar", name: "repertoar_tittel", widget: "string" }
+          - { label: "Repertoar", name: "repertoar", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Overskrift — øvelser", name: "ovelser_tittel", widget: "string" }
+          - { label: "Tekst — øvelser", name: "ovelser_tekst", widget: "text" }
+          - { label: "Overskrift — studioalbum", name: "studioalbum_tittel", widget: "string" }
+          - { label: "Studioalbum (nummerert liste)", name: "studioalbum", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Notat", name: "notat", widget: "text" }
+
+      - name: "lag-stiftelsen"
+        label: "Arbeidslag — Stiftelsen"
+        file: "src/content/sider/lag-stiftelsen.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text", hint: "Bruk en blank linje mellom avsnitt." }
+          - { label: "Overskrift — eiendommer", name: "eiendommer_tittel", widget: "string" }
+          - { label: "Eiendommer", name: "eiendommer", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Overskrift — prosjekter", name: "prosjekter_tittel", widget: "string" }
+          - { label: "Prosjekter", name: "prosjekter", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" }, hint: "Bruk **tekst** for fet skrift." }
+
+      - name: "lag-verkstedlaget"
+        label: "Arbeidslag — Verkstedlaget"
+        file: "src/content/sider/lag-verkstedlaget.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Innledning", name: "intro", widget: "text" }
+          - { label: "Overskrift — aktiviteter", name: "aktiviteter_tittel", widget: "string" }
+          - { label: "Aktiviteter", name: "aktiviteter", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Notat", name: "notat", widget: "text" }
+
+      - name: "lag-gk-ung"
+        label: "Arbeidslag — GK Ung"
+        file: "src/content/sider/lag-gk-ung.json"
+        fields:
+          - { label: "Tittel", name: "tittel", widget: "string" }
+          - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text" }
+          - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+          - { label: "Sitat", name: "sitat", widget: "text" }
+          - { label: "Overskrift — båter", name: "baater_tittel", widget: "string" }
+          - { label: "Båter og utstyr", name: "baater", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" }, hint: "Bruk **tekst** for fet skrift." }
+          - { label: "Overskrift — aktiviteter", name: "aktiviteter_tittel", widget: "string" }
+          - { label: "Aktiviteter", name: "aktiviteter", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" } }
+          - { label: "Overskrift — skoler", name: "skoler_tittel", widget: "string" }
+          - { label: "Innledning — skoler", name: "skoler_intro", widget: "string" }
+          - { label: "Skoler", name: "skoler", widget: "list", field: { label: "Punkt", name: "punkt", widget: "string" }, hint: "Bruk **tekst** for fet skrift." }
+          - { label: "Avslutning — skoler", name: "skoler_outro", widget: "string" }
+          - { label: "Overskrift — teambuilding", name: "teambuilding_tittel", widget: "string" }
+          - label: "Tekst — teambuilding"
+            name: "teambuilding_tekst"
+            widget: "text"
+            hint: "Lenken «Ta kontakt for å høre mer» legges til automatisk etter denne teksten."

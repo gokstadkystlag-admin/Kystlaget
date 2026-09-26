@@ -1,16 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+const side = (await getEntry("sider", "kontakt"))!.data;
 ---
 
 <Layout tittel="Kontakt" beskrivelse="Kontakt Gokstad Kystlag — spørsmål om medlemskap, båtplass, utleie eller arbeidslag. Framnesveien 5, 3222 Sandefjord.">
   <div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-heading font-bold mb-8">Kontakt oss</h1>
+    <h1 class="text-3xl font-heading font-bold mb-8">{side.tittel}</h1>
 
     <div class="grid md:grid-cols-2 gap-8">
       <div>
-        <h2 class="text-xl font-heading font-bold mb-4">Send oss en melding</h2>
+        <h2 class="text-xl font-heading font-bold mb-4">{side.intro_tittel}</h2>
         <p class="text-kyst-graa mb-6">
-          Har du spørsmål om medlemskap, båtplass, utleie eller ønsker å bli med i et av lagene?
+          {side.intro_tekst}
         </p>
 
         <form action="https://formsubmit.co/post@gokstadkystlag.no" method="POST" class="space-y-4">
@@ -54,49 +57,49 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Bekreftelse etter sending -->
         <div id="sendt-bekreftelse" class="hidden mt-6 bg-green-50 border border-green-200 rounded-lg p-6">
-          <h3 class="font-heading font-bold text-green-800 mb-1">Takk for meldingen!</h3>
-          <p class="text-green-700 text-sm">Vi har mottatt henvendelsen din og svarer vanligvis innen et par dager.</p>
+          <h3 class="font-heading font-bold text-green-800 mb-1">{side.bekreftelse_tittel}</h3>
+          <p class="text-green-700 text-sm">{side.bekreftelse_tekst}</p>
         </div>
       </div>
 
       <div class="space-y-6">
         <div class="bg-white rounded-lg shadow p-6">
-          <h2 class="text-xl font-heading font-bold mb-4">Kontaktinformasjon</h2>
+          <h2 class="text-xl font-heading font-bold mb-4">{side.kontaktinfo.tittel}</h2>
           <div class="space-y-3 text-sm">
             <div>
               <h3 class="font-medium">Adresse</h3>
-              <p class="text-kyst-graa">Framnesveien 5, 3222 Sandefjord</p>
+              <p class="text-kyst-graa">{side.kontaktinfo.adresse}</p>
             </div>
             <div>
               <h3 class="font-medium">Telefon</h3>
-              <p><a href="tel:45816286" class="text-kyst-blaa hover:underline">458 16 286</a></p>
+              <p><a href={`tel:${side.kontaktinfo.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{side.kontaktinfo.telefon}</a></p>
             </div>
             <div>
               <h3 class="font-medium">E-post</h3>
-              <p><a href="mailto:post@gokstadkystlag.no" class="text-kyst-blaa hover:underline">post@gokstadkystlag.no</a></p>
+              <p><a href={`mailto:${side.kontaktinfo.epost}`} class="text-kyst-blaa hover:underline">{side.kontaktinfo.epost}</a></p>
             </div>
             <div>
               <h3 class="font-medium">Utleie</h3>
-              <p><a href="mailto:utleie@gokstadkystlag.no" class="text-kyst-blaa hover:underline">utleie@gokstadkystlag.no</a></p>
+              <p><a href={`mailto:${side.kontaktinfo.utleie_epost}`} class="text-kyst-blaa hover:underline">{side.kontaktinfo.utleie_epost}</a></p>
             </div>
             <div>
               <h3 class="font-medium">Facebook</h3>
-              <p><a href="https://www.facebook.com/groups/gokstadkystlag" target="_blank" rel="noopener" class="text-kyst-blaa hover:underline">Gokstad Kystlag på Facebook</a></p>
+              <p><a href={side.kontaktinfo.facebook_url} target="_blank" rel="noopener" class="text-kyst-blaa hover:underline">{side.kontaktinfo.facebook_tekst}</a></p>
             </div>
           </div>
         </div>
 
         <div class="bg-kyst-blaa/10 rounded-lg p-6">
-          <h3 class="font-heading font-bold mb-2">Interessert i båtplass?</h3>
+          <h3 class="font-heading font-bold mb-2">{side.batplass_boks.tittel}</h3>
           <p class="text-kyst-graa text-sm">
-            Velg «Båtplass» i skjemaet til venstre, så tar vi kontakt med deg.
+            {side.batplass_boks.tekst}
           </p>
         </div>
 
         <div class="bg-kyst-blaa/10 rounded-lg p-6">
-          <h3 class="font-heading font-bold mb-2">Gjestebrygge</h3>
+          <h3 class="font-heading font-bold mb-2">{side.gjestebrygge_boks.tittel}</h3>
           <p class="text-kyst-graa text-sm">
-            Kommer du sjøveien? Se vår <a href="/gjestebrygge" class="text-kyst-blaa hover:underline">gjestebrygge-side</a>.
+            {side.gjestebrygge_boks.tekst_for_lenke} <a href="/gjestebrygge" class="text-kyst-blaa hover:underline">{side.gjestebrygge_boks.lenke_tekst}</a>.
           </p>
         </div>
       </div>

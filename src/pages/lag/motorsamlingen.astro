@@ -1,45 +1,38 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import KontaktLag from "../../components/KontaktLag.astro";
+import { getEntry } from "astro:content";
+import { mdInline } from "../../lib/tekst";
+
+const side = (await getEntry("sider", "lag-motorsamlingen"))!.data;
 ---
 
-<Layout tittel="Motorsamlingen">
+<Layout tittel={side.tittel}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Motorsamlingen</h1>
-    <img src="/images/motorsamlingen.webp" alt="Motorsamlingen" class="w-full h-64 object-cover rounded-lg mb-8" />
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>
+    <img src={side.bilde} alt={side.tittel} class="w-full h-64 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-10">
       <p>
-        Motorsamlingen har sin opprinnelse i familiebedriften som drev på eiendommen.
-        Bedriften hadde solgt og servet båtmotorer siden 1924, da de fikk agentur for
-        FM-motorer fra Fredrikstad. Da Gokstad Kystlag overtok i 1990, fulgte det med
-        motorer, utstyr, reservedeler og dokumentasjon.
+        {side.intro}
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 mb-10">
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="font-heading font-bold text-lg mb-3">Museet</h2>
+        <h2 class="font-heading font-bold text-lg mb-3">{side.museet_tittel}</h2>
         <ul class="text-kyst-graa text-sm space-y-1">
-          <li><strong>1995:</strong> Første museumsseksjon åpnet</li>
-          <li><strong>2007:</strong> Nytt utstillingsareal, totalt ca. 115 m²</li>
-          <li><strong>Ca. 130 motorer</strong> utstilt</li>
-          <li><strong>Ca. 1 000 dokumenter</strong> i samlingen</li>
+          {side.museet.map((m: string) => <li set:html={mdInline(m)} />)}
         </ul>
       </div>
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="font-heading font-bold text-lg mb-3">Motortyper</h2>
+        <h2 class="font-heading font-bold text-lg mb-3">{side.motortyper_tittel}</h2>
         <ul class="text-kyst-graa text-sm space-y-1 list-disc list-inside">
-          <li>Innenbords- og påhengsmotorer</li>
-          <li>Dampmaskiner og dampkjeler (fungerende)</li>
-          <li>Tidlige to- og firetakts dieselmotorer</li>
-          <li>Bensinmotorer med åpent veivhus</li>
-          <li>Verdens første tosylindrede påhengsmotor (1914)</li>
-          <li>Amerikansk firetakts motor fra 1953</li>
+          {side.motortyper.map((m: string) => <li>{m}</li>)}
         </ul>
       </div>
     </div>
-    <KontaktLag lag="Motorsamlingen" />
+    <KontaktLag lag={side.tittel} />
   </div>
 </Layout>

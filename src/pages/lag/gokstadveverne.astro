@@ -1,57 +1,52 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import KontaktLag from "../../components/KontaktLag.astro";
+import { getEntry } from "astro:content";
+
+const side = (await getEntry("sider", "lag-gokstadveverne"))!.data;
 ---
 
-<Layout tittel="Gokstadveverne">
+<Layout tittel={side.tittel}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Gokstadveverne</h1>
-    <img src="/images/gokstadveverne.webp" alt="Gokstadveverne" class="w-full h-64 object-cover rounded-lg mb-8" />
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>
+    <img src={side.bilde} alt={side.tittel} class="w-full h-64 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-10">
       <p>
-        Gokstadveverne er kystlagets gruppe for veving, strikking og hekling.
+        {side.intro}
       </p>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="font-heading font-bold text-lg mb-3">Praktisk</h2>
+      <h2 class="font-heading font-bold text-lg mb-3">{side.praktisk_tittel}</h2>
       <div class="text-kyst-graa text-sm space-y-1">
-        <p><strong>Sted:</strong> Seilloftet i Søndre Skur</p>
-        <p><strong>Tid:</strong> Onsdager kl. 18:00–21:00</p>
-        <p>Inkluderer kaffepause.</p>
+        <p><strong>Sted:</strong> {side.praktisk_sted}</p>
+        <p><strong>Tid:</strong> {side.praktisk_tid}</p>
+        <p>{side.praktisk_tekst}</p>
       </div>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="font-heading font-bold text-lg mb-3">Utstyr</h2>
+      <h2 class="font-heading font-bold text-lg mb-3">{side.utstyr_tittel}</h2>
       <ul class="text-kyst-graa text-sm space-y-1 list-disc list-inside">
-        <li>Fire store vevstolar og tre mindre</li>
-        <li>Garnvinde, spolestativ og komplett tilbehør</li>
-        <li>Oppstadvev for billedveving</li>
-        <li>Utstyr for å sette opp vevstolar etter behov</li>
+        {side.utstyr.map((u: string) => <li>{u}</li>)}
       </ul>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="font-heading font-bold text-lg mb-3">Produkter</h2>
-      <p class="text-kyst-graa text-sm mb-2">Medlemmene lager ting både til eget bruk og for inntekt til kystlaget:</p>
+      <h2 class="font-heading font-bold text-lg mb-3">{side.produkter_tittel}</h2>
+      <p class="text-kyst-graa text-sm mb-2">{side.produkter_intro}</p>
       <ul class="text-kyst-graa text-sm space-y-1 list-disc list-inside">
-        <li>Filleryer</li>
-        <li>Håndklær og kjøkkenhåndklær</li>
-        <li>Pledd og gardiner</li>
-        <li>Brikker og løpere</li>
-        <li>Maritime motiver</li>
+        {side.produkter.map((p: string) => <li>{p}</li>)}
       </ul>
     </div>
 
     <div class="bg-kyst-gul/20 rounded-lg p-6">
       <p class="text-kyst-graa text-sm">
-        Gokstadveverne vant håndverkspris på Forbundet Kystens landsstevne i Sandefjord i 2015
-        for en tradisjonelt laget båtrye av håndspunnet ull.
+        {side.notat}
       </p>
     </div>
-    <KontaktLag lag="Gokstadveverne" />
+    <KontaktLag lag={side.tittel} />
   </div>
 </Layout>

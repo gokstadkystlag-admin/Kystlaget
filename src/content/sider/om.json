@@ -1,0 +1,35 @@
+{
+  "tittel": "Om Gokstad Kystlag",
+  "bilde": "/images/kystlaget-havn.webp",
+  "intro": "Gokstad Kystlag ble stiftet 16. november 1990 av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger. I dag har vi ca. 400 medlemmer og er et av de mest aktive kystlagene i Forbundet Kysten.\n\nFormålet vårt er å ta vare på og formidle kystkultur gjennom tradisjonelle fartøy, bygninger, sjøfartstradisjon, tradisjonelt håndverk og lokalhistorisk opplæring.",
+  "bygninger_tittel": "Våre bygninger og anlegg",
+  "bygninger": [
+    { "tittel": "Murbygningen", "tekst": "Verksteder, kontor og møterom." },
+    { "tittel": "Søndre Skur", "tekst": "Båtbygging, modellbåtverksted og vevstue." },
+    { "tittel": "Nordre Skur", "tekst": "Elektrikerverksted, selskapslokaler med kjøkken og toaletter." },
+    { "tittel": "Motormuseet", "tekst": "Ca. 100 historiske båtmotorer. Et av de bedre motormuseene i Norge." },
+    { "tittel": "Semihuset", "tekst": "Utstilling av semi-dieselmotor." },
+    { "tittel": "Ungdomshuset", "tekst": "GK Ung sitt hus med utstyr, 6 seilbåter og en stor seilbåt." }
+  ],
+  "medlem": {
+    "bilde": "/images/bathavn.webp",
+    "tittel": "Bli medlem",
+    "tekst": "Innmelding gjøres via Forbundet Kysten. Du blir automatisk medlem av både Gokstad Kystlag og Forbundet Kysten.",
+    "fordeler_tittel": "Som medlem får du:",
+    "fordeler": [
+      "Magasinet «Kysten» — om kystkultur og tradisjonsbåter",
+      "Nyhetsbrevet «Kystvakt» fire ganger i året",
+      "Rabatt på arrangementer og sosiale sammenkomster",
+      "Mulighet til å delta i ett eller flere arbeidslag",
+      "Tilhørighet i et aktivt kystkultmiljø med ca. 400 medlemmer"
+    ],
+    "knapp_tekst": "Meld deg inn"
+  },
+  "kontakt": {
+    "tittel": "Kontakt oss",
+    "tekst": "Har du spørsmål om kystlaget, arbeidslagene, båtplass eller noe annet? Ta kontakt med styret.",
+    "epost": "post@gokstadkystlag.no",
+    "telefon": "458 16 286",
+    "adresse": "Framnesveien 5, 3222 Sandefjord"
+  }
+}

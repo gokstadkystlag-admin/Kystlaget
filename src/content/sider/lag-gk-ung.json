@@ -1,0 +1,30 @@
+{
+  "tittel": "GK Ung",
+  "kort_beskrivelse": "Ungdomsgruppen — seiling med Meginjoller og Colin Archer-skøyten Vega.",
+  "bilde": "/images/gk-ung.webp",
+  "sitat": "«Vi ønsker å skape opplevelser og kunnskap sammen. Dette er en gruppe drevet av og for ungdom, med god hjelp fra kunnskapsrike voksne.»",
+  "baater_tittel": "Båter og utstyr",
+  "baater": [
+    "6 Meginjoller for seiling",
+    "Colin Archer-skøyten **Vega** (kan heise alle fire seil)",
+    "Megin-huset — eget hus på parkeringsplassen med utsikt over bryggene"
+  ],
+  "aktiviteter_tittel": "Aktiviteter",
+  "aktiviteter": [
+    "Overnattingsseilaser",
+    "Heldags seilekspedisjoner",
+    "Faste samlinger for seiling i havnebassenget",
+    "Vedlikehold og restaurering av båter",
+    "Kappseiling med Meginjoller"
+  ],
+  "skoler_tittel": "Samarbeid med skoler",
+  "skoler_intro": "GK Ung samarbeider med lokale skoler for å fremme kystkultur:",
+  "skoler": [
+    "**Sande skole** — kurs med barn, tre ungdomsinstruktører deltok",
+    "**Framnes skole** — samarbeid om båtvedlikehold",
+    "Planlagte samarbeid med skoler fra Larvik og flere"
+  ],
+  "skoler_outro": "Skoleprogrammene kobler seilopplevelser til relevante fag i læreplanen.",
+  "teambuilding_tittel": "Teambuilding",
+  "teambuilding_tekst": "GK Ung tilbyr også seilopplevelser for bedrifter og grupper som ønsker teambuilding."
+}

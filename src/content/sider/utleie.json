@@ -1,0 +1,80 @@
+{
+  "tittel": "Selskapslokaler",
+  "intro": "Gokstad Kystlag leier ut flotte kurs- og selskapslokaler med utsikt over indre havn i Sandefjord. Perfekt for bryllup, bursdager, firmafester og kurs.",
+  "bilder": {
+    "bilde1": "/images/utleie-01.webp",
+    "bilde2": "/images/utleie-03.webp",
+    "bilde3": "/images/utleie-05.webp",
+    "bilde4": "/images/utleie-07.webp",
+    "bilde5": "/images/utleie-09.webp"
+  },
+  "andre_etasje": {
+    "tittel": "Andre etasje",
+    "undertittel": "Plass til opptil 60 personer",
+    "liste": [
+      "Fullt utstyrt kjøkken med komfyr, kjøleskap og kaffetrakter",
+      "Servise: tallerkener, glass, bestikk, serveringsfat, lysestaker, blomstervaser",
+      "Garderobe",
+      "To toaletter",
+      "Trådløst internett",
+      "Hjertestarter (AED)"
+    ]
+  },
+  "forste_etasje": {
+    "tittel": "Første etasje",
+    "undertittel": "Sesong: 1. mai – 1. oktober",
+    "liste": [
+      "Maritim atmosfære med rustikke bord og benker",
+      "Doble dører til vestvendt brygge",
+      "Enkelt kjøkken med komfyr og bar",
+      "HC-toalett i første etasje",
+      "Utsikt over indre havn",
+      "Griller tilgjengelig på brygga"
+    ]
+  },
+  "praktisk": {
+    "tittel": "Praktisk informasjon",
+    "leietid": {
+      "tittel": "Leietid",
+      "liste": [
+        "Tilgang fra kl. 11:00 på leiedagen",
+        "**Helg (man–søn):** Må forlate innen kl. 03:00. Ro ute etter midnatt.",
+        "**Dag/kveld (man–tor):** Må forlate innen kl. 22:00",
+        "Flerdagers leie (over 2 dager): ta kontakt direkte"
+      ]
+    },
+    "nokler": {
+      "tittel": "Nøkler og parkering",
+      "liste": [
+        "Nøkler hentes i kassen på Coop Extra Framnes",
+        "Returneres neste dag (helg: mandag)",
+        "Parkering på andre siden av Framnesveien",
+        "Av-/pålessing ved Stihl-byggets inngang"
+      ]
+    },
+    "renhold": {
+      "tittel": "Renhold og avfall",
+      "liste": [
+        "Ordinær rengjøring er inkludert i leien",
+        "Oppvask og tømming av oppvaskmaskin gjøres av leietaker",
+        "Avfall kildesorteres og legges i bod ute"
+      ]
+    },
+    "regler": {
+      "tittel": "Regler",
+      "liste": [
+        "Musikkanlegg skal holdes innendørs",
+        "Åpen ild ikke tillatt (fakler, bålpanne)",
+        "Griller på brygga — ta med eget kull",
+        "Avbestilling innen 6 uker, ellers 50 % gebyr"
+      ]
+    }
+  },
+  "booking": {
+    "tittel": "Send forespørsel om utleie",
+    "tekst": "Sjekk ledig dato og send inn forespørsel via bookingsystemet vårt. Du kan også ta kontakt for omvisning av lokalene.",
+    "telefon": "458 16 286",
+    "telefon_tid": "torsdag kl. 11–13",
+    "knapp_tekst": "Send forespørsel"
+  }
+}

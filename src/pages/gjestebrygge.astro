@@ -1,52 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+
+const side = (await getEntry("sider", "gjestebrygge"))!.data;
 ---
 
 <Layout tittel="Gjestebrygge" beskrivelse="Gjestebrygge ved Gokstad Kystlag i Sandefjord indre havn. Strøm, vann og nærhet til sentrum.">
   <div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-heading font-bold mb-4">Gjestebrygge</h1>
+    <h1 class="text-3xl font-heading font-bold mb-4">{side.tittel}</h1>
     <p class="text-kyst-graa mb-8">
-      Gokstad Kystlag har gjestebrygge ved indre havn i Sandefjord.
-      Velkommen innom om du kommer sjøveien!
+      {side.intro}
     </p>
 
-    <img src="/images/gjestebrygge.webp" alt="Gjestebryggen ved Gokstad Kystlag" class="w-full h-64 object-cover rounded-lg mb-10" />
+    <img src={side.bilde} alt="Gjestebryggen ved Gokstad Kystlag" class="w-full h-64 object-cover rounded-lg mb-10" />
 
     <div class="grid md:grid-cols-2 gap-6 mb-10">
       <!-- Priser -->
       <div class="bg-white rounded-lg shadow p-8">
-        <h2 class="text-xl font-heading font-bold mb-4">Priser</h2>
+        <h2 class="text-xl font-heading font-bold mb-4">{side.priser.tittel}</h2>
         <div class="space-y-4">
           <div class="flex justify-between items-center border-b pb-3">
             <div>
               <p class="font-semibold">Medlemmer</p>
-              <p class="text-kyst-graa text-sm">Kystlag tilknyttet Forbundet Kysten</p>
+              <p class="text-kyst-graa text-sm">{side.priser.medlem_tekst}</p>
             </div>
-            <p class="text-2xl font-bold text-kyst-blaa">150 kr</p>
+            <p class="text-2xl font-bold text-kyst-blaa">{side.priser.medlem_pris}</p>
           </div>
           <div class="flex justify-between items-center">
             <div>
               <p class="font-semibold">Ikke-medlemmer</p>
-              <p class="text-kyst-graa text-sm">Andre gjester</p>
+              <p class="text-kyst-graa text-sm">{side.priser.ikke_medlem_tekst}</p>
             </div>
-            <p class="text-2xl font-bold text-kyst-blaa">350 kr</p>
+            <p class="text-2xl font-bold text-kyst-blaa">{side.priser.ikke_medlem_pris}</p>
           </div>
         </div>
-        <p class="text-kyst-graa text-sm mt-4">Per døgn: kl. 16:00 – kl. 12:00 neste dag</p>
+        <p class="text-kyst-graa text-sm mt-4">{side.priser.periode_tekst}</p>
       </div>
 
       <!-- Betaling -->
       <div class="bg-white rounded-lg shadow p-8">
-        <h2 class="text-xl font-heading font-bold mb-4">Betaling med Vipps</h2>
+        <h2 class="text-xl font-heading font-bold mb-4">{side.betaling.tittel}</h2>
         <div class="text-kyst-graa text-sm space-y-3">
           <div>
             <p class="font-semibold text-kyst-mork">Vipps-nummer</p>
-            <p class="text-2xl font-bold text-kyst-blaa">80567</p>
-            <p>Gokstad Kystlag</p>
+            <p class="text-2xl font-bold text-kyst-blaa">{side.betaling.vipps_nummer}</p>
+            <p>{side.betaling.vipps_navn}</p>
           </div>
           <div>
             <p class="font-semibold text-kyst-mork">Melding</p>
-            <p class="bg-kyst-beige rounded px-3 py-2 font-mono text-xs">GB &lt;båtnavn&gt;, &lt;ditt kystlag&gt;</p>
+            <p class="bg-kyst-beige rounded px-3 py-2 font-mono text-xs">{side.betaling.melding_format}</p>
           </div>
         </div>
       </div>
@@ -54,22 +56,19 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Regler og info -->
     <div class="bg-white rounded-lg shadow p-8 mb-10">
-      <h2 class="text-xl font-heading font-bold mb-4">Viktig informasjon</h2>
+      <h2 class="text-xl font-heading font-bold mb-4">{side.info.tittel}</h2>
       <ul class="text-kyst-graa text-sm space-y-2">
-        <li>&#9875; Gjestebryggen er prioritert for medlemmer av kystlag tilknyttet Forbundet Kysten og leietakere av selskapslokalene</li>
-        <li>&#9875; Ledig område er merket med hvite striper — alle andre plasser er opptatt</li>
-        <li>&#9875; Maks ett døgns opphold (andre avtaler krever forhåndsgodkjenning)</li>
-        <li>&#9875; Strøm er tilgjengelig og inkludert i prisen</li>
+        {side.info.liste.map((p: string) => <li>&#9875; {p}</li>)}
       </ul>
     </div>
 
     <!-- Kontakt -->
     <div class="bg-kyst-blaa/10 rounded-lg p-8">
-      <h2 class="text-xl font-heading font-bold mb-2">Kontakt</h2>
+      <h2 class="text-xl font-heading font-bold mb-2">{side.kontakt.tittel}</h2>
       <div class="text-kyst-graa text-sm space-y-1">
-        <p><strong>Adresse:</strong> Framnesveien 5, 3222 Sandefjord</p>
-        <p><strong>Telefon:</strong> <a href="tel:45816286" class="text-kyst-blaa hover:underline">458 16 286</a></p>
-        <p><strong>E-post:</strong> <a href="mailto:post@gokstadkystlag.no" class="text-kyst-blaa hover:underline">post@gokstadkystlag.no</a></p>
+        <p><strong>Adresse:</strong> {side.kontakt.adresse}</p>
+        <p><strong>Telefon:</strong> <a href={`tel:${side.kontakt.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{side.kontakt.telefon}</a></p>
+        <p><strong>E-post:</strong> <a href={`mailto:${side.kontakt.epost}`} class="text-kyst-blaa hover:underline">{side.kontakt.epost}</a></p>
       </div>
     </div>
   </div>

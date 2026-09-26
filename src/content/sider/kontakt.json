@@ -1,0 +1,25 @@
+{
+  "tittel": "Kontakt oss",
+  "intro_tittel": "Send oss en melding",
+  "intro_tekst": "Har du spørsmål om medlemskap, båtplass, utleie eller ønsker å bli med i et av lagene?",
+  "bekreftelse_tittel": "Takk for meldingen!",
+  "bekreftelse_tekst": "Vi har mottatt henvendelsen din og svarer vanligvis innen et par dager.",
+  "kontaktinfo": {
+    "tittel": "Kontaktinformasjon",
+    "adresse": "Framnesveien 5, 3222 Sandefjord",
+    "telefon": "458 16 286",
+    "epost": "post@gokstadkystlag.no",
+    "utleie_epost": "utleie@gokstadkystlag.no",
+    "facebook_url": "https://www.facebook.com/groups/gokstadkystlag",
+    "facebook_tekst": "Gokstad Kystlag på Facebook"
+  },
+  "batplass_boks": {
+    "tittel": "Interessert i båtplass?",
+    "tekst": "Velg «Båtplass» i skjemaet til venstre, så tar vi kontakt med deg."
+  },
+  "gjestebrygge_boks": {
+    "tittel": "Gjestebrygge",
+    "tekst_for_lenke": "Kommer du sjøveien? Se vår",
+    "lenke_tekst": "gjestebrygge-side"
+  }
+}

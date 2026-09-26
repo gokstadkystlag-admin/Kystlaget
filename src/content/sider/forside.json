@@ -1,0 +1,47 @@
+{
+  "hero": {
+    "kicker": "Sandefjord siden 1990",
+    "tittel": "Gokstad Kystlag",
+    "undertekst": "Kystkultur, båtliv og fellesskap",
+    "bilde": "/images/kystlaget-havn.webp",
+    "knapp1_tekst": "Bli medlem",
+    "knapp2_tekst": "Se arrangementer"
+  },
+  "kort1": {
+    "bilde": "/images/gokstadveverne.webp",
+    "tittel": "Kystkultur",
+    "tekst": "Tradisjonelle fartøy, håndverk, veving og lokalhistorie"
+  },
+  "kort2": {
+    "bilde": "/images/gk-ung.webp",
+    "tittel": "Båtliv",
+    "tekst": "Seiling, båtbygging, motorer — fra Meginjoller til trebåter"
+  },
+  "kort3": {
+    "bilde": "/images/nordre-skur-og-ballast.webp",
+    "tittel": "Fellesskap",
+    "tekst": "Ca. 400 medlemmer, kor, ungdomsgruppe og sosiale samlinger"
+  },
+  "arrangementer_seksjon": {
+    "kicker": "Hva skjer?",
+    "tittel": "Kommende arrangementer"
+  },
+  "aktuelt_seksjon": {
+    "kicker": "Aktuelt",
+    "tittel": "Siste nytt"
+  },
+  "om_oss": {
+    "kicker": "Siden 1990",
+    "tittel": "Velkommen til oss",
+    "tekst": "Gokstad Kystlag ble stiftet av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger.\n\nI dag har vi ca. 400 medlemmer fordelt på 11 arbeidslag. Vi holder til ved indre havn i Sandefjord med verksted, motormuseum, selskapslokaler og brygge.",
+    "knapp_tekst": "Les mer om oss",
+    "bilde": "/images/albatross-ii.webp"
+  },
+  "utleie_seksjon": {
+    "kicker": "Utleie",
+    "tittel": "Selskapslokaler med havneutsikt",
+    "tekst": "Plass til 60 personer i Nordre Skur med fullt kjøkken og direkte utgang til vestvendt brygge. Bryllup, bursdag eller firmafest.",
+    "knapp_tekst": "Se lokaler",
+    "bilde": "/images/utleie-05.webp"
+  }
+}

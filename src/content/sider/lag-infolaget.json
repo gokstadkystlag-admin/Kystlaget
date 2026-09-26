@@ -1,0 +1,16 @@
+{
+  "tittel": "Infolaget",
+  "kort_beskrivelse": "Nettside, sosiale medier, e-post og design for kystlaget.",
+  "bilde": "/images/infolaget.webp",
+  "bilde_alt": "Infolaget — Kystvakt",
+  "intro": "Infolaget har ansvar for intern og ekstern informasjon i Gokstad Kystlag.",
+  "oppgaver_tittel": "Oppgaver",
+  "oppgaver": [
+    "Drift av nettside for Gokstad Kystlag",
+    "Sosiale medier — Facebook og Instagram",
+    "Utsending av e-post og møteinnkallelser til medlemmer",
+    "Deling av bilder og oppdateringer fra kystlagets aktiviteter",
+    "Design av plakater, trykksaker og digitalt materiell for andre lag",
+    "Drift av datasystemer"
+  ]
+}

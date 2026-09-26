@@ -1,73 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import { avsnitt } from "../lib/tekst";
+
+const side = (await getEntry("sider", "om"))!.data;
 ---
 
 <Layout tittel="Om oss" beskrivelse="Om Gokstad Kystlag — stiftet 1990, ca. 400 medlemmer, 11 arbeidslag. Kystkultur, tradisjonelle fartøy og fellesskap i Sandefjord.">
   <div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-heading font-bold mb-8">Om Gokstad Kystlag</h1>
+    <h1 class="text-3xl font-heading font-bold mb-8">{side.tittel}</h1>
 
-    <img src="/images/kystlaget-havn.webp" alt="Gokstad Kystlag ved havnen" class="w-full h-72 object-cover rounded-lg mb-8" />
+    <img src={side.bilde} alt="Gokstad Kystlag ved havnen" class="w-full h-72 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-12">
-      <p>
-        Gokstad Kystlag ble stiftet 16. november 1990 av en gjeng entusiaster med interesse for
-        tradisjonelle fartøy, motorer, bygninger og brygger. I dag har vi ca. 400 medlemmer
-        og er et av de mest aktive kystlagene i Forbundet Kysten.
-      </p>
-      <p>
-        Formålet vårt er å ta vare på og formidle kystkultur gjennom tradisjonelle fartøy,
-        bygninger, sjøfartstradisjon, tradisjonelt håndverk og lokalhistorisk opplæring.
-      </p>
+      {avsnitt(side.intro).map((p) => <p>{p}</p>)}
     </div>
 
-    <h2 class="text-2xl font-heading font-bold mb-6">Våre bygninger og anlegg</h2>
+    <h2 class="text-2xl font-heading font-bold mb-6">{side.bygninger_tittel}</h2>
     <div class="grid md:grid-cols-2 gap-6 mb-12">
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-2">Murbygningen</h3>
-        <p class="text-kyst-graa text-sm">Verksteder, kontor og møterom.</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-2">Søndre Skur</h3>
-        <p class="text-kyst-graa text-sm">Båtbygging, modellbåtverksted og vevstue.</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-2">Nordre Skur</h3>
-        <p class="text-kyst-graa text-sm">Elektrikerverksted, selskapslokaler med kjøkken og toaletter.</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-2">Motormuseet</h3>
-        <p class="text-kyst-graa text-sm">Ca. 100 historiske båtmotorer. Et av de bedre motormuseene i Norge.</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-2">Semihuset</h3>
-        <p class="text-kyst-graa text-sm">Utstilling av semi-dieselmotor.</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-2">Ungdomshuset</h3>
-        <p class="text-kyst-graa text-sm">GK Ung sitt hus med utstyr, 6 seilbåter og en stor seilbåt.</p>
-      </div>
+      {side.bygninger.map((b: { tittel: string; tekst: string }) => (
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-heading font-bold text-lg mb-2">{b.tittel}</h3>
+          <p class="text-kyst-graa text-sm">{b.tekst}</p>
+        </div>
+      ))}
     </div>
 
     <!-- Bli medlem -->
     <section id="medlem" class="mb-10">
       <div class="grid md:grid-cols-2 gap-8 items-center">
-        <img src="/images/bathavn.webp" alt="Båthavn ved Gokstad Kystlag" loading="lazy" class="w-full h-64 object-cover rounded-lg" />
+        <img src={side.medlem.bilde} alt="Båthavn ved Gokstad Kystlag" loading="lazy" class="w-full h-64 object-cover rounded-lg" />
         <div class="bg-kyst-blaa text-white rounded-lg p-8">
-          <h2 class="text-2xl font-heading font-bold mb-4">Bli medlem</h2>
+          <h2 class="text-2xl font-heading font-bold mb-4">{side.medlem.tittel}</h2>
           <p class="text-gray-200 mb-4">
-            Innmelding gjøres via Forbundet Kysten. Du blir automatisk medlem av
-            både Gokstad Kystlag og Forbundet Kysten.
+            {side.medlem.tekst}
           </p>
-          <h3 class="font-semibold mb-2">Som medlem får du:</h3>
+          <h3 class="font-semibold mb-2">{side.medlem.fordeler_tittel}</h3>
           <ul class="list-disc list-inside text-gray-200 space-y-1 mb-6 text-sm">
-            <li>Magasinet «Kysten» — om kystkultur og tradisjonsbåter</li>
-            <li>Nyhetsbrevet «Kystvakt» fire ganger i året</li>
-            <li>Rabatt på arrangementer og sosiale sammenkomster</li>
-            <li>Mulighet til å delta i ett eller flere arbeidslag</li>
-            <li>Tilhørighet i et aktivt kystkultmiljø med ca. 400 medlemmer</li>
+            {side.medlem.fordeler.map((f: string) => <li>{f}</li>)}
           </ul>
           <a href="https://forbundetkysten.portal.styreweb.com/arrangement/ArrangementSession?ID=Innmelding" target="_blank" rel="noopener" class="bg-kyst-gul text-kyst-mork px-6 py-3 rounded-md font-bold hover:bg-amber-400 transition-colors inline-block">
-            Meld deg inn
+            {side.medlem.knapp_tekst}
           </a>
         </div>
       </div>
@@ -75,23 +48,23 @@ import Layout from "../layouts/Layout.astro";
 
     <!-- Kontakt oss -->
     <section class="bg-kyst-blaa/10 rounded-lg p-8">
-      <h2 class="text-2xl font-heading font-bold mb-2">Kontakt oss</h2>
+      <h2 class="text-2xl font-heading font-bold mb-2">{side.kontakt.tittel}</h2>
       <p class="text-kyst-graa mb-4">
-        Har du spørsmål om kystlaget, arbeidslagene, båtplass eller noe annet? Ta kontakt med styret.
+        {side.kontakt.tekst}
       </p>
       <div class="flex flex-wrap gap-4">
         <a href="/kontakt" class="bg-kyst-blaa text-white px-5 py-2.5 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors text-sm">
           Send melding
         </a>
-        <a href="mailto:post@gokstadkystlag.no" class="border-2 border-kyst-blaa text-kyst-blaa px-5 py-2.5 rounded-md font-semibold hover:bg-kyst-blaa hover:text-white transition-colors text-sm">
-          post@gokstadkystlag.no
+        <a href={`mailto:${side.kontakt.epost}`} class="border-2 border-kyst-blaa text-kyst-blaa px-5 py-2.5 rounded-md font-semibold hover:bg-kyst-blaa hover:text-white transition-colors text-sm">
+          {side.kontakt.epost}
         </a>
-        <a href="tel:45816286" class="border-2 border-kyst-blaa text-kyst-blaa px-5 py-2.5 rounded-md font-semibold hover:bg-kyst-blaa hover:text-white transition-colors text-sm">
-          458 16 286
+        <a href={`tel:${side.kontakt.telefon.replace(/\s/g, "")}`} class="border-2 border-kyst-blaa text-kyst-blaa px-5 py-2.5 rounded-md font-semibold hover:bg-kyst-blaa hover:text-white transition-colors text-sm">
+          {side.kontakt.telefon}
         </a>
       </div>
       <p class="text-kyst-graa text-sm mt-4">
-        Framnesveien 5, 3222 Sandefjord
+        {side.kontakt.adresse}
       </p>
     </section>
   </div>

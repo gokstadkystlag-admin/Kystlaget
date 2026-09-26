@@ -1,39 +1,35 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import KontaktLag from "../../components/KontaktLag.astro";
+import { getEntry } from "astro:content";
+
+const side = (await getEntry("sider", "lag-verkstedlaget"))!.data;
 ---
 
-<Layout tittel="Verkstedlaget">
+<Layout tittel={side.tittel}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Verkstedlaget</h1>
-    <img src="/images/verkstedlaget.webp" alt="Verkstedlaget" class="w-full h-64 object-cover rounded-lg mb-8" />
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>
+    <img src={side.bilde} alt={side.tittel} class="w-full h-64 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-10">
       <p>
-        Eiendommen kystlaget overtok hadde hatt båtmotoren som sentral virksomhet siden 1924,
-        med salg, service, reparasjon og opplag. Da kystlaget tok over, fulgte det med et
-        omfattende lager av motorer, deler og verktøy.
+        {side.intro}
       </p>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="font-heading font-bold text-lg mb-3">Aktiviteter</h2>
+      <h2 class="font-heading font-bold text-lg mb-3">{side.aktiviteter_tittel}</h2>
       <ul class="text-kyst-graa text-sm space-y-2 list-disc list-inside">
-        <li>Verksted og smie med sveise- og smiutstyr</li>
-        <li>Restaurering og reparasjon av båtmotorer</li>
-        <li>Berging av motorer og utstyr fra vrak og gamle båter</li>
-        <li>Bygging av motorutstilling for publikum</li>
-        <li>Metallarbeid og sveiseprosjekter</li>
+        {side.aktiviteter.map((a: string) => <li>{a}</li>)}
       </ul>
     </div>
 
     <div class="bg-kyst-blaa/10 rounded-lg p-6">
       <p class="text-kyst-graa text-sm">
-        Mange har donert motorer, deler, verktøy og materialer til verkstedet.
-        Nettverket av entusiaster jobber sammen for å bevare kystens motorhistorie.
+        {side.notat}
       </p>
     </div>
-    <KontaktLag lag="Verkstedlaget" />
+    <KontaktLag lag={side.tittel} />
   </div>
 </Layout>

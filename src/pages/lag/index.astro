@@ -1,82 +1,37 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { getEntry } from "astro:content";
 
-const lag = [
-  {
-    id: "fartoy-og-kulturlaget",
-    navn: "Fartøy- og kulturlaget",
-    kort: "Eldre bruks- og fritidsbåter, inkludert Albatross og rekebåten Lanesbuen.",
-    bilde: "/images/fartoy-og-kulturlaget.webp",
-  },
-  {
-    id: "hus-og-havnelaget",
-    navn: "Hus- og havnelaget",
-    kort: "Vedlikehold av bygninger, brygger, kaier og båtplasser.",
-    bilde: "/images/hus-og-havnelaget.webp",
-  },
-  {
-    id: "infolaget",
-    navn: "Infolaget",
-    kort: "Nettside, sosiale medier, e-post og design for kystlaget.",
-    bilde: "/images/infolaget.webp",
-  },
-  {
-    id: "verkstedlaget",
-    navn: "Verkstedlaget",
-    kort: "Verksted og smie med sveise- og smiutstyr. Restaurering av båtmotorer.",
-    bilde: "/images/verkstedlaget.webp",
-  },
-  {
-    id: "kystledlaget",
-    navn: "Kystledlaget",
-    kort: "Rimelige overnattingshytter langs kysten — Gokstadholmen og Buerøya.",
-    bilde: "/images/kystledlaget.webp",
-  },
-  {
-    id: "gokstadveverne",
-    navn: "Gokstadveverne",
-    kort: "Veving, strikking og hekling på seilloftet i Søndre Skur. Onsdager kl. 18–21.",
-    bilde: "/images/gokstadveverne.webp",
-  },
-  {
-    id: "modellbatlaget",
-    navn: "Modellbåtlaget",
-    kort: "Bygging av modellbåter i eget verksted. Tirsdager kl. 18–20.30.",
-    bilde: "/images/modellbatlaget.webp",
-  },
-  {
-    id: "nordre-skur-og-ballast",
-    navn: "Nordre Skur og Ballast",
-    kort: "Kystlagets kor med 33 sangere og 7 musikere. Fire studioalbum.",
-    bilde: "/images/nordre-skur-og-ballast.webp",
-  },
-  {
-    id: "gk-ung",
-    navn: "GK Ung",
-    kort: "Ungdomsgruppen — seiling med Meginjoller og Colin Archer-skøyten Vega.",
-    bilde: "/images/gk-ung.webp",
-  },
-  {
-    id: "motorsamlingen",
-    navn: "Motorsamlingen",
-    kort: "Museum med ca. 130 båtmotorer og 1 000 dokumenter. Åpnet i 1995.",
-    bilde: "/images/motorsamlingen.webp",
-  },
-  {
-    id: "stiftelsen",
-    navn: "Stiftelsen Sandefjord Kystkultursenter",
-    kort: "Samarbeid mellom kommunen, AJHS og kystlaget. Forvalter eiendommene.",
-    bilde: "/images/stiftelsen.webp",
-  },
+// Rekkefølgen på arbeidslagene i oversikten er en del av sidedesignet og er derfor
+// fast her — selve navn/tekst/bilde for hvert lag hentes fra lagets egen CMS-fil.
+const lag_slugs = [
+  "fartoy-og-kulturlaget",
+  "hus-og-havnelaget",
+  "infolaget",
+  "verkstedlaget",
+  "kystledlaget",
+  "gokstadveverne",
+  "modellbatlaget",
+  "nordre-skur-og-ballast",
+  "gk-ung",
+  "motorsamlingen",
+  "stiftelsen",
 ];
+
+const side = (await getEntry("sider", "lag-oversikt"))!.data;
+const lag = await Promise.all(
+  lag_slugs.map(async (slug) => {
+    const entry = (await getEntry("sider", `lag-${slug}`))!.data;
+    return { id: slug, navn: entry.tittel, kort: entry.kort_beskrivelse, bilde: entry.bilde };
+  })
+);
 ---
 
 <Layout tittel="Arbeidslagene" beskrivelse="11 arbeidslag i Gokstad Kystlag — båtbygging, veving, kor, seiling, motormuseum og mer. Alle medlemmer kan delta.">
   <div class="max-w-5xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-heading font-bold mb-4">Arbeidslagene</h1>
+    <h1 class="text-3xl font-heading font-bold mb-4">{side.tittel}</h1>
     <p class="text-kyst-graa mb-8">
-      Gokstad Kystlag har 11 aktive arbeidslag og komiteer som dekker alt fra båtbygging og
-      seiling til veving og kor. Alle medlemmer kan delta i ett eller flere lag.
+      {side.intro}
     </p>
 
     <div class="grid md:grid-cols-2 gap-6">
@@ -93,12 +48,12 @@ const lag = [
     </div>
 
     <div class="mt-10 bg-kyst-blaa/10 rounded-lg p-8 text-center">
-      <h3 class="font-heading font-bold text-lg mb-2">Vil du bli med i et lag?</h3>
+      <h3 class="font-heading font-bold text-lg mb-2">{side.cta.tittel}</h3>
       <p class="text-kyst-graa mb-4">
-        Alle medlemmer er velkomne. Du velger selv hva du vil engasjere deg i.
+        {side.cta.tekst}
       </p>
       <a href="/kontakt" class="bg-kyst-blaa text-white px-6 py-3 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors inline-block">
-        Ta kontakt
+        {side.cta.knapp_tekst}
       </a>
     </div>
   </div>

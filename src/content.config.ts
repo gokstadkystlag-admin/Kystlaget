@@ -24,4 +24,9 @@ const arrangementer = defineCollection({
   }),
 });
 
-export const collections = { artikler, arrangementer };
+const sider = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/content/sider" }),
+  schema: z.any(),
+});
+
+export const collections = { artikler, arrangementer, sider };

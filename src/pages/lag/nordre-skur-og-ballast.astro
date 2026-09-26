@@ -1,64 +1,56 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import KontaktLag from "../../components/KontaktLag.astro";
+import { getEntry } from "astro:content";
+import { mdInline } from "../../lib/tekst";
+
+const side = (await getEntry("sider", "lag-nordre-skur-og-ballast"))!.data;
 ---
 
-<Layout tittel="Nordre Skur og Ballast">
+<Layout tittel={side.tittel}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Nordre Skur og Ballast</h1>
-    <img src="/images/nordre-skur-og-ballast.webp" alt="Nordre Skur og Ballast" class="w-full h-64 object-cover rounded-lg mb-8" />
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>
+    <img src={side.bilde} alt={side.tittel} class="w-full h-64 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-10">
       <p>
-        Nordre Skur og Ballast (NSoB) er kystlagets kor og sanggruppe, stiftet i 1993.
-        Navnet kommer fra bygningen «Nordre skur» på kystlagets eiendom.
-        «Ballast» bærer maritim betydning og symboliserer balanse og støhet.
+        {side.intro}
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 mb-10">
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="font-heading font-bold text-lg mb-3">Besetning</h2>
+        <h2 class="font-heading font-bold text-lg mb-3">{side.besetning_tittel}</h2>
         <ul class="text-kyst-graa text-sm space-y-1">
-          <li><strong>33 sangere</strong> i fire stemmegrupper: sopran, alt, tenor og bass</li>
-          <li><strong>7 musikere</strong> på gitar, fele, trekkspill, melodika, banjo, ukulele og kontrabass</li>
-          <li><strong>2 musikalske ledere</strong> som deler dirigentansvaret</li>
+          {side.besetning.map((b: string) => <li set:html={mdInline(b)} />)}
         </ul>
       </div>
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="font-heading font-bold text-lg mb-3">Repertoar</h2>
+        <h2 class="font-heading font-bold text-lg mb-3">{side.repertoar_tittel}</h2>
         <ul class="text-kyst-graa text-sm space-y-1 list-disc list-inside">
-          <li>Maritime sanger og shanties fra Skandinavia, England, Skottland og Irland</li>
-          <li>Hvalfangstsanger</li>
-          <li>A cappella-fremføringer</li>
-          <li>Soloarrangementer</li>
+          {side.repertoar.map((r: string) => <li>{r}</li>)}
         </ul>
       </div>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="font-heading font-bold text-lg mb-3">Øvelser</h2>
-      <p class="text-kyst-graa text-sm">Torsdager i murbygningen på kystlagets eiendom.</p>
+      <h2 class="font-heading font-bold text-lg mb-3">{side.ovelser_tittel}</h2>
+      <p class="text-kyst-graa text-sm">{side.ovelser_tekst}</p>
     </div>
 
     <div class="bg-white rounded-lg shadow p-6 mb-6">
-      <h2 class="font-heading font-bold text-lg mb-3">Studioalbum</h2>
+      <h2 class="font-heading font-bold text-lg mb-3">{side.studioalbum_tittel}</h2>
       <ol class="text-kyst-graa text-sm space-y-1 list-decimal list-inside">
-        <li>«På kryss og tvers med Nordre skur og ballast» (2000–2001)</li>
-        <li>«Ut fjorden» (2004)</li>
-        <li>«Fra et rorhusvindu» (2009)</li>
-        <li>«Rolling home» (2015)</li>
+        {side.studioalbum.map((s: string) => <li>{s}</li>)}
       </ol>
     </div>
 
     <div class="bg-kyst-blaa/10 rounded-lg p-6">
       <p class="text-kyst-graa text-sm">
-        Koret opptrer jevnlig for foreninger, bedrifter, aldershjem og sykehus,
-        og deltar på maritime og historiske arrangementer i Sandefjord og på festivaler
-        både nasjonalt og internasjonalt.
+        {side.notat}
       </p>
     </div>
-    <KontaktLag lag="Nordre Skur og Ballast" />
+    <KontaktLag lag={side.tittel} />
   </div>
 </Layout>

@@ -1,91 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getEntry } from "astro:content";
+import { mdInline } from "../lib/tekst";
+
+const side = (await getEntry("sider", "utleie"))!.data;
 ---
 
 <Layout tittel="Selskapslokaler" beskrivelse="Lei selskapslokaler med havneutsikt i Sandefjord. Plass til 60 personer, fullt kjøkken, brygge. Bryllup, bursdag og firmafest.">
   <div class="max-w-5xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-heading font-bold mb-4">Selskapslokaler</h1>
+    <h1 class="text-3xl font-heading font-bold mb-4">{side.tittel}</h1>
     <p class="text-kyst-graa mb-8">
-      Gokstad Kystlag leier ut flotte kurs- og selskapslokaler med utsikt over indre havn i Sandefjord.
-      Perfekt for bryllup, bursdager, firmafester og kurs.
+      {side.intro}
     </p>
 
     <!-- Bildegalleri -->
     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
-      <img src="/images/utleie-01.webp" alt="Selskapslokale" loading="lazy" class="w-full h-48 object-cover rounded-lg col-span-2 md:col-span-1 md:h-56" />
-      <img src="/images/utleie-03.webp" alt="Selskapslokale dekor" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
-      <img src="/images/utleie-05.webp" alt="Selskapslokale brygge" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
-      <img src="/images/utleie-07.webp" alt="Selskapslokale kjøkken" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
-      <img src="/images/utleie-09.webp" alt="Selskapslokale utsikt" loading="lazy" class="w-full h-48 object-cover rounded-lg col-span-2 md:col-span-2 md:h-56" />
+      <img src={side.bilder.bilde1} alt="Selskapslokale" loading="lazy" class="w-full h-48 object-cover rounded-lg col-span-2 md:col-span-1 md:h-56" />
+      <img src={side.bilder.bilde2} alt="Selskapslokale dekor" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
+      <img src={side.bilder.bilde3} alt="Selskapslokale brygge" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
+      <img src={side.bilder.bilde4} alt="Selskapslokale kjøkken" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
+      <img src={side.bilder.bilde5} alt="Selskapslokale utsikt" loading="lazy" class="w-full h-48 object-cover rounded-lg col-span-2 md:col-span-2 md:h-56" />
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 mb-10">
       <!-- Andre etasje -->
       <div class="bg-white rounded-lg shadow p-8">
-        <h2 class="text-xl font-heading font-bold mb-2">Andre etasje</h2>
-        <p class="text-kyst-blaa text-sm font-medium mb-4">Plass til opptil 60 personer</p>
+        <h2 class="text-xl font-heading font-bold mb-2">{side.andre_etasje.tittel}</h2>
+        <p class="text-kyst-blaa text-sm font-medium mb-4">{side.andre_etasje.undertittel}</p>
         <ul class="text-kyst-graa text-sm space-y-2">
-          <li>&#10003; Fullt utstyrt kjøkken med komfyr, kjøleskap og kaffetrakter</li>
-          <li>&#10003; Servise: tallerkener, glass, bestikk, serveringsfat, lysestaker, blomstervaser</li>
-          <li>&#10003; Garderobe</li>
-          <li>&#10003; To toaletter</li>
-          <li>&#10003; Trådløst internett</li>
-          <li>&#10003; Hjertestarter (AED)</li>
+          {side.andre_etasje.liste.map((p: string) => <li>&#10003; {p}</li>)}
         </ul>
       </div>
 
       <!-- Første etasje -->
       <div class="bg-white rounded-lg shadow p-8">
-        <h2 class="text-xl font-heading font-bold mb-2">Første etasje</h2>
-        <p class="text-kyst-blaa text-sm font-medium mb-4">Sesong: 1. mai – 1. oktober</p>
+        <h2 class="text-xl font-heading font-bold mb-2">{side.forste_etasje.tittel}</h2>
+        <p class="text-kyst-blaa text-sm font-medium mb-4">{side.forste_etasje.undertittel}</p>
         <ul class="text-kyst-graa text-sm space-y-2">
-          <li>&#10003; Maritim atmosfære med rustikke bord og benker</li>
-          <li>&#10003; Doble dører til vestvendt brygge</li>
-          <li>&#10003; Enkelt kjøkken med komfyr og bar</li>
-          <li>&#10003; HC-toalett i første etasje</li>
-          <li>&#10003; Utsikt over indre havn</li>
-          <li>&#10003; Griller tilgjengelig på brygga</li>
+          {side.forste_etasje.liste.map((p: string) => <li>&#10003; {p}</li>)}
         </ul>
       </div>
     </div>
 
     <!-- Praktisk info -->
     <div class="bg-white rounded-lg shadow p-8 mb-10">
-      <h2 class="text-xl font-heading font-bold mb-4">Praktisk informasjon</h2>
+      <h2 class="text-xl font-heading font-bold mb-4">{side.praktisk.tittel}</h2>
       <div class="grid md:grid-cols-2 gap-6 text-sm text-kyst-graa">
         <div>
-          <h3 class="font-semibold text-kyst-mork mb-2">Leietid</h3>
+          <h3 class="font-semibold text-kyst-mork mb-2">{side.praktisk.leietid.tittel}</h3>
           <ul class="space-y-1">
-            <li>Tilgang fra kl. 11:00 på leiedagen</li>
-            <li><strong>Helg (man–søn):</strong> Må forlate innen kl. 03:00. Ro ute etter midnatt.</li>
-            <li><strong>Dag/kveld (man–tor):</strong> Må forlate innen kl. 22:00</li>
-            <li>Flerdagers leie (over 2 dager): ta kontakt direkte</li>
+            {side.praktisk.leietid.liste.map((p: string) => <li set:html={mdInline(p)} />)}
           </ul>
         </div>
         <div>
-          <h3 class="font-semibold text-kyst-mork mb-2">Nøkler og parkering</h3>
+          <h3 class="font-semibold text-kyst-mork mb-2">{side.praktisk.nokler.tittel}</h3>
           <ul class="space-y-1">
-            <li>Nøkler hentes i kassen på Coop Extra Framnes</li>
-            <li>Returneres neste dag (helg: mandag)</li>
-            <li>Parkering på andre siden av Framnesveien</li>
-            <li>Av-/pålessing ved Stihl-byggets inngang</li>
+            {side.praktisk.nokler.liste.map((p: string) => <li>{p}</li>)}
           </ul>
         </div>
         <div>
-          <h3 class="font-semibold text-kyst-mork mb-2">Renhold og avfall</h3>
+          <h3 class="font-semibold text-kyst-mork mb-2">{side.praktisk.renhold.tittel}</h3>
           <ul class="space-y-1">
-            <li>Ordinær rengjøring er inkludert i leien</li>
-            <li>Oppvask og tømming av oppvaskmaskin gjøres av leietaker</li>
-            <li>Avfall kildesorteres og legges i bod ute</li>
+            {side.praktisk.renhold.liste.map((p: string) => <li>{p}</li>)}
           </ul>
         </div>
         <div>
-          <h3 class="font-semibold text-kyst-mork mb-2">Regler</h3>
+          <h3 class="font-semibold text-kyst-mork mb-2">{side.praktisk.regler.tittel}</h3>
           <ul class="space-y-1">
-            <li>Musikkanlegg skal holdes innendørs</li>
-            <li>Åpen ild ikke tillatt (fakler, bålpanne)</li>
-            <li>Griller på brygga — ta med eget kull</li>
-            <li>Avbestilling innen 6 uker, ellers 50 % gebyr</li>
+            {side.praktisk.regler.liste.map((p: string) => <li>{p}</li>)}
           </ul>
         </div>
       </div>
@@ -95,18 +77,17 @@ import Layout from "../layouts/Layout.astro";
     <div class="bg-kyst-blaa text-white rounded-lg p-8">
       <div class="md:flex md:items-center md:justify-between">
         <div class="mb-6 md:mb-0">
-          <h2 class="text-xl font-heading font-bold mb-2">Send forespørsel om utleie</h2>
+          <h2 class="text-xl font-heading font-bold mb-2">{side.booking.tittel}</h2>
           <p class="text-gray-200 text-sm">
-            Sjekk ledig dato og send inn forespørsel via bookingsystemet vårt.
-            Du kan også ta kontakt for omvisning av lokalene.
+            {side.booking.tekst}
           </p>
           <p class="text-gray-300 text-sm mt-2">
-            Telefon: <a href="tel:45816286" class="text-kyst-gul hover:underline">458 16 286</a> (torsdag kl. 11–13)
+            Telefon: <a href={`tel:${side.booking.telefon.replace(/\s/g, "")}`} class="text-kyst-gul hover:underline">{side.booking.telefon}</a> ({side.booking.telefon_tid})
           </p>
         </div>
         <a href="https://www.utleie.gokstadkystlag.no/wpbc-booking/" target="_blank" rel="noopener"
           class="bg-kyst-gul text-kyst-mork px-6 py-3 rounded-md font-bold hover:bg-amber-400 transition-colors inline-block whitespace-nowrap">
-          Send forespørsel
+          {side.booking.knapp_tekst}
         </a>
       </div>
     </div>

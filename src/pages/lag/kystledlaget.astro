@@ -1,56 +1,40 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import KontaktLag from "../../components/KontaktLag.astro";
+import { getEntry } from "astro:content";
+import { avsnitt } from "../../lib/tekst";
+
+const side = (await getEntry("sider", "lag-kystledlaget"))!.data;
 ---
 
-<Layout tittel="Kystledlaget">
+<Layout tittel={side.tittel}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Kystledlaget</h1>
-    <img src="/images/kystledlaget.webp" alt="Kystledlaget" class="w-full h-64 object-cover rounded-lg mb-8" />
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>
+    <img src={side.bilde} alt={side.tittel} class="w-full h-64 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-10">
-      <p>
-        Kystled er et nettverk av rimelige overnattingssteder langs kysten, tilgjengelig for alle.
-        Maks tre overnattinger per opphold.
-      </p>
-      <p>
-        Formålet er å gi folk mulighet til å oppleve kyst- og skjærgårdsmiljøet med
-        vekt på natur og maritim kulturarv på en miljøbevisst måte.
-      </p>
+      {avsnitt(side.intro).map((p) => <p>{p}</p>)}
     </div>
 
-    <h2 class="text-xl font-heading font-bold mb-4">Våre hytter</h2>
+    <h2 class="text-xl font-heading font-bold mb-4">{side.hytter_tittel}</h2>
     <div class="space-y-4 mb-10">
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-1">Drengestua — Gokstadholmen</h3>
-        <p class="text-kyst-graa text-sm">
-          40–50 meter fra bryggen. Plass til 6 personer. To kanoer tilgjengelig.
-          Tilgjengelig med robåt, ca. 20–30 minutter fra Ormestadvika.
-          Ligger innerst i Mefjorden.
-        </p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-1">Hovedhytta — Gokstadholmen</h3>
-        <p class="text-kyst-graa text-sm">
-          Utleie i sommersesongen (6 uker). 10 sengeplasser. To kanoer og robåt tilgjengelig.
-        </p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6">
-        <h3 class="font-heading font-bold text-lg mb-1">Buerøya</h3>
-        <p class="text-kyst-graa text-sm">
-          På østsiden av Sandefjordsfjorden. 8 soveplasser. Bademuligheter, furuskog og englandskap.
-        </p>
-      </div>
+      {side.hytter.map((h: { navn: string; tekst: string }) => (
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="font-heading font-bold text-lg mb-1">{h.navn}</h3>
+          <p class="text-kyst-graa text-sm">
+            {h.tekst}
+          </p>
+        </div>
+      ))}
     </div>
 
     <div class="bg-kyst-blaa/10 rounded-lg p-6">
-      <h3 class="font-heading font-bold mb-2">Booking</h3>
+      <h3 class="font-heading font-bold mb-2">{side.booking_tittel}</h3>
       <p class="text-kyst-graa text-sm">
-        Booking og innkreving håndteres av Oslofjordens Friluftsråd.
-        Små dugnadsgrupper (4–5 personer) vedlikeholder hver hytte med vår- og høstdugnad.
+        {side.booking_tekst}
       </p>
     </div>
-    <KontaktLag lag="Kystledlaget" />
+    <KontaktLag lag={side.tittel} />
   </div>
 </Layout>

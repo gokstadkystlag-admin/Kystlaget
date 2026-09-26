@@ -1,0 +1,22 @@
+{
+  "tittel": "Motorsamlingen",
+  "kort_beskrivelse": "Museum med ca. 130 båtmotorer og 1 000 dokumenter. Åpnet i 1995.",
+  "bilde": "/images/motorsamlingen.webp",
+  "intro": "Motorsamlingen har sin opprinnelse i familiebedriften som drev på eiendommen. Bedriften hadde solgt og servet båtmotorer siden 1924, da de fikk agentur for FM-motorer fra Fredrikstad. Da Gokstad Kystlag overtok i 1990, fulgte det med motorer, utstyr, reservedeler og dokumentasjon.",
+  "museet_tittel": "Museet",
+  "museet": [
+    "**1995:** Første museumsseksjon åpnet",
+    "**2007:** Nytt utstillingsareal, totalt ca. 115 m²",
+    "**Ca. 130 motorer** utstilt",
+    "**Ca. 1 000 dokumenter** i samlingen"
+  ],
+  "motortyper_tittel": "Motortyper",
+  "motortyper": [
+    "Innenbords- og påhengsmotorer",
+    "Dampmaskiner og dampkjeler (fungerende)",
+    "Tidlige to- og firetakts dieselmotorer",
+    "Bensinmotorer med åpent veivhus",
+    "Verdens første tosylindrede påhengsmotor (1914)",
+    "Amerikansk firetakts motor fra 1953"
+  ]
+}

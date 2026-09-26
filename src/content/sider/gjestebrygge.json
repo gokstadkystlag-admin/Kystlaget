@@ -1,0 +1,34 @@
+{
+  "tittel": "Gjestebrygge",
+  "intro": "Gokstad Kystlag har gjestebrygge ved indre havn i Sandefjord. Velkommen innom om du kommer sjøveien!",
+  "bilde": "/images/gjestebrygge.webp",
+  "priser": {
+    "tittel": "Priser",
+    "medlem_pris": "150 kr",
+    "medlem_tekst": "Kystlag tilknyttet Forbundet Kysten",
+    "ikke_medlem_pris": "350 kr",
+    "ikke_medlem_tekst": "Andre gjester",
+    "periode_tekst": "Per døgn: kl. 16:00 – kl. 12:00 neste dag"
+  },
+  "betaling": {
+    "tittel": "Betaling med Vipps",
+    "vipps_nummer": "80567",
+    "vipps_navn": "Gokstad Kystlag",
+    "melding_format": "GB <båtnavn>, <ditt kystlag>"
+  },
+  "info": {
+    "tittel": "Viktig informasjon",
+    "liste": [
+      "Gjestebryggen er prioritert for medlemmer av kystlag tilknyttet Forbundet Kysten og leietakere av selskapslokalene",
+      "Ledig område er merket med hvite striper — alle andre plasser er opptatt",
+      "Maks ett døgns opphold (andre avtaler krever forhåndsgodkjenning)",
+      "Strøm er tilgjengelig og inkludert i prisen"
+    ]
+  },
+  "kontakt": {
+    "tittel": "Kontakt",
+    "adresse": "Framnesveien 5, 3222 Sandefjord",
+    "telefon": "458 16 286",
+    "epost": "post@gokstadkystlag.no"
+  }
+}

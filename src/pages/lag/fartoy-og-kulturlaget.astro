@@ -1,47 +1,44 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import KontaktLag from "../../components/KontaktLag.astro";
+import { getEntry } from "astro:content";
+
+const side = (await getEntry("sider", "lag-fartoy-og-kulturlaget"))!.data;
 ---
 
-<Layout tittel="Fartøy- og kulturlaget">
+<Layout tittel={side.tittel}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
-    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">Fartøy- og kulturlaget</h1>
-    <img src="/images/fartoy-og-kulturlaget.webp" alt="Fartøy- og kulturlaget" class="w-full h-64 object-cover rounded-lg mb-8" />
+    <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>
+    <img src={side.bilde} alt={side.tittel} class="w-full h-64 object-cover rounded-lg mb-8" />
 
     <div class="text-kyst-graa space-y-4 mb-10">
       <p>
-        Fartøy- og kulturlaget har ansvar for eldre bruks- og fritidsbåter og forvalter
-        kystlagets samling av småbåter. Laget driver også med dokumentasjon og innsamling
-        av kulturgjenstander, eldre båter og maritim kulturarv.
+        {side.intro}
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 mb-10">
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="font-heading font-bold text-lg mb-2">Albatross</h2>
+        <h2 class="font-heading font-bold text-lg mb-2">{side.boks1.tittel}</h2>
         <p class="text-kyst-graa text-sm">
-          Replika av en historisk 24-fots sildbåt som opprinnelig ble bygget for over hundre år siden.
-          Båten ble bygget på kystlagets eget båtbyggeri.
+          {side.boks1.tekst}
         </p>
       </div>
       <div class="bg-white rounded-lg shadow p-6">
-        <h2 class="font-heading font-bold text-lg mb-2">Lanesbuen</h2>
+        <h2 class="font-heading font-bold text-lg mb-2">{side.boks2.tittel}</h2>
         <p class="text-kyst-graa text-sm">
-          Reketråleren fra 1965 brukes til felles fisketurer og transport av folk og last
-          til ulike destinasjoner langs kysten.
+          {side.boks2.tekst}
         </p>
       </div>
     </div>
 
     <div class="bg-kyst-blaa/10 rounded-lg p-6">
-      <h3 class="font-heading font-bold mb-2">Oppgaver</h3>
+      <h3 class="font-heading font-bold mb-2">{side.oppgaver_tittel}</h3>
       <ul class="text-kyst-graa text-sm space-y-1 list-disc list-inside">
-        <li>Vedlikehold og drift av småbåtflåten</li>
-        <li>Vedlikehold av Albatross</li>
-        <li>Dokumentasjon og innsamling av kulturgjenstander og eldre båter</li>
+        {side.oppgaver.map((o: string) => <li>{o}</li>)}
       </ul>
     </div>
-    <KontaktLag lag="Fartøy- og kulturlaget" />
+    <KontaktLag lag={side.tittel} />
   </div>
 </Layout>

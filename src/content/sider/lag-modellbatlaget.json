@@ -1,0 +1,24 @@
+{
+  "tittel": "Modellbåtlaget",
+  "kort_beskrivelse": "Bygging av modellbåter i eget verksted. Tirsdager kl. 18–20.30.",
+  "bilde": "/images/modellbatlaget.webp",
+  "intro": "Modellbåtlaget bygger modellbåter i skala, med fokus på tradisjonelle norske trebåter. Alle som har interesse for modellbåtbygging er velkomne.",
+  "praktisk_tittel": "Praktisk",
+  "praktisk_sted": "2. etasje i Søndre Skur",
+  "praktisk_tid": "Tirsdager kl. 18:00–20:30",
+  "praktisk_tekst": "Godt utstyrt maskinverksted for spesialdeler.",
+  "byggemetoder_tittel": "Byggemetoder",
+  "byggemetoder": [
+    "Ferdige byggesett",
+    "Egne design basert på originaltegninger tilpasset skala",
+    "Fullstendig skrapebygg fra tekniske spesifikasjoner"
+  ],
+  "prosjekter_tittel": "Pågående prosjekter",
+  "prosjekter": [
+    "To Colin Archer-modeller",
+    "Gjøa Hardangerjakt",
+    "Plattgattet i skala",
+    "M/B Rolf motorbåt (1:10 skala)"
+  ],
+  "notat": "Modellbåtlaget har tett samarbeid med Vestfold Modellbåtklubb (VMBK). Flere medlemmer har dobbelt medlemskap og deltar på samlinger ved 3. Dam i Tønsberg."
+}

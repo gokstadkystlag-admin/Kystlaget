@@ -1,0 +1,20 @@
+{
+  "tittel": "Stiftelsen Sandefjord Kystkultursenter",
+  "kort_beskrivelse": "Samarbeid mellom kommunen, AJHS og kystlaget. Forvalter eiendommene.",
+  "bilde": "/images/stiftelsen.webp",
+  "intro": "Stiftelsen ble opprettet i 2004 som et samarbeid mellom Sandefjord kommune, Anders Jahres Humanitære Stiftelse (AJHS) og Gokstad Kystlag. Konseptet ble initiert av AJHS-representant Bjørn Bettum.\n\nStiftelsen styres av et styre med 5 medlemmer med representanter fra hver interessent pluss uavhengig ledelse. Formålet er å fremme kystkultur slik det er definert av Forbundet Kysten.",
+  "eiendommer_tittel": "Eiendommer",
+  "eiendommer": [
+    "Flere strandeiendommer, inkludert Glasgårhuset (renovert, møte- og overnattingslokaler)",
+    "Bygningsverdi anslått til ca. 6,5 millioner kroner",
+    "Eiendommer forbundet med undergang under Framnesveien"
+  ],
+  "prosjekter_tittel": "Prosjekter",
+  "prosjekter": [
+    "Gaia-hallen",
+    "Strandrestaurering og småbåtbeddinger",
+    "Renovering av historisk fergeterminal",
+    "Ny småbåtbrygge med Gokstad Kystlag",
+    "**Kystarena** — arbeidstreningsprogram for ungdom, etablert gjennom NAV og kommunale avtaler"
+  ]
+}

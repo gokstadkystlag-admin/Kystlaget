@@ -1,0 +1,27 @@
+{
+  "tittel": "Gokstadveverne",
+  "kort_beskrivelse": "Veving, strikking og hekling på seilloftet i Søndre Skur. Onsdager kl. 18–21.",
+  "bilde": "/images/gokstadveverne.webp",
+  "intro": "Gokstadveverne er kystlagets gruppe for veving, strikking og hekling.",
+  "praktisk_tittel": "Praktisk",
+  "praktisk_sted": "Seilloftet i Søndre Skur",
+  "praktisk_tid": "Onsdager kl. 18:00–21:00",
+  "praktisk_tekst": "Inkluderer kaffepause.",
+  "utstyr_tittel": "Utstyr",
+  "utstyr": [
+    "Fire store vevstolar og tre mindre",
+    "Garnvinde, spolestativ og komplett tilbehør",
+    "Oppstadvev for billedveving",
+    "Utstyr for å sette opp vevstolar etter behov"
+  ],
+  "produkter_tittel": "Produkter",
+  "produkter_intro": "Medlemmene lager ting både til eget bruk og for inntekt til kystlaget:",
+  "produkter": [
+    "Filleryer",
+    "Håndklær og kjøkkenhåndklær",
+    "Pledd og gardiner",
+    "Brikker og løpere",
+    "Maritime motiver"
+  ],
+  "notat": "Gokstadveverne vant håndverkspris på Forbundet Kystens landsstevne i Sandefjord i 2015 for en tradisjonelt laget båtrye av håndspunnet ull."
+}

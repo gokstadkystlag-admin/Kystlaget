@@ -1,0 +1,23 @@
+{
+  "tittel": "Kystledlaget",
+  "kort_beskrivelse": "Rimelige overnattingshytter langs kysten — Gokstadholmen og Buerøya.",
+  "bilde": "/images/kystledlaget.webp",
+  "intro": "Kystled er et nettverk av rimelige overnattingssteder langs kysten, tilgjengelig for alle. Maks tre overnattinger per opphold.\n\nFormålet er å gi folk mulighet til å oppleve kyst- og skjærgårdsmiljøet med vekt på natur og maritim kulturarv på en miljøbevisst måte.",
+  "hytter_tittel": "Våre hytter",
+  "hytter": [
+    {
+      "navn": "Drengestua — Gokstadholmen",
+      "tekst": "40–50 meter fra bryggen. Plass til 6 personer. To kanoer tilgjengelig. Tilgjengelig med robåt, ca. 20–30 minutter fra Ormestadvika. Ligger innerst i Mefjorden."
+    },
+    {
+      "navn": "Hovedhytta — Gokstadholmen",
+      "tekst": "Utleie i sommersesongen (6 uker). 10 sengeplasser. To kanoer og robåt tilgjengelig."
+    },
+    {
+      "navn": "Buerøya",
+      "tekst": "På østsiden av Sandefjordsfjorden. 8 soveplasser. Bademuligheter, furuskog og englandskap."
+    }
+  ],
+  "booking_tittel": "Booking",
+  "booking_tekst": "Booking og innkreving håndteres av Oslofjordens Friluftsråd. Små dugnadsgrupper (4–5 personer) vedlikeholder hver hytte med vår- og høstdugnad."
+}

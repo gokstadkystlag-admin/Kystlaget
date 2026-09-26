@@ -1,0 +1,20 @@
+{
+  "tittel": "Fartøy- og kulturlaget",
+  "kort_beskrivelse": "Eldre bruks- og fritidsbåter, inkludert Albatross og rekebåten Lanesbuen.",
+  "bilde": "/images/fartoy-og-kulturlaget.webp",
+  "intro": "Fartøy- og kulturlaget har ansvar for eldre bruks- og fritidsbåter og forvalter kystlagets samling av småbåter. Laget driver også med dokumentasjon og innsamling av kulturgjenstander, eldre båter og maritim kulturarv.",
+  "boks1": {
+    "tittel": "Albatross",
+    "tekst": "Replika av en historisk 24-fots sildbåt som opprinnelig ble bygget for over hundre år siden. Båten ble bygget på kystlagets eget båtbyggeri."
+  },
+  "boks2": {
+    "tittel": "Lanesbuen",
+    "tekst": "Reketråleren fra 1965 brukes til felles fisketurer og transport av folk og last til ulike destinasjoner langs kysten."
+  },
+  "oppgaver_tittel": "Oppgaver",
+  "oppgaver": [
+    "Vedlikehold og drift av småbåtflåten",
+    "Vedlikehold av Albatross",
+    "Dokumentasjon og innsamling av kulturgjenstander og eldre båter"
+  ]
+}
