@@ -97,6 +97,7 @@ collections:
         label: "Om oss"
         file: "src/content/sider/om.json"
         preview_path: "om"
+        summary: "{{intro | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Toppbilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
@@ -135,6 +136,7 @@ collections:
         label: "Utleie"
         file: "src/content/sider/utleie.json"
         preview_path: "utleie"
+        summary: "{{intro | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Innledning", name: "intro", widget: "text" }
@@ -206,6 +208,7 @@ collections:
         label: "Kontakt"
         file: "src/content/sider/kontakt.json"
         preview_path: "kontakt"
+        summary: "{{intro_tekst | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Overskrift — skjema", name: "intro_tittel", widget: "string" }
@@ -242,6 +245,7 @@ collections:
         label: "Gjestebrygge"
         file: "src/content/sider/gjestebrygge.json"
         preview_path: "gjestebrygge"
+        summary: "{{intro | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Innledning", name: "intro", widget: "text" }
@@ -286,6 +290,7 @@ collections:
         label: "Arbeidslag — oversiktsside"
         file: "src/content/sider/lag-oversikt.json"
         preview_path: "lag"
+        summary: "{{intro | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Innledning", name: "intro", widget: "text" }
@@ -301,6 +306,7 @@ collections:
         label: "Arbeidslag — Fartøy- og kulturlaget"
         file: "src/content/sider/lag-fartoy-og-kulturlaget.json"
         preview_path: "lag/fartoy-og-kulturlaget"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -325,6 +331,7 @@ collections:
         label: "Arbeidslag — Hus- og havnelaget"
         file: "src/content/sider/lag-hus-og-havnelaget.json"
         preview_path: "lag/hus-og-havnelaget"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -353,6 +360,7 @@ collections:
         label: "Arbeidslag — Infolaget"
         file: "src/content/sider/lag-infolaget.json"
         preview_path: "lag/infolaget"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -366,6 +374,7 @@ collections:
         label: "Arbeidslag — Gokstadveverne"
         file: "src/content/sider/lag-gokstadveverne.json"
         preview_path: "lag/gokstadveverne"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -386,6 +395,7 @@ collections:
         label: "Arbeidslag — Kystledlaget"
         file: "src/content/sider/lag-kystledlaget.json"
         preview_path: "lag/kystledlaget"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -406,6 +416,7 @@ collections:
         label: "Arbeidslag — Modellbåtlaget"
         file: "src/content/sider/lag-modellbatlaget.json"
         preview_path: "lag/modellbatlaget"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -425,6 +436,7 @@ collections:
         label: "Arbeidslag — Motorsamlingen"
         file: "src/content/sider/lag-motorsamlingen.json"
         preview_path: "lag/motorsamlingen"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -439,6 +451,7 @@ collections:
         label: "Arbeidslag — Nordre Skur og Ballast (kor)"
         file: "src/content/sider/lag-nordre-skur-og-ballast.json"
         preview_path: "lag/nordre-skur-og-ballast"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -458,6 +471,7 @@ collections:
         label: "Arbeidslag — Stiftelsen"
         file: "src/content/sider/lag-stiftelsen.json"
         preview_path: "lag/stiftelsen"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -472,6 +486,7 @@ collections:
         label: "Arbeidslag — Verkstedlaget"
         file: "src/content/sider/lag-verkstedlaget.json"
         preview_path: "lag/verkstedlaget"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
@@ -485,6 +500,7 @@ collections:
         label: "Arbeidslag — GK Ung"
         file: "src/content/sider/lag-gk-ung.json"
         preview_path: "lag/gk-ung"
+        summary: "{{kort_beskrivelse | truncate(100)}}"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
           - { label: "Kort beskrivelse (til oversikten)", name: "kort_beskrivelse", widget: "text", hint: "Vises KUN på oversikten over alle lag (/lag), ikke på denne lagsiden." }
