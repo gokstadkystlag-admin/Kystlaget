@@ -1,6 +1,6 @@
 {
   "tittel": "Gjestebrygge",
-  "intro": "Gokstad Kystlag har gjestebrygge ved indre havn i Sandefjord. Velkommen innom om du kommer sjøveien!",
+  "intro": "TEST 26.09 – innledningstekst for Gjestebrygge, kan overskrives\n\nGokstad Kystlag har gjestebrygge ved indre havn i Sandefjord. Velkommen innom om du kommer sjøveien!",
   "bilde": "/images/gjestebrygge.webp",
   "priser": {
     "tittel": "Priser",
