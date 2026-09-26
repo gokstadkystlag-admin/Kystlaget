@@ -1,15 +1,33 @@
 {
   "tittel": "Om Gokstad Kystlag",
   "bilde": "/images/kystlaget-havn.webp",
-  "intro": "Gokstad Kystlag ble stiftet 16. november 1990 av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger. I dag har vi ca. 400 medlemmer og er et av de mest aktive kystlagene i Forbundet Kysten.\n\nFormålet vårt er å ta vare på og formidle kystkultur gjennom tradisjonelle fartøy, bygninger, sjøfartstradisjon, tradisjonelt håndverk og lokalhistorisk opplæring.",
+  "intro": "TEST 26.09 – innledningstekst for Om oss, kan overskrives\nGokstad Kystlag ble stiftet 16. november 1990 av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger. I dag har vi ca. 400 medlemmer og er et av de mest aktive kystlagene i Forbundet Kysten.\n\nFormålet vårt er å ta vare på og formidle kystkultur gjennom tradisjonelle fartøy, bygninger, sjøfartstradisjon, tradisjonelt håndverk og lokalhistorisk opplæring.",
   "bygninger_tittel": "Våre bygninger og anlegg",
   "bygninger": [
-    { "tittel": "Murbygningen", "tekst": "Verksteder, kontor og møterom." },
-    { "tittel": "Søndre Skur", "tekst": "Båtbygging, modellbåtverksted og vevstue." },
-    { "tittel": "Nordre Skur", "tekst": "Elektrikerverksted, selskapslokaler med kjøkken og toaletter." },
-    { "tittel": "Motormuseet", "tekst": "Ca. 100 historiske båtmotorer. Et av de bedre motormuseene i Norge." },
-    { "tittel": "Semihuset", "tekst": "Utstilling av semi-dieselmotor." },
-    { "tittel": "Ungdomshuset", "tekst": "GK Ung sitt hus med utstyr, 6 seilbåter og en stor seilbåt." }
+    {
+      "tittel": "Murbygningen",
+      "tekst": "Verksteder, kontor og møterom."
+    },
+    {
+      "tittel": "Søndre Skur",
+      "tekst": "Båtbygging, modellbåtverksted og vevstue."
+    },
+    {
+      "tittel": "Nordre Skur",
+      "tekst": "Elektrikerverksted, selskapslokaler med kjøkken og toaletter."
+    },
+    {
+      "tittel": "Motormuseet",
+      "tekst": "Ca. 100 historiske båtmotorer. Et av de bedre motormuseene i Norge."
+    },
+    {
+      "tittel": "Semihuset",
+      "tekst": "Utstilling av semi-dieselmotor."
+    },
+    {
+      "tittel": "Ungdomshuset",
+      "tekst": "GK Ung sitt hus med utstyr, 6 seilbåter og en stor seilbåt."
+    }
   ],
   "medlem": {
     "bilde": "/images/bathavn.webp",
