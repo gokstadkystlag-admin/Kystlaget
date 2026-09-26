@@ -139,13 +139,15 @@
         const title = entry.getIn(['data', 'tittel']) || 'Uten tittel';
         const beskrivelse = entry.getIn(['data', 'beskrivelse']) || '';
         const dato = entry.getIn(['data', 'dato']);
-        const tid = entry.getIn(['data', 'tid']);
+        const starttid = entry.getIn(['data', 'starttid']);
+        const sluttid = entry.getIn(['data', 'sluttid']);
         const sted = entry.getIn(['data', 'sted']);
         const bilde = entry.getIn(['data', 'bilde']);
 
         const datoStr = dato
           ? new Date(dato).toLocaleDateString('nb-NO', { day: 'numeric', month: 'long', year: 'numeric' })
           : '';
+        const tidStr = starttid ? (sluttid ? `kl. ${starttid}–${sluttid}` : `kl. ${starttid}`) : '';
 
         return h('div', { className: 'preview-card' },
           bilde ? h('img', { className: 'preview-image', src: this.props.getAsset(bilde).toString() }) : null,
@@ -153,7 +155,7 @@
             h('span', { className: 'preview-badge' }, 'Arrangement'),
             h('div', { className: 'preview-meta' },
               datoStr ? h('span', {}, datoStr) : null,
-              tid ? h('span', {}, tid) : null
+              tidStr ? h('span', {}, tidStr) : null
             ),
             h('h1', { className: 'preview-title' }, title),
             sted ? h('div', { className: 'preview-location' }, '\u{1F4CD} ' + sted) : null,
