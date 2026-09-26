@@ -18,8 +18,10 @@ const arrangementer = defineCollection({
     tittel: z.string(),
     beskrivelse: z.string(),
     dato: z.date(),
+    sluttdato: z.date().optional(),
     sted: z.string().optional(),
-    tid: z.string().optional(),
+    starttid: z.string().optional(),
+    sluttid: z.string().optional(),
     bilde: z.string().optional(),
   }),
 });
