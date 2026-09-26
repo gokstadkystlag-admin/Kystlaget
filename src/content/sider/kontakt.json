@@ -1,7 +1,7 @@
 {
   "tittel": "Kontakt oss",
   "intro_tittel": "Send oss en melding",
-  "intro_tekst": "Har du spørsmål om medlemskap, båtplass, utleie eller ønsker å bli med i et av lagene?",
+  "intro_tekst": "Har du spørsmål om medlemskap, båtplass, utleie eller ønsker å bli med i et av lagene?\n\nTEST 26.09 – skjematekst for Kontakt, kan overskrives",
   "bekreftelse_tittel": "Takk for meldingen!",
   "bekreftelse_tekst": "Vi har mottatt henvendelsen din og svarer vanligvis innen et par dager.",
   "kontaktinfo": {
