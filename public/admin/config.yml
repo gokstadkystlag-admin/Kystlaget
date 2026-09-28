@@ -18,7 +18,7 @@ collections:
     label: "Faste sider"
     label_singular: "Side"
     description: "Tekst og bilder på de faste sidene på nettsiden. Her kan du endre innhold, men ikke sidenes oppbygning eller design."
-    summary: "{{intro | truncate(100)}}{{intro_tekst | truncate(100)}}"
+    summary: "{{slug}}: {{intro | truncate(70)}}{{intro_tekst | truncate(70)}}{{kort_beskrivelse | truncate(70)}}{{sitat | truncate(70)}}"
     files:
       - name: "forside"
         label: "Forside"
