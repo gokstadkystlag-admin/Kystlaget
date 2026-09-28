@@ -100,6 +100,39 @@
         font-size: 14px;
         margin-top: 4px;
       }
+      .preview-field {
+        margin-bottom: 20px;
+      }
+      .preview-field-label {
+        font-family: 'Roboto Slab', serif;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #2c5f7c;
+        margin-bottom: 6px;
+      }
+      .preview-field-text {
+        margin: 0;
+        white-space: pre-wrap;
+      }
+      .preview-box {
+        border-left: 3px solid #e4dcc9;
+        padding-left: 16px;
+        margin-bottom: 20px;
+      }
+      .preview-list {
+        margin: 0;
+        padding-left: 20px;
+      }
+      .preview-list li {
+        margin-bottom: 4px;
+      }
+      .preview-inline-image {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 12px;
+      }
     `;
 
     // Artikkel preview
@@ -166,10 +199,101 @@
       }
     });
 
+    // Side (Faste sider) preview — generisk, siden feltene varierer sterkt fra fil til fil
+    const IMAGE_EXT_RE = /\.(jpe?g|png|webp|avif|gif|svg)$/i;
+
+    function humanizeKey(key) {
+      const label = key.replace(/_/g, ' ');
+      return label.charAt(0).toUpperCase() + label.slice(1);
+    }
+
+    function isImagePath(value) {
+      return typeof value === 'string' && IMAGE_EXT_RE.test(value);
+    }
+
+    function renderSideValue(key, value, getAsset) {
+      if (value === null || value === undefined || value === '') return null;
+
+      if (typeof value === 'string') {
+        if (isImagePath(value)) {
+          return h('div', { key: key, className: 'preview-field' },
+            h('img', { className: 'preview-inline-image', src: getAsset(value).toString() })
+          );
+        }
+        return h('div', { key: key, className: 'preview-field' },
+          h('div', { className: 'preview-field-label' }, humanizeKey(key)),
+          h('p', { className: 'preview-field-text' }, value)
+        );
+      }
+
+      if (Array.isArray(value)) {
+        if (value.length === 0) return null;
+        if (typeof value[0] === 'string') {
+          return h('div', { key: key, className: 'preview-field' },
+            h('div', { className: 'preview-field-label' }, humanizeKey(key)),
+            h('ul', { className: 'preview-list' }, value.map(function (item, i) {
+              return h('li', { key: i }, item);
+            }))
+          );
+        }
+        return h('div', { key: key, className: 'preview-field' },
+          h('div', { className: 'preview-field-label' }, humanizeKey(key)),
+          value.map(function (item, i) {
+            return h('div', { key: i, className: 'preview-box' }, renderSideObject(item, getAsset));
+          })
+        );
+      }
+
+      if (typeof value === 'object') {
+        const rendered = renderSideObject(value, getAsset);
+        if (rendered.every(function (r) { return r === null; })) return null;
+        return h('div', { key: key, className: 'preview-box' },
+          h('div', { className: 'preview-field-label' }, humanizeKey(key)),
+          rendered
+        );
+      }
+
+      return null;
+    }
+
+    function renderSideObject(obj, getAsset) {
+      return Object.keys(obj).map(function (k) {
+        return renderSideValue(k, obj[k], getAsset);
+      });
+    }
+
+    const SidePreview = createClass({
+      render: function () {
+        const getAsset = this.props.getAsset;
+        const data = this.props.entry.get('data');
+        const obj = data && data.toJS ? data.toJS() : {};
+
+        const title = obj.tittel;
+        const image = obj.bilde;
+        const intro = obj.intro || obj.intro_tekst || obj.kort_beskrivelse || obj.sitat;
+
+        const topKeys = ['tittel', 'bilde', 'intro', 'intro_tekst', 'kort_beskrivelse', 'sitat'];
+        const rest = Object.keys(obj).filter(function (k) { return topKeys.indexOf(k) === -1; });
+
+        return h('div', { className: 'preview-card' },
+          image ? h('img', { className: 'preview-image', src: getAsset(image).toString() }) : null,
+          h('div', { className: 'preview-content' },
+            h('span', { className: 'preview-badge' }, 'Side'),
+            title ? h('h1', { className: 'preview-title' }, title) : null,
+            intro ? h('p', { className: 'preview-beskrivelse' }, intro) : null,
+            h('div', { className: 'preview-body' }, rest.map(function (k) {
+              return renderSideValue(k, obj[k], getAsset);
+            }))
+          )
+        );
+      }
+    });
+
     // Register previews
     CMS.registerPreviewStyle(previewStyles, { raw: true });
     CMS.registerPreviewTemplate('artikler', ArtikkelPreview);
     CMS.registerPreviewTemplate('arrangementer', ArrangementPreview);
+    CMS.registerPreviewTemplate('sider', SidePreview);
   </script>
 </body>
 </html>
