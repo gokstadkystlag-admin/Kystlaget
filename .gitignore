@@ -4,3 +4,7 @@ dist/
 .astro/
 *.m4a
 test-results/
+
+# Interne notater, overlevering og opptak (kun lokalt)
+docs/*
+!docs/redaktor-veiledning.md
