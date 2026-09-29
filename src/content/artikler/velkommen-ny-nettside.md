@@ -1,7 +1,7 @@
 ---
 tittel: "Velkommen til vår nye nettside!"
 beskrivelse: "Gokstad Kystlag har fått ny nettside. Her finner du informasjon om arrangementer, lagene våre og hvordan du kan bli medlem."
-dato: 2026-03-16
+dato: 2026-09-29
 forfatter: "Infolaget"
 ---
 

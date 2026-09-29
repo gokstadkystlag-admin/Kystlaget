@@ -11,7 +11,7 @@ media_folder: "public/images"
 public_folder: "/images"
 
 logo_url: /images/logo.webp
-site_url: https://kystlaget.vercel.app
+site_url: https://gokstadkystlag.no
 
 collections:
   - name: "sider"
