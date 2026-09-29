@@ -1,4 +1,27 @@
 {
+  "redirects": [
+    { "source": "/fartoy-og-kulturlaget", "destination": "/lag/fartoy-og-kulturlaget", "permanent": true },
+    { "source": "/gk-ung", "destination": "/lag/gk-ung", "permanent": true },
+    { "source": "/gokstadveverne", "destination": "/lag/gokstadveverne", "permanent": true },
+    { "source": "/hus-og-havnelaget", "destination": "/lag/hus-og-havnelaget", "permanent": true },
+    { "source": "/infolaget", "destination": "/lag/infolaget", "permanent": true },
+    { "source": "/kystledlaget", "destination": "/lag/kystledlaget", "permanent": true },
+    { "source": "/modellbatlaget", "destination": "/lag/modellbatlaget", "permanent": true },
+    { "source": "/motorsamlingen", "destination": "/lag/motorsamlingen", "permanent": true },
+    { "source": "/nordre-skur-og-ballast", "destination": "/lag/nordre-skur-og-ballast", "permanent": true },
+    { "source": "/verkstedlaget", "destination": "/lag/verkstedlaget", "permanent": true },
+    { "source": "/stiftelsen-sandefjord-kystkultursenter", "destination": "/lag/stiftelsen", "permanent": true },
+    { "source": "/arbeidslagene", "destination": "/lag", "permanent": true },
+    { "source": "/contact", "destination": "/kontakt", "permanent": true },
+    { "source": "/about", "destination": "/om", "permanent": true },
+    { "source": "/meld-deg-inn", "destination": "/om#medlem", "permanent": true },
+    { "source": "/selskapslokaler", "destination": "/utleie", "permanent": true },
+    { "source": "/blogg", "destination": "/aktuelt", "permanent": true },
+    { "source": "/gokstad-kystlag-lager-enklere-nettsted", "destination": "/aktuelt", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+    { "source": "/services", "destination": "/", "permanent": true },
+    { "source": "/sample-page", "destination": "/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
