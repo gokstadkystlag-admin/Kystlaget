@@ -2,7 +2,7 @@ backend:
   name: github
   repo: gokstadkystlag-admin/Kystlaget
   branch: master
-  base_url: https://gokstad-kystlag.vercel.app
+  base_url: https://kystlaget.vercel.app
   auth_endpoint: /api/auth
 
 locale: "nb_NO"
@@ -11,7 +11,7 @@ media_folder: "public/images"
 public_folder: "/images"
 
 logo_url: /images/logo.webp
-site_url: https://gokstad-kystlag.vercel.app
+site_url: https://kystlaget.vercel.app
 
 collections:
   - name: "sider"

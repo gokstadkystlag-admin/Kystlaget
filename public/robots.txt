@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gokstad-kystlag.vercel.app/sitemap-index.xml
+Sitemap: https://kystlaget.vercel.app/sitemap-index.xml

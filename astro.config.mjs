@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gokstad-kystlag.vercel.app',
+  site: 'https://kystlaget.vercel.app',
   output: 'static',
   adapter: vercel(),
   integrations: [sitemap()],
