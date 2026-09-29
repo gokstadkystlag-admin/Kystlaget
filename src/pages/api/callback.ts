@@ -2,6 +2,13 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 
+// The token is only handed to CMS pages on these origins, never to whichever page opened the popup.
+const ALLOWED_ORIGINS = [
+  'https://kystlaget.vercel.app',
+  'https://gokstadkystlag.no',
+  'https://www.gokstadkystlag.no',
+];
+
 export const GET: APIRoute = async ({ url }) => {
   const code = url.searchParams.get('code');
 
@@ -22,14 +29,22 @@ export const GET: APIRoute = async ({ url }) => {
   const token = data.access_token;
   const provider = 'github';
 
+  if (typeof token !== 'string' || token === '') {
+    return new Response('Innloggingen mot GitHub feilet. Lukk vinduet og prøv igjen.', {
+      status: 400,
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    });
+  }
+
+  const forScript = (value: unknown) => JSON.stringify(value).replace(/</g, '\\u003c');
+  const message = `authorization:${provider}:success:${JSON.stringify({ token, provider })}`;
+
   const html = `<script>
     (function() {
+      var allowedOrigins = ${forScript(ALLOWED_ORIGINS)};
       function recieveMessage(e) {
-        console.log("recieveMessage %o", e);
-        window.opener.postMessage(
-          'authorization:${provider}:success:{"token":"${token}","provider":"${provider}"}',
-          e.origin
-        );
+        if (allowedOrigins.indexOf(e.origin) === -1) return;
+        window.opener.postMessage(${forScript(message)}, e.origin);
         window.removeEventListener("message", recieveMessage, false);
       }
       window.addEventListener("message", recieveMessage, false);
