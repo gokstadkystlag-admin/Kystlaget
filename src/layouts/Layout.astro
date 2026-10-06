@@ -9,8 +9,9 @@ interface Props {
   bilde?: string;
 }
 
-const { tittel, beskrivelse = "Gokstad Kystlag i Sandefjord — kystkultur, båtliv og fellesskap siden 1990", bilde } = Astro.props;
+const { tittel, beskrivelse = "Gokstad Kystlag i Sandefjord, med kystkultur, båtliv og fellesskap siden 1990.", bilde } = Astro.props;
 const currentPath = Astro.url.pathname;
+const fullTittel = tittel.includes("Gokstad Kystlag") ? tittel : `${tittel} | Gokstad Kystlag`;
 
 // Delingsbilde (og:image): fast side -> eget kort, ellers sidens foto, ellers kortet for forsiden.
 // Kortene lages med scripts/lag-delingsbilder.mjs.
@@ -37,7 +38,7 @@ function isActive(href: string) {
     <link rel="canonical" href={Astro.url.href} />
 
     <!-- Open Graph -->
-    <meta property="og:title" content={`${tittel} | Gokstad Kystlag`} />
+    <meta property="og:title" content={fullTittel} />
     <meta property="og:description" content={beskrivelse} />
     <meta property="og:image" content={ogBilde} />
     {(kort || !bilde) && <meta property="og:image:width" content="1200" />}
@@ -50,14 +51,14 @@ function isActive(href: string) {
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${tittel} | Gokstad Kystlag`} />
+    <meta name="twitter:title" content={fullTittel} />
     <meta name="twitter:description" content={beskrivelse} />
     <meta name="twitter:image" content={ogBilde} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-    <title>{tittel} | Gokstad Kystlag</title>
+    <title>{fullTittel}</title>
   </head>
   <body class="bg-kyst-beige text-kyst-mork min-h-screen flex flex-col font-sans">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-kyst-blaa focus:text-white focus:px-4 focus:py-2 focus:rounded">Hopp til hovedinnhold</a>

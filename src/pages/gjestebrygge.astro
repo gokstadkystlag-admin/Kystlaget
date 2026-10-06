@@ -5,7 +5,7 @@ import { getEntry } from "astro:content";
 const side = (await getEntry("sider", "gjestebrygge"))!.data;
 ---
 
-<Layout tittel="Gjestebrygge" beskrivelse="Gjestebrygge ved Gokstad Kystlag i Sandefjord indre havn. Strøm, vann og nærhet til sentrum.">
+<Layout tittel="Gjestebrygge" beskrivelse="Gjestebrygge hos Gokstad Kystlag i indre havn i Sandefjord, med strøm, vann og kort vei til sentrum. Her finner du priser og hvordan du betaler.">
   <div class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-heading font-bold mb-4">{side.tittel}</h1>
     <p class="text-kyst-graa mb-8">

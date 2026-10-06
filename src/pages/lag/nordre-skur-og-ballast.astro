@@ -7,7 +7,7 @@ import { mdInline } from "../../lib/tekst";
 const side = (await getEntry("sider", "lag-nordre-skur-og-ballast"))!.data;
 ---
 
-<Layout tittel={side.tittel}>
+<Layout tittel={side.tittel} beskrivelse="Nordre Skur og Ballast er koret i Gokstad Kystlag, med 33 sangere og 7 musikere. Koret har gitt ut fire studioalbum.">
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
     <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>

@@ -7,7 +7,7 @@ import { mdInline } from "../../lib/tekst";
 const side = (await getEntry("sider", "lag-motorsamlingen"))!.data;
 ---
 
-<Layout tittel={side.tittel}>
+<Layout tittel={side.tittel} beskrivelse="Motorsamlingen er et museum med rundt 130 båtmotorer og 1 000 dokumenter hos Gokstad Kystlag i Sandefjord. Museet åpnet i 1995.">
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
     <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>

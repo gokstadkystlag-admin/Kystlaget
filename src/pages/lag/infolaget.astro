@@ -6,7 +6,7 @@ import { getEntry } from "astro:content";
 const side = (await getEntry("sider", "lag-infolaget"))!.data;
 ---
 
-<Layout tittel={side.tittel}>
+<Layout tittel={side.tittel} beskrivelse="Infolaget står for nettsiden, sosiale medier, e-post og design for Gokstad Kystlag.">
   <div class="max-w-4xl mx-auto px-4 py-12">
     <a href="/lag" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle arbeidslag</a>
     <h1 class="text-3xl font-heading font-bold mt-4 mb-6">{side.tittel}</h1>

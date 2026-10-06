@@ -15,7 +15,7 @@ const artikler = (await getCollection("artikler"))
 const side = (await getEntry("sider", "forside"))!.data;
 ---
 
-<Layout tittel="Hjem" beskrivelse="Gokstad Kystlag i Sandefjord — kystkultur, båtliv og fellesskap siden 1990. 400 medlemmer, 11 arbeidslag, selskapslokaler og motormuseum.">
+<Layout tittel="Gokstad Kystlag i Sandefjord" beskrivelse="Gokstad Kystlag i Sandefjord har drevet med kystkultur, båtliv og fellesskap siden 1990. Rundt 400 medlemmer, 11 arbeidslag, selskapslokaler og motormuseum.">
   <!-- Hero -->
   <section class="relative bg-kyst-mork text-white overflow-hidden">
     <img src={side.hero.bilde} alt="Gokstad Kystlag havn" class="w-full h-[520px] object-cover opacity-30" />

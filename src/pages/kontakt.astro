@@ -5,7 +5,7 @@ import { getEntry } from "astro:content";
 const side = (await getEntry("sider", "kontakt"))!.data;
 ---
 
-<Layout tittel="Kontakt" beskrivelse="Kontakt Gokstad Kystlag — spørsmål om medlemskap, båtplass, utleie eller arbeidslag. Framnesveien 5, 3222 Sandefjord.">
+<Layout tittel="Kontakt" beskrivelse="Kontakt Gokstad Kystlag om medlemskap, båtplass, utleie eller arbeidslagene. Du finner oss i Framnesveien 5, 3222 Sandefjord.">
   <div class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="text-3xl font-heading font-bold mb-8">{side.tittel}</h1>
 
