@@ -14,7 +14,7 @@ const { artikkel } = Astro.props;
 const { Content } = await render(artikkel);
 ---
 
-<Layout tittel={artikkel.data.tittel} beskrivelse={artikkel.data.beskrivelse}>
+<Layout tittel={artikkel.data.tittel} beskrivelse={artikkel.data.beskrivelse} bilde={artikkel.data.bilde}>
   <article class="max-w-3xl mx-auto px-4 py-12">
     <a href="/aktuelt" class="text-kyst-lys-blaa text-sm hover:underline">&larr; Alle artikler</a>
     <h1 class="text-3xl font-heading font-bold mt-4 mb-2">{artikkel.data.tittel}</h1>

@@ -1,13 +1,23 @@
 ---
 import "../styles/global.css";
+import delingsbilder from "../data/delingsbilder.json";
 
 interface Props {
   tittel: string;
   beskrivelse?: string;
+  /** Eget foto for artikler og arrangementer. Faste sider får bildet sitt fra delingsbilder.json. */
+  bilde?: string;
 }
 
-const { tittel, beskrivelse = "Gokstad Kystlag i Sandefjord — kystkultur, båtliv og fellesskap siden 1990" } = Astro.props;
+const { tittel, beskrivelse = "Gokstad Kystlag i Sandefjord — kystkultur, båtliv og fellesskap siden 1990", bilde } = Astro.props;
 const currentPath = Astro.url.pathname;
+
+// Delingsbilde (og:image): fast side -> eget kort, ellers sidens foto, ellers kortet for forsiden.
+// Kortene lages med scripts/lag-delingsbilder.mjs.
+const adresse = currentPath.length > 1 ? currentPath.replace(/\/$/, "") : currentPath;
+const kort = (delingsbilder as Record<string, { bilde: string; tittel: string }>)[adresse];
+const ogBilde = new URL(kort?.bilde ?? bilde ?? delingsbilder["/"].bilde, Astro.site).href;
+const ogAlt = !kort ? tittel : adresse === "/" ? "Gokstad Kystlag, Sandefjord" : `${kort.tittel}, Gokstad Kystlag`;
 
 function isActive(href: string) {
   if (href === "/") return currentPath === "/";
@@ -29,7 +39,10 @@ function isActive(href: string) {
     <!-- Open Graph -->
     <meta property="og:title" content={`${tittel} | Gokstad Kystlag`} />
     <meta property="og:description" content={beskrivelse} />
-    <meta property="og:image" content={`${Astro.site}images/og-image.webp`} />
+    <meta property="og:image" content={ogBilde} />
+    {(kort || !bilde) && <meta property="og:image:width" content="1200" />}
+    {(kort || !bilde) && <meta property="og:image:height" content="630" />}
+    <meta property="og:image:alt" content={ogAlt} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nb_NO" />
     <meta property="og:site_name" content="Gokstad Kystlag" />
@@ -39,7 +52,7 @@ function isActive(href: string) {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${tittel} | Gokstad Kystlag`} />
     <meta name="twitter:description" content={beskrivelse} />
-    <meta name="twitter:image" content={`${Astro.site}images/og-image.webp`} />
+    <meta name="twitter:image" content={ogBilde} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

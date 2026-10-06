@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8">
+  <title>Delingsbilde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@400;500;700&display=block" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; background: #1a1a2e; }
+
+    .kort {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      color: #fff;
+    }
+    .foto {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Helt foto: hele bildet midt i, uskarp kopi fyller sidene */
+    .bak { display: none; }
+    .helt .bak {
+      display: block;
+      position: absolute; inset: -40px;
+      width: calc(100% + 80px); height: calc(100% + 80px);
+      object-fit: cover;
+      filter: blur(28px) brightness(0.7);
+    }
+    .helt .foto { object-fit: contain; }
+    .kort::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 8px;
+      background: #d4a843;
+    }
+
+    .logo {
+      background: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .logo img { height: 74%; }
+
+    h1 {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+    .merke {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7), 0 0 14px rgba(0,0,0,0.5);
+    }
+
+    /* A: sentrert, som dagens bilde */
+    .a .slor {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 60% at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.15) 100%);
+    }
+    .a .innhold {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 0 90px;
+    }
+    .a .logo { width: 116px; height: 116px; margin-bottom: 30px; }
+    .a h1 { font-size: 78px; text-shadow: 0 2px 4px rgba(0,0,0,0.6), 0 0 24px rgba(0,0,0,0.5); }
+    .a .strek { width: 90px; height: 5px; background: #d4a843; border-radius: 3px; margin: 28px 0 22px; }
+    .a .merke { font-size: 28px; }
+
+    /* B: tekst nede til venstre, mer av fotoet synlig */
+    .b .slor {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0) 58%);
+    }
+    .b .innhold {
+      position: absolute; left: 72px; right: 72px; bottom: 64px;
+    }
+    .b .topp { display: flex; align-items: center; gap: 18px; margin-bottom: 18px; }
+    .b .logo { width: 64px; height: 64px; }
+    .b .merke { font-size: 26px; }
+    .b h1 { font-size: 84px; max-width: 980px; text-shadow: 0 2px 4px rgba(0,0,0,0.6), 0 0 24px rgba(0,0,0,0.45); }
+
+    /* C: bare foto, lite merke i hjørnet */
+    .c .slor {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 200px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    }
+    .c .innhold {
+      position: absolute; left: 48px; bottom: 44px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .c .logo { width: 72px; height: 72px; }
+    .c .merke { font-size: 28px; }
+  </style>
+</head>
+<body>
+  <div class="kort" id="kort">
+    <img class="bak" id="bak" alt="">
+    <img class="foto" id="foto" alt="">
+    <div class="slor"></div>
+    <div class="innhold" id="innhold"></div>
+  </div>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const variant = p.get('variant') || 'a';
+    const tittel = p.get('tittel') || 'Gokstad Kystlag';
+    const kort = document.getElementById('kort');
+    kort.classList.add(variant);
+    const foto = document.getElementById('foto');
+    foto.src = '../public/images/' + p.get('bilde');
+    foto.style.objectPosition = p.get('pos') || 'center';
+    if (p.get('helt')) {
+      kort.classList.add('helt');
+      document.getElementById('bak').src = foto.src;
+    }
+    const logo = '<div class="logo"><img src="../public/images/logo.webp" alt=""></div>';
+    const innhold = document.getElementById('innhold');
+    const forside = tittel === 'Gokstad Kystlag';
+    if (variant === 'a') {
+      innhold.innerHTML = logo + '<h1></h1><div class="strek"></div><div class="merke"></div>';
+      innhold.querySelector('.merke').textContent = forside ? 'Sandefjord' : 'Gokstad Kystlag';
+    } else if (variant === 'b') {
+      innhold.innerHTML = '<div class="topp">' + logo + '<div class="merke"></div></div><h1></h1>';
+      innhold.querySelector('.merke').textContent = forside ? 'Sandefjord' : 'Gokstad Kystlag';
+    } else {
+      innhold.innerHTML = logo + '<div class="merke">Gokstad Kystlag</div>';
+    }
+    const h1 = innhold.querySelector('h1');
+    if (h1) {
+      h1.textContent = tittel;
+      if (tittel.length > 24) h1.style.fontSize = variant === 'a' ? '60px' : '64px';
+    }
+  </script>
+</body>
+</html>

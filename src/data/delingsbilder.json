@@ -1,0 +1,78 @@
+{
+  "/": {
+    "bilde": "/images/og/hjem.jpg",
+    "tittel": "Gokstad Kystlag"
+  },
+  "/om": {
+    "bilde": "/images/og/om.jpg",
+    "tittel": "Om oss"
+  },
+  "/lag": {
+    "bilde": "/images/og/lag.jpg",
+    "tittel": "Arbeidslagene"
+  },
+  "/lag/fartoy-og-kulturlaget": {
+    "bilde": "/images/og/lag-fartoy-og-kulturlaget.jpg",
+    "tittel": "Fartøy- og kulturlaget"
+  },
+  "/lag/gk-ung": {
+    "bilde": "/images/og/lag-gk-ung.jpg",
+    "tittel": "GK Ung"
+  },
+  "/lag/gokstadveverne": {
+    "bilde": "/images/og/lag-gokstadveverne.jpg",
+    "tittel": "Gokstadveverne"
+  },
+  "/lag/hus-og-havnelaget": {
+    "bilde": "/images/og/lag-hus-og-havnelaget.jpg",
+    "tittel": "Hus- og havnelaget"
+  },
+  "/lag/infolaget": {
+    "bilde": "/images/og/lag-infolaget.jpg",
+    "tittel": "Infolaget"
+  },
+  "/lag/kystledlaget": {
+    "bilde": "/images/og/lag-kystledlaget.jpg",
+    "tittel": "Kystledlaget"
+  },
+  "/lag/modellbatlaget": {
+    "bilde": "/images/og/lag-modellbatlaget.jpg",
+    "tittel": "Modellbåtlaget"
+  },
+  "/lag/motorsamlingen": {
+    "bilde": "/images/og/lag-motorsamlingen.jpg",
+    "tittel": "Motorsamlingen"
+  },
+  "/lag/nordre-skur-og-ballast": {
+    "bilde": "/images/og/lag-nordre-skur-og-ballast.jpg",
+    "tittel": "Nordre Skur og Ballast"
+  },
+  "/lag/stiftelsen": {
+    "bilde": "/images/og/lag-stiftelsen.jpg",
+    "tittel": "Stiftelsen Sandefjord Kystkultursenter"
+  },
+  "/lag/verkstedlaget": {
+    "bilde": "/images/og/lag-verkstedlaget.jpg",
+    "tittel": "Verkstedlaget"
+  },
+  "/gjestebrygge": {
+    "bilde": "/images/og/gjestebrygge.jpg",
+    "tittel": "Gjestebrygge"
+  },
+  "/utleie": {
+    "bilde": "/images/og/utleie.jpg",
+    "tittel": "Selskapslokaler"
+  },
+  "/kontakt": {
+    "bilde": "/images/og/kontakt.jpg",
+    "tittel": "Kontakt oss"
+  },
+  "/aktuelt": {
+    "bilde": "/images/og/aktuelt.jpg",
+    "tittel": "Aktuelt"
+  },
+  "/arrangementer": {
+    "bilde": "/images/og/arrangementer.jpg",
+    "tittel": "Arrangementer"
+  }
+}
