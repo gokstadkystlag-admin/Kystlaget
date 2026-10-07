@@ -53,14 +53,11 @@ const side = (await getEntry("sider", "om"))!.data;
         {side.kontakt.tekst}
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="/kontakt" class="bg-kyst-blaa text-white px-5 py-2.5 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors text-sm">
-          Send melding
-        </a>
-        <a href={`mailto:${side.kontakt.epost}`} class="border-2 border-kyst-blaa text-kyst-blaa px-5 py-2.5 rounded-md font-semibold hover:bg-kyst-blaa hover:text-white transition-colors text-sm">
-          {side.kontakt.epost}
+        <a href={`mailto:${side.kontakt.epost}`} class="bg-kyst-blaa text-white px-5 py-2.5 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors text-sm">
+          Send oss en e-post
         </a>
         <a href={`tel:${side.kontakt.telefon.replace(/\s/g, "")}`} class="border-2 border-kyst-blaa text-kyst-blaa px-5 py-2.5 rounded-md font-semibold hover:bg-kyst-blaa hover:text-white transition-colors text-sm">
-          {side.kontakt.telefon}
+          Ring oss på {side.kontakt.telefon}
         </a>
       </div>
       <p class="text-kyst-graa text-sm mt-4">
