@@ -208,10 +208,8 @@ collections:
         preview_path: "kontakt"
         fields:
           - { label: "Tittel", name: "tittel", widget: "string" }
-          - { label: "Overskrift — skjema", name: "intro_tittel", widget: "string" }
-          - { label: "Tekst — skjema", name: "intro_tekst", widget: "text" }
-          - { label: "Overskrift — bekreftelse", name: "bekreftelse_tittel", widget: "string" }
-          - { label: "Tekst — bekreftelse", name: "bekreftelse_tekst", widget: "text" }
+          - { label: "Overskrift — e-postknapp", name: "intro_tittel", widget: "string" }
+          - { label: "Tekst — e-postknapp", name: "intro_tekst", widget: "text" }
           - label: "Kontaktinformasjon"
             name: "kontaktinfo"
             widget: "object"
