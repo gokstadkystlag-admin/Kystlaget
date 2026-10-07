@@ -140,14 +140,14 @@ collections:
           - { label: "Innledning", name: "intro", widget: "text" }
           - label: "Bildegalleri"
             name: "bilder"
-            widget: "object"
-            hint: "Fem bilder i galleriet. Antallet er satt i designet."
+            widget: "list"
+            label_singular: "bilde"
+            summary: "{{fields.alt}}"
+            hint: "Legg til eller fjern bilder fritt. Trykk på et bilde på nettsiden for å se det i full størrelse."
             fields:
-              - { label: "Bilde 1", name: "bilde1", widget: "image", media_library: { config: { max_file_size: 512000 } } }
-              - { label: "Bilde 2", name: "bilde2", widget: "image", media_library: { config: { max_file_size: 512000 } } }
-              - { label: "Bilde 3", name: "bilde3", widget: "image", media_library: { config: { max_file_size: 512000 } } }
-              - { label: "Bilde 4", name: "bilde4", widget: "image", media_library: { config: { max_file_size: 512000 } } }
-              - { label: "Bilde 5", name: "bilde5", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Bilde", name: "bilde", widget: "image", media_library: { config: { max_file_size: 512000 } } }
+              - { label: "Alternativ tekst", name: "alt", widget: "string", hint: "Kort beskrivelse for dem som ikke ser bildet, f.eks. «Brygga med utsikt over havna». Vises ikke på siden." }
+              - { label: "Bildetekst", name: "bildetekst", widget: "string", required: false, hint: "Valgfri. Vises under bildet i full størrelse: hva det viser og hvor." }
           - label: "Andre etasje"
             name: "andre_etasje"
             widget: "object"

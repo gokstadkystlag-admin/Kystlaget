@@ -1,13 +1,13 @@
 {
   "tittel": "Selskapslokaler",
   "intro": "Gokstad Kystlag leier ut flotte kurs- og selskapslokaler med utsikt over indre havn i Sandefjord. Perfekt for bryllup, bursdager, firmafester og kurs.",
-  "bilder": {
-    "bilde1": "/images/utleie-01.webp",
-    "bilde2": "/images/utleie-03.webp",
-    "bilde3": "/images/utleie-05.webp",
-    "bilde4": "/images/utleie-07.webp",
-    "bilde5": "/images/utleie-09.webp"
-  },
+  "bilder": [
+    { "bilde": "/images/utleie-01.webp", "alt": "Selskapslokale" },
+    { "bilde": "/images/utleie-03.webp", "alt": "Selskapslokale dekor" },
+    { "bilde": "/images/utleie-05.webp", "alt": "Selskapslokale brygge" },
+    { "bilde": "/images/utleie-07.webp", "alt": "Selskapslokale kjøkken" },
+    { "bilde": "/images/utleie-09.webp", "alt": "Selskapslokale utsikt" }
+  ],
   "andre_etasje": {
     "tittel": "Andre etasje",
     "undertittel": "Plass til opptil 60 personer",

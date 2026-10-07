@@ -14,13 +14,28 @@ const side = (await getEntry("sider", "utleie"))!.data;
     </p>
 
     <!-- Bildegalleri -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10">
-      <img src={side.bilder.bilde1} alt="Selskapslokale" loading="lazy" class="w-full h-48 object-cover rounded-lg col-span-2 md:col-span-1 md:h-56" />
-      <img src={side.bilder.bilde2} alt="Selskapslokale dekor" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
-      <img src={side.bilder.bilde3} alt="Selskapslokale brygge" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
-      <img src={side.bilder.bilde4} alt="Selskapslokale kjøkken" loading="lazy" class="w-full h-48 object-cover rounded-lg md:h-56" />
-      <img src={side.bilder.bilde5} alt="Selskapslokale utsikt" loading="lazy" class="w-full h-48 object-cover rounded-lg col-span-2 md:col-span-2 md:h-56" />
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10" data-galleri>
+      {side.bilder.map((b: { bilde: string; alt: string; bildetekst?: string }, i: number) => (
+        <button type="button" data-bilde={i} data-tekst={b.bildetekst ?? ""} aria-label={`Åpne bilde: ${b.alt}`}
+          class="block overflow-hidden rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-kyst-blaa">
+          <img src={b.bilde} alt={b.alt} loading="lazy" class="w-full h-48 md:h-56 object-cover hover:opacity-90 transition-opacity" />
+        </button>
+      ))}
     </div>
+
+    <dialog id="galleri-dialog" aria-label="Bildegalleri" class="bg-transparent p-0 m-0 max-w-none max-h-none w-full h-full backdrop:bg-black/90">
+      <div class="w-full h-full flex flex-col items-center justify-center p-4 select-none" data-lukk>
+        <figure class="max-w-5xl w-full flex flex-col items-center">
+          <img id="galleri-bilde" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded" />
+          <figcaption id="galleri-tekst" class="text-white text-sm mt-3 text-center"></figcaption>
+        </figure>
+        <p id="galleri-teller" class="text-gray-300 text-xs mt-2"></p>
+      </div>
+      <button type="button" id="galleri-lukk" aria-label="Lukk" class="absolute top-4 right-4 text-white text-3xl leading-none w-11 h-11 rounded-full bg-black/50 hover:bg-black/70">&times;</button>
+      <button type="button" id="galleri-forrige" aria-label="Forrige bilde" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 text-white text-3xl leading-none w-11 h-11 rounded-full bg-black/50 hover:bg-black/70">&#8249;</button>
+      <button type="button" id="galleri-neste" aria-label="Neste bilde" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 text-white text-3xl leading-none w-11 h-11 rounded-full bg-black/50 hover:bg-black/70">&#8250;</button>
+    </dialog>
+
 
     <div class="grid md:grid-cols-2 gap-6 mb-10">
       <!-- Andre etasje -->
@@ -93,3 +108,53 @@ const side = (await getEntry("sider", "utleie"))!.data;
     </div>
   </div>
 </Layout>
+
+<script>
+  const dialog = document.getElementById("galleri-dialog") as HTMLDialogElement | null;
+  const knapper = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-bilde]"));
+
+  if (dialog && knapper.length) {
+    const bilde = document.getElementById("galleri-bilde") as HTMLImageElement;
+    const tekst = document.getElementById("galleri-tekst")!;
+    const teller = document.getElementById("galleri-teller")!;
+    const forrige = document.getElementById("galleri-forrige")!;
+    const neste = document.getElementById("galleri-neste")!;
+    let nå = 0;
+
+    const vis = (i: number) => {
+      nå = (i + knapper.length) % knapper.length;
+      const img = knapper[nå].querySelector("img")!;
+      bilde.src = img.currentSrc || img.src;
+      bilde.alt = img.alt;
+      tekst.textContent = knapper[nå].dataset.tekst ?? "";
+      teller.textContent = `Bilde ${nå + 1} av ${knapper.length}`;
+      const flere = knapper.length > 1;
+      forrige.hidden = !flere;
+      neste.hidden = !flere;
+    };
+
+    knapper.forEach((k, i) => k.addEventListener("click", () => { vis(i); dialog.showModal(); }));
+    document.getElementById("galleri-lukk")!.addEventListener("click", () => dialog.close());
+    forrige.addEventListener("click", () => vis(nå - 1));
+    neste.addEventListener("click", () => vis(nå + 1));
+
+    // Trykk utenfor bildet lukker
+    dialog.addEventListener("click", (e) => {
+      const mål = e.target as HTMLElement;
+      if (mål === dialog || mål.hasAttribute("data-lukk")) dialog.close();
+    });
+
+    dialog.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") vis(nå - 1);
+      if (e.key === "ArrowRight") vis(nå + 1);
+    });
+
+    // Sveip på telefon
+    let startX = 0;
+    dialog.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    dialog.addEventListener("touchend", (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) vis(dx < 0 ? nå + 1 : nå - 1);
+    });
+  }
+</script>
