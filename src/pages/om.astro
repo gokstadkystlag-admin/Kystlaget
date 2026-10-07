@@ -60,7 +60,10 @@ const side = (await getEntry("sider", "om"))!.data;
           Ring oss på {side.kontakt.telefon}
         </a>
       </div>
-      <p class="text-kyst-graa text-sm mt-4">
+      <p class="text-kyst-graa text-xs mt-4">
+        Åpnes ikke e-postprogrammet? Send til {side.kontakt.epost}
+      </p>
+      <p class="text-kyst-graa text-sm mt-1">
         {side.kontakt.adresse}
       </p>
     </section>
