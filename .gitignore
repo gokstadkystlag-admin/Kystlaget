@@ -4,6 +4,8 @@ dist/
 .astro/
 *.m4a
 test-results/
+.env
+.env.local
 
 # Interne notater, overlevering og opptak (kun lokalt)
 docs/*
