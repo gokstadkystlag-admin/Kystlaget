@@ -52,7 +52,7 @@ const lag = await Promise.all(
       <p class="text-kyst-graa mb-4">
         {side.cta.tekst}
       </p>
-      <a href="/kontakt" class="bg-kyst-blaa text-white px-6 py-3 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors inline-block">
+      <a href={`mailto:post@gokstadkystlag.no?subject=${encodeURIComponent('Jeg vil gjerne bli med i et arbeidslag')}`} class="bg-kyst-blaa text-white px-6 py-3 rounded-md font-bold hover:bg-kyst-lys-blaa transition-colors inline-block">
         {side.cta.knapp_tekst}
       </a>
     </div>

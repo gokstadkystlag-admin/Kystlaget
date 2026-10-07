@@ -49,7 +49,7 @@ const side = (await getEntry("sider", "lag-gk-ung"))!.data;
       <h3 class="font-heading font-bold mb-2">{side.teambuilding_tittel}</h3>
       <p class="text-kyst-graa text-sm">
         {side.teambuilding_tekst}
-        <a href="/kontakt" class="text-kyst-blaa hover:underline">Ta kontakt</a> for å høre mer.
+        <a href={`mailto:post@gokstadkystlag.no?subject=${encodeURIComponent('Jeg vil gjerne høre mer om teambuilding med ' + side.tittel)}`} class="text-kyst-blaa hover:underline">Ta kontakt</a> for å høre mer.
       </p>
     </div>
     <KontaktLag lag={side.tittel} />
