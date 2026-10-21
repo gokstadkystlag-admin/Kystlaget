@@ -67,7 +67,7 @@ const side = (await getEntry("sider", "gjestebrygge"))!.data;
       <h2 class="text-xl font-heading font-bold mb-2">{side.kontakt.tittel}</h2>
       <div class="text-kyst-graa text-sm space-y-1">
         <p><strong>Adresse:</strong> {side.kontakt.adresse}</p>
-        <p><strong>Telefon:</strong> <a href={`tel:${side.kontakt.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{side.kontakt.telefon}</a></p>
+        <p><strong>Telefon:</strong> <a href={`tel:${side.kontakt.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{side.kontakt.telefon}</a>{side.kontakt.telefon_tid && <span> ({side.kontakt.telefon_tid})</span>}</p>
         <p><strong>E-post:</strong> <a href={`mailto:${side.kontakt.epost}`} class="text-kyst-blaa hover:underline">{side.kontakt.epost}</a></p>
       </div>
     </div>

@@ -35,7 +35,7 @@ const side = (await getEntry("sider", "kontakt"))!.data;
             </div>
             <div>
               <h3 class="font-medium">Telefon</h3>
-              <p><a href={`tel:${side.kontaktinfo.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{side.kontaktinfo.telefon}</a></p>
+              <p><a href={`tel:${side.kontaktinfo.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{side.kontaktinfo.telefon}</a>{side.kontaktinfo.telefon_tid && <span class="text-kyst-graa"> ({side.kontaktinfo.telefon_tid})</span>}</p>
             </div>
             <div>
               <h3 class="font-medium">E-post</h3>

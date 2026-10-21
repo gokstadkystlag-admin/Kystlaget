@@ -217,6 +217,7 @@ collections:
               - { label: "Tittel", name: "tittel", widget: "string" }
               - { label: "Adresse", name: "adresse", widget: "string" }
               - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "Telefontid", name: "telefon_tid", widget: "string", required: false }
               - { label: "E-post", name: "epost", widget: "string" }
               - { label: "E-post — utleie", name: "utleie_epost", widget: "string" }
               - { label: "Facebook-lenke", name: "facebook_url", widget: "string" }
@@ -272,6 +273,7 @@ collections:
               - { label: "Tittel", name: "tittel", widget: "string" }
               - { label: "Adresse", name: "adresse", widget: "string" }
               - { label: "Telefon", name: "telefon", widget: "string" }
+              - { label: "Telefontid", name: "telefon_tid", widget: "string", required: false }
               - { label: "E-post", name: "epost", widget: "string" }
 
       - name: "lag-oversikt"
