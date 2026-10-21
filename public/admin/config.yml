@@ -221,12 +221,6 @@ collections:
               - { label: "E-post — utleie", name: "utleie_epost", widget: "string" }
               - { label: "Facebook-lenke", name: "facebook_url", widget: "string" }
               - { label: "Facebook-lenketekst", name: "facebook_tekst", widget: "string" }
-          - label: "Boks — båtplass"
-            name: "batplass_boks"
-            widget: "object"
-            fields:
-              - { label: "Tittel", name: "tittel", widget: "string" }
-              - { label: "Tekst", name: "tekst", widget: "text" }
           - label: "Boks — gjestebrygge"
             name: "gjestebrygge_boks"
             widget: "object"

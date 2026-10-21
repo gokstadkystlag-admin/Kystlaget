@@ -53,13 +53,6 @@ const side = (await getEntry("sider", "kontakt"))!.data;
         </div>
 
         <div class="bg-kyst-blaa/10 rounded-lg p-6">
-          <h3 class="font-heading font-bold mb-2">{side.batplass_boks.tittel}</h3>
-          <p class="text-kyst-graa text-sm">
-            {side.batplass_boks.tekst}
-          </p>
-        </div>
-
-        <div class="bg-kyst-blaa/10 rounded-lg p-6">
           <h3 class="font-heading font-bold mb-2">{side.gjestebrygge_boks.tittel}</h3>
           <p class="text-kyst-graa text-sm">
             {side.gjestebrygge_boks.tekst_for_lenke} <a href="/gjestebrygge" class="text-kyst-blaa hover:underline">{side.gjestebrygge_boks.lenke_tekst}</a>.
