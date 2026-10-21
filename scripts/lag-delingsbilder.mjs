@@ -15,7 +15,7 @@ const chrome = process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Applic
 
 // navn = filnavn og adressen bildet hører til
 export const sider = [
-  { navn: 'hjem', adresse: '/', tittel: 'Gokstad Kystlag', bilde: 'kystlaget-havn.webp' },
+  { navn: 'hjem', adresse: '/', tittel: 'Gokstad kystlag', bilde: 'kystlaget-havn.webp' },
   { navn: 'om', adresse: '/om', tittel: 'Om oss', bilde: 'bathavn.webp' },
   { navn: 'lag', adresse: '/lag', tittel: 'Arbeidslagene', bilde: 'albatross-ii.webp' },
   { navn: 'lag-fartoy-og-kulturlaget', adresse: '/lag/fartoy-og-kulturlaget', tittel: 'Fartøy- og kulturlaget', bilde: 'fartoy-og-kulturlaget.webp' },

@@ -1,7 +1,7 @@
 {
   "hero": {
     "kicker": "Sandefjord siden 1990",
-    "tittel": "Gokstad Kystlag",
+    "tittel": "Gokstad kystlag",
     "undertekst": "Kystkultur, båtliv og fellesskap",
     "bilde": "/images/kystlaget-havn.webp",
     "knapp1_tekst": "Bli medlem",
@@ -33,7 +33,7 @@
   "om_oss": {
     "kicker": "Siden 1990",
     "tittel": "Velkommen til oss",
-    "tekst": "Gokstad Kystlag ble stiftet av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger.\n\nI dag har vi ca. 400 medlemmer fordelt på 11 arbeidslag. Vi holder til ved indre havn i Sandefjord med verksted, motormuseum, selskapslokaler og brygge.",
+    "tekst": "Gokstad kystlag ble stiftet av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger.\n\nI dag har vi ca. 400 medlemmer fordelt på 11 arbeidslag. Vi holder til ved indre havn i Sandefjord med verksted, motormuseum, selskapslokaler og brygge.",
     "knapp_tekst": "Les mer om oss",
     "bilde": "/images/albatross-ii.webp"
   },

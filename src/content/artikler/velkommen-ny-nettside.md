@@ -1,11 +1,11 @@
 ---
 tittel: "Velkommen til vår nye nettside!"
-beskrivelse: "Gokstad Kystlag har fått ny nettside. Her finner du informasjon om arrangementer, lagene våre og hvordan du kan bli medlem."
+beskrivelse: "Gokstad kystlag har fått ny nettside. Her finner du informasjon om arrangementer, lagene våre og hvordan du kan bli medlem."
 dato: 2026-09-29
 forfatter: "Infolaget"
 ---
 
-Gokstad Kystlag har fått ny nettside! Her kan du finne informasjon om alle våre 11 arbeidslag, kommende arrangementer, og lese artikler fra Kystvakt.
+Gokstad kystlag har fått ny nettside! Her kan du finne informasjon om alle våre 11 arbeidslag, kommende arrangementer, og lese artikler fra Kystvakt.
 
 ## Hva finner du her?
 

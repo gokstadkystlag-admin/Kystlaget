@@ -113,7 +113,7 @@ export function byggIcs(arr: ArrangementForKalender): string {
   const linjer = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Gokstad Kystlag//Arrangementer//NO",
+    "PRODID:-//Gokstad kystlag//Arrangementer//NO",
     "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
     `UID:${uid}`,

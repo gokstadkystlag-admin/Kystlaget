@@ -119,7 +119,7 @@
   <script>
     const p = new URLSearchParams(location.search);
     const variant = p.get('variant') || 'a';
-    const tittel = p.get('tittel') || 'Gokstad Kystlag';
+    const tittel = p.get('tittel') || 'Gokstad kystlag';
     const kort = document.getElementById('kort');
     kort.classList.add(variant);
     const foto = document.getElementById('foto');
@@ -131,15 +131,15 @@
     }
     const logo = '<div class="logo"><img src="../public/images/logo.webp" alt=""></div>';
     const innhold = document.getElementById('innhold');
-    const forside = tittel === 'Gokstad Kystlag';
+    const forside = tittel === 'Gokstad kystlag';
     if (variant === 'a') {
       innhold.innerHTML = logo + '<h1></h1><div class="strek"></div><div class="merke"></div>';
-      innhold.querySelector('.merke').textContent = forside ? 'Sandefjord' : 'Gokstad Kystlag';
+      innhold.querySelector('.merke').textContent = forside ? 'Sandefjord' : 'Gokstad kystlag';
     } else if (variant === 'b') {
       innhold.innerHTML = '<div class="topp">' + logo + '<div class="merke"></div></div><h1></h1>';
-      innhold.querySelector('.merke').textContent = forside ? 'Sandefjord' : 'Gokstad Kystlag';
+      innhold.querySelector('.merke').textContent = forside ? 'Sandefjord' : 'Gokstad kystlag';
     } else {
-      innhold.innerHTML = logo + '<div class="merke">Gokstad Kystlag</div>';
+      innhold.innerHTML = logo + '<div class="merke">Gokstad kystlag</div>';
     }
     const h1 = innhold.querySelector('h1');
     if (h1) {

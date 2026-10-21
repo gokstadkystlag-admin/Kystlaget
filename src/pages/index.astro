@@ -15,10 +15,10 @@ const artikler = (await getCollection("artikler"))
 const side = (await getEntry("sider", "forside"))!.data;
 ---
 
-<Layout tittel="Gokstad Kystlag i Sandefjord" beskrivelse="Gokstad Kystlag i Sandefjord har drevet med kystkultur, båtliv og fellesskap siden 1990. Rundt 400 medlemmer, 11 arbeidslag, selskapslokaler og motormuseum.">
+<Layout tittel="Gokstad kystlag i Sandefjord" beskrivelse="Gokstad kystlag i Sandefjord har drevet med kystkultur, båtliv og fellesskap siden 1990. Rundt 400 medlemmer, 11 arbeidslag, selskapslokaler og motormuseum.">
   <!-- Hero -->
   <section class="relative bg-kyst-mork text-white overflow-hidden">
-    <img src={side.hero.bilde} alt="Gokstad Kystlag havn" class="w-full h-[520px] object-cover opacity-30" />
+    <img src={side.hero.bilde} alt="Gokstad kystlag havn" class="w-full h-[520px] object-cover opacity-30" />
     <div class="absolute inset-0 bg-gradient-to-t from-kyst-mork/80 via-kyst-mork/30 to-transparent"></div>
     <div class="absolute inset-0 flex items-center justify-center">
       <div class="text-center px-4 max-w-3xl">

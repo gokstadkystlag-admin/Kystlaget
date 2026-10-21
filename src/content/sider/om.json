@@ -1,7 +1,7 @@
 {
-  "tittel": "Om Gokstad Kystlag",
+  "tittel": "Om Gokstad kystlag",
   "bilde": "/images/kystlaget-havn.webp",
-  "intro": "Gokstad Kystlag ble stiftet 16. november 1990 av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger. I dag har vi ca. 400 medlemmer og er et av de mest aktive kystlagene i Forbundet Kysten.\n\nFormålet vårt er å ta vare på og formidle kystkultur gjennom tradisjonelle fartøy, bygninger, sjøfartstradisjon, tradisjonelt håndverk og lokalhistorisk opplæring.",
+  "intro": "Gokstad kystlag ble stiftet 16. november 1990 av en gjeng entusiaster med interesse for tradisjonelle fartøy, motorer, bygninger og brygger. I dag har vi ca. 400 medlemmer og er et av de mest aktive kystlagene i Forbundet Kysten.\n\nFormålet vårt er å ta vare på og formidle kystkultur gjennom tradisjonelle fartøy, bygninger, sjøfartstradisjon, tradisjonelt håndverk og lokalhistorisk opplæring.",
   "bygninger_tittel": "Våre bygninger og anlegg",
   "bygninger": [
     { "tittel": "Murbygningen", "tekst": "Verksteder, kontor og møterom." },
@@ -14,7 +14,7 @@
   "medlem": {
     "bilde": "/images/bathavn.webp",
     "tittel": "Bli medlem",
-    "tekst": "Innmelding gjøres via Forbundet Kysten. Du blir automatisk medlem av både Gokstad Kystlag og Forbundet Kysten.",
+    "tekst": "Innmelding gjøres via Forbundet Kysten. Du blir automatisk medlem av både Gokstad kystlag og Forbundet Kysten.",
     "fordeler_tittel": "Som medlem får du:",
     "fordeler": [
       "Magasinet «Kysten» — om kystkultur og tradisjonsbåter",

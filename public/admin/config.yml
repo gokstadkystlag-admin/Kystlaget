@@ -605,8 +605,8 @@ collections:
         name: "sted"
         widget: "string"
         required: false
-        default: "Gokstad Kystlag, Framnesveien 5"
-        hint: "Hvor arrangementet holdes. Standard: Gokstad Kystlag."
+        default: "Gokstad kystlag, Framnesveien 5"
+        hint: "Hvor arrangementet holdes. Standard: Gokstad kystlag."
 
       - label: "Starttidspunkt"
         name: "starttid"

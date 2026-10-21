@@ -9,16 +9,16 @@ interface Props {
   bilde?: string;
 }
 
-const { tittel, beskrivelse = "Gokstad Kystlag i Sandefjord, med kystkultur, båtliv og fellesskap siden 1990.", bilde } = Astro.props;
+const { tittel, beskrivelse = "Gokstad kystlag i Sandefjord, med kystkultur, båtliv og fellesskap siden 1990.", bilde } = Astro.props;
 const currentPath = Astro.url.pathname;
-const fullTittel = tittel.includes("Gokstad Kystlag") ? tittel : `${tittel} | Gokstad Kystlag`;
+const fullTittel = tittel.includes("Gokstad kystlag") ? tittel : `${tittel} | Gokstad kystlag`;
 
 // Delingsbilde (og:image): fast side -> eget kort, ellers sidens foto, ellers kortet for forsiden.
 // Kortene lages med scripts/lag-delingsbilder.mjs.
 const adresse = currentPath.length > 1 ? currentPath.replace(/\/$/, "") : currentPath;
 const kort = (delingsbilder as Record<string, { bilde: string; tittel: string }>)[adresse];
 const ogBilde = new URL(kort?.bilde ?? bilde ?? delingsbilder["/"].bilde, Astro.site).href;
-const ogAlt = !kort ? tittel : adresse === "/" ? "Gokstad Kystlag, Sandefjord" : `${kort.tittel}, Gokstad Kystlag`;
+const ogAlt = !kort ? tittel : adresse === "/" ? "Gokstad kystlag, Sandefjord" : `${kort.tittel}, Gokstad kystlag`;
 
 function isActive(href: string) {
   if (href === "/") return currentPath === "/";
@@ -46,7 +46,7 @@ function isActive(href: string) {
     <meta property="og:image:alt" content={ogAlt} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="nb_NO" />
-    <meta property="og:site_name" content="Gokstad Kystlag" />
+    <meta property="og:site_name" content="Gokstad kystlag" />
     <meta property="og:url" content={Astro.url.href} />
 
     <!-- Twitter Card -->
@@ -65,7 +65,7 @@ function isActive(href: string) {
     <header class="bg-white shadow-sm sticky top-0 z-50">
       <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3">
-          <img src="/images/logo.webp" alt="Gokstad Kystlag logo" class="h-12" />
+          <img src="/images/logo.webp" alt="Gokstad kystlag logo" class="h-12" />
         </a>
 
         <!-- Hamburger -->
@@ -126,7 +126,7 @@ function isActive(href: string) {
     <footer class="bg-kyst-mork text-white py-10 mt-12">
       <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
         <div>
-          <p class="font-heading font-bold text-lg mb-3">Gokstad Kystlag</p>
+          <p class="font-heading font-bold text-lg mb-3">Gokstad kystlag</p>
           <p>Framnesveien 5</p>
           <p>3222 Sandefjord</p>
           <p class="mt-2">Tlf: <a href="tel:45816286" class="hover:text-kyst-gul">458 16 286</a></p>
@@ -143,7 +143,7 @@ function isActive(href: string) {
         </div>
         <div>
           <h3 class="font-bold mb-3 font-heading">Forbundet Kysten</h3>
-          <p class="text-gray-400">Gokstad Kystlag er medlem av</p>
+          <p class="text-gray-400">Gokstad kystlag er medlem av</p>
           <p><a href="https://www.forbundetkysten.no" target="_blank" rel="noopener" class="hover:text-kyst-gul transition-colors">Forbundet Kysten</a></p>
           <p class="text-gray-400 mt-4">Stiftet 16. november 1990</p>
           <p class="text-gray-400">Ca. 400 medlemmer</p>
