@@ -4,10 +4,10 @@
   "bilde": "/images/gjestebrygge.webp",
   "priser": {
     "tittel": "Priser",
-    "medlem_pris": "150 kr",
-    "medlem_tekst": "Kystlag tilknyttet Forbundet Kysten",
-    "ikke_medlem_pris": "350 kr",
-    "ikke_medlem_tekst": "Andre gjester",
+    "medlem_pris": "3 døgn gratis",
+    "medlem_tekst": "Kystlag tilknyttet Forbundet Kysten. Deretter 250 kr per døgn",
+    "ikke_medlem_pris": "250 kr",
+    "ikke_medlem_tekst": "Andre gjester, per døgn",
     "periode_tekst": "Per døgn: kl. 16:00 – kl. 12:00 neste dag"
   },
   "betaling": {
