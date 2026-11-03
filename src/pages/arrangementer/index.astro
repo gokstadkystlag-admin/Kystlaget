@@ -28,7 +28,7 @@ const tidligere = alle.filter((a) => a.data.dato < iDag).reverse();
                 )}
                 <div class="flex-1 min-w-0">
                   <h3 class="text-lg font-semibold">{arr.data.tittel}</h3>
-                  <p class="text-sm text-gray-600 mt-1">{arr.data.beskrivelse}</p>
+                  <p class="text-sm text-gray-600 mt-1 line-clamp-3">{arr.data.beskrivelse}</p>
                 </div>
                 <time class="text-sm text-kyst-lys-blaa font-medium whitespace-nowrap ml-4">
                   {arr.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long" })}
