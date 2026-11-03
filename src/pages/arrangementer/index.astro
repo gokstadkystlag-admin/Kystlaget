@@ -22,8 +22,11 @@ const tidligere = alle.filter((a) => a.data.dato < iDag).reverse();
         <div class="space-y-4">
           {kommende.map((arr) => (
             <a href={`/arrangementer/${arr.id}`} class="block bg-white rounded-lg shadow p-6 hover:shadow-md transition">
-              <div class="flex justify-between items-start">
-                <div>
+              <div class="flex justify-between items-start gap-4">
+                {arr.data.bilde && (
+                  <img src={arr.data.bilde} alt="" class="w-28 h-20 object-cover rounded flex-none" loading="lazy" />
+                )}
+                <div class="flex-1 min-w-0">
                   <h3 class="text-lg font-semibold">{arr.data.tittel}</h3>
                   <p class="text-sm text-gray-600 mt-1">{arr.data.beskrivelse}</p>
                 </div>

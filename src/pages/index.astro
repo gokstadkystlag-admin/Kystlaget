@@ -83,6 +83,9 @@ const side = (await getEntry("sider", "forside"))!.data;
         <div class="grid md:grid-cols-3 gap-6">
           {arrangementer.map((arr) => (
             <a href={`/arrangementer/${arr.id}`} class="group border border-gray-200 rounded-xl p-6 hover:border-kyst-lys-blaa hover:shadow-lg transition-all">
+              {arr.data.bilde && (
+                <img src={arr.data.bilde} alt="" class="w-full h-36 object-cover rounded-lg mb-4" loading="lazy" />
+              )}
               <div class="bg-kyst-lys-blaa/10 text-kyst-blaa text-xs font-bold uppercase tracking-wide rounded-full px-3 py-1 inline-block mb-3">
                 {arr.data.dato.toLocaleDateString("nb-NO", { day: "numeric", month: "long" })}
               </div>
