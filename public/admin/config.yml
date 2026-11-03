@@ -222,6 +222,23 @@ collections:
               - { label: "E-post — utleie", name: "utleie_epost", widget: "string" }
               - { label: "Facebook-lenke", name: "facebook_url", widget: "string" }
               - { label: "Facebook-lenketekst", name: "facebook_tekst", widget: "string" }
+          - { label: "Overskrift — styret og lagene", name: "personer_tittel", widget: "string" }
+          - { label: "Innledning — styret og lagene", name: "personer_intro", widget: "text" }
+          - label: "Styret, lagene og komiteene"
+            name: "personer"
+            widget: "list"
+            summary: "{{fields.tittel}}"
+            fields:
+              - { label: "Gruppe", name: "tittel", widget: "string" }
+              - label: "Kontakter"
+                name: "kontakter"
+                widget: "list"
+                summary: "{{fields.rolle}}: {{fields.navn}}"
+                fields:
+                  - { label: "Rolle eller lag", name: "rolle", widget: "string" }
+                  - { label: "Navn", name: "navn", widget: "string" }
+                  - { label: "Telefon", name: "telefon", widget: "string" }
+                  - { label: "E-post", name: "epost", widget: "string", required: false }
           - label: "Boks — gjestebrygge"
             name: "gjestebrygge_boks"
             widget: "object"

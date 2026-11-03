@@ -60,6 +60,30 @@ const side = (await getEntry("sider", "kontakt"))!.data;
         </div>
       </div>
     </div>
+
+    {side.personer && (
+      <section class="mt-16" aria-labelledby="personer-tittel">
+        <h2 id="personer-tittel" class="text-2xl font-heading font-bold mb-2">{side.personer_tittel}</h2>
+        <p class="text-kyst-graa mb-8">{side.personer_intro}</p>
+        <div class="space-y-8">
+          {side.personer.map((gruppe: any) => (
+            <div>
+              <h3 class="font-heading font-bold text-lg mb-3">{gruppe.tittel}</h3>
+              <ul class="grid sm:grid-cols-2 gap-4">
+                {gruppe.kontakter.map((k: any) => (
+                  <li class="bg-white rounded-lg shadow p-4 text-sm">
+                    <p class="text-kyst-graa">{k.rolle}</p>
+                    <p class="font-medium">{k.navn}</p>
+                    <p><a href={`tel:${k.telefon.replace(/\s/g, "")}`} class="text-kyst-blaa hover:underline">{k.telefon}</a></p>
+                    {k.epost && <p><a href={`mailto:${k.epost}`} class="text-kyst-blaa hover:underline break-all">{k.epost}</a></p>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
   </div>
 
   <script>

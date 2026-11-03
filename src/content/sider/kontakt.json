@@ -12,6 +12,45 @@
     "facebook_url": "https://www.facebook.com/groups/gokstadkystlag",
     "facebook_tekst": "Gokstad kystlag på Facebook"
   },
+  "personer_tittel": "Styret, lagene og komiteene",
+  "personer_intro": "Vil du i kontakt med et bestemt lag eller en av oss i styret? Her er lederne for 2026.",
+  "personer": [
+    {
+      "tittel": "Styret",
+      "kontakter": [
+        { "rolle": "Leder", "navn": "Jo Inge Dalland", "telefon": "988 96 899", "epost": "leder@gokstadkystlag.no" },
+        { "rolle": "Nestleder", "navn": "Ole Jacob Bjerkestrand", "telefon": "992 44 532", "epost": "ole.bjerkestrand@akh.no" },
+        { "rolle": "Sekretær", "navn": "Per A. Møller", "telefon": "911 28 901", "epost": "perandreasmoller@gmail.com" },
+        { "rolle": "Kasserer og styremedlem", "navn": "Kaare Jansen", "telefon": "900 33 487", "epost": "kasserer@gokstadkystlag.no" },
+        { "rolle": "Styremedlem", "navn": "Jarle Larsen", "telefon": "916 68 959", "epost": "" },
+        { "rolle": "Varamedlem", "navn": "Gøril Småbråten", "telefon": "414 13 227", "epost": "gsmabra@gmail.com" }
+      ]
+    },
+    {
+      "tittel": "Arbeidslag",
+      "kontakter": [
+        { "rolle": "Fartøy og kulturlaget", "navn": "Fred Ivar Tallaksen", "telefon": "482 82 768", "epost": "fredi.tallaksen@gmail.com" },
+        { "rolle": "Infolaget", "navn": "Torkil Myhre", "telefon": "922 26 510", "epost": "torkilmyhre@me.com" },
+        { "rolle": "Kystledlaget", "navn": "Martin Hofsrud", "telefon": "915 19 939", "epost": "martin.hofsrud@gmail.com" },
+        { "rolle": "Modellbåtlaget", "navn": "Knut Erik Boland", "telefon": "926 46 906", "epost": "keb1964@gmail.com" },
+        { "rolle": "Nordre Skur og Ballast", "navn": "Morten Hellemann", "telefon": "916 36 602", "epost": "m.hellemann@sfjbb.net" },
+        { "rolle": "Hus og havnelaget", "navn": "Kaare Jansen", "telefon": "900 33 487", "epost": "kasserer@gokstadkystlag.no" },
+        { "rolle": "Verkstedlaget", "navn": "Kåre Jakobsen", "telefon": "918 20 829", "epost": "karjak@vegvesen.no" },
+        { "rolle": "GK Ung", "navn": "Petter Tandberg", "telefon": "930 19 210", "epost": "pettertandberg@hotmail.com" },
+        { "rolle": "Gokstadveverne", "navn": "Gry Frugård", "telefon": "452 31 047", "epost": "gfruga@live.no" }
+      ]
+    },
+    {
+      "tittel": "Komiteer og ansvarlige",
+      "kontakter": [
+        { "rolle": "Treffkomiteen", "navn": "Nils Erik Grøterud", "telefon": "901 12 822", "epost": "groetstillas@gmail.com" },
+        { "rolle": "Utleie", "navn": "Thor Magnar Olsen", "telefon": "473 70 334", "epost": "tmo@sfjbb.net" },
+        { "rolle": "Representant i Stiftelsen Sandefjord Kystkultursenter", "navn": "Malcom Hurtley", "telefon": "916 82 095", "epost": "m-hurt@online.no" },
+        { "rolle": "Redaktør i Kystvakt", "navn": "Yngvar Halvorsen", "telefon": "901 40 010", "epost": "yngvar@sfjbb.net" },
+        { "rolle": "Kurs og HMS", "navn": "Jo Inge Dalland", "telefon": "988 96 899", "epost": "leder@gokstadkystlag.no" }
+      ]
+    }
+  ],
   "gjestebrygge_boks": {
     "tittel": "Gjestebrygge",
     "tekst_for_lenke": "Kommer du sjøveien? Se vår",
